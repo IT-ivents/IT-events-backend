@@ -14,7 +14,7 @@ on:
 
 jobs:
 
-  build:
+  tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,10 +23,10 @@ jobs:
       - name: Set up Python
         # Запуск actions setup-python — готового скрипта 
         # для развёртывания окружения Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           # Выбор версии Python
-          python-version: 3.10.1
+          python-version: '3.10'
 
       - name: Install dependencies
         run: | 
