@@ -37,7 +37,12 @@ jobs:
           # установка зависимостей
           pip install -r requirements.txt 
 
-      - name: Test with flake8 and django tests
+      - name: Test with flake8
         run: |
           # запуск проверки проекта по flake8
-          python -m flake8 
+          python -m flake8
+      - name: Test with django tests
+        run: |
+          # запуск тестов Django
+          cd it_events/
+          python manage.py test users.tests.test_urls
