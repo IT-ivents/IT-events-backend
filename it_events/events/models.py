@@ -1,6 +1,7 @@
 from django.db import models
-from users.models import User
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 class Event(models.Model):
     author = models.ForeignKey(
@@ -16,11 +17,11 @@ class Event(models.Model):
         verbose_name='Афиша мероприятия', upload_to='events/image',
         help_text='Загрузите фотографию')
     program = models.TextField(
-        "Программа мероприятия")
+        "Программа мероприятия", max_length=300)
     organizer = models.CharField(
         "Организатор", max_length=100)
     partners = models.CharField(
-        "Партнеры", max_length=200, null=True)
+        "Партнеры", max_length=200, blank=True)
     address = models.CharField(
         "Адрес", max_length=200)
     price = models.DecimalField(
