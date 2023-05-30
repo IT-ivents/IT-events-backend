@@ -2,6 +2,7 @@ from events.models import Event
 from rest_framework import serializers
 
 
+<<<<<<< HEAD
 class TagSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -36,3 +37,9 @@ class SubTopicSerializer(serializers.ModelSerializer):
         model = SubTopic
         fields = (
             'id', 'name', 'slug')
+=======
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = '__all__'
+>>>>>>> e6c6871cd7af95f1ce903c7ef69160222dd84d3e

@@ -12,6 +12,7 @@ class User(AbstractUser):
         (ADMIN, ADMIN),
         (USER, USER),
     )
+    email = models.EmailField("email address", unique=True)
     role = models.CharField(
         max_length=settings.USER_ROLE_NAME_LENGTH,
         choices=role_choices, default=USER
