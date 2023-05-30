@@ -11,6 +11,11 @@ class Event(models.Model):
         "Описание мероприятия",
         max_length=250
     )
+    image = models.ImageField(
+        verbose_name='Афиша мероприятия',
+        upload_to='events/image',
+        help_text='Загрузите фотографию'
+    )
     program = models.TextField(
         "Программа мероприятия"
     )
