@@ -9,12 +9,14 @@ class TagSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'name', 'slug')
 
+
 class CitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
         fields = (
             'id', 'name')
+
 
 class TopicSerializer(serializers.ModelSerializer):
 
@@ -23,6 +25,7 @@ class TopicSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'name', 'slug')
 
+
 class FormatSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -30,9 +33,16 @@ class FormatSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'name', 'slug')
 
+
 class SubTopicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SubTopic
         fields = (
             'id', 'name', 'slug')
+
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = '__all__'

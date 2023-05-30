@@ -129,6 +129,10 @@ AUTH_USER_MODEL = "users.User"
 # Djoser
 
 DJOSER = {
+    "LOGIN_FIELD": 'email',
+    'SERIALIZERS': {
+        'user_create': 'users.serializers.UserCreateSerializer'
+    }
 }
 
 # Константы
