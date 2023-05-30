@@ -55,7 +55,7 @@ class Tags(models.Model):
     name = models.CharField(
         'Тэг', max_length=200)
     slug = models.SlugField(
-        'Ссылка', max_length=100, unique=True)
+        'слаг', max_length=100, unique=True)
 
     class Meta:
         verbose_name = 'Тэг'
@@ -70,7 +70,7 @@ class Format(models.Model):
     name = models.CharField(
         'Формат', max_length=200, unique=True)
     slug = models.SlugField(
-        'Ссылка', max_length=100, unique=True)
+        'слаг', max_length=100, unique=True)
 
     class Meta:
         verbose_name = 'Формат'
@@ -86,7 +86,7 @@ class Topic(models.Model):
     name = models.CharField(
         'Направление', max_length=200, unique=True)
     slug = models.SlugField(
-        'Ссылка', max_length=100, unique=True)
+        'слаг', max_length=100, unique=True)
 
 
 class SubTopic(models.Model):
@@ -94,4 +94,4 @@ class SubTopic(models.Model):
     name = models.CharField(
         'Направление', max_length=200, unique=True)
     slug = models.SlugField(
-        'Ссылка', max_length=100, unique=True)
+        'слаг', max_length=100, unique=True)
