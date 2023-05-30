@@ -1,5 +1,6 @@
 from djoser.conf import settings
 from djoser.serializers import UserCreateSerializer as DjoserUsCreateSerializer
+
 from users.models import User
 
 
