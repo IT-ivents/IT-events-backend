@@ -31,11 +31,16 @@ class Event(models.Model):
         "Дата и время проведения")
     created_at = models.DateTimeField(
         "Дата создания записи", auto_now_add=True)
-    # city = models.ManyToManyField(City, on_delete=models.CASCADE, verbose_name="Город проведения")
-    # tags = models.ManyToManyField(Tags, on_delete=models.CASCADE, verbose_name="Теги")
-    # professions = models.ManyToManyField(Profession, on_delete=models.CASCADE)
-    # topik = models.ManyToManyField(Topic, on_delete=models.CASCADE, verbose_name="Направление")
-    # format = models.ManyToManyField(Format, on_delete=models.CASCADE, verbose_name="Формат")
+    # city = models.ManyToManyField(
+    #     City, on_delete=models.CASCADE, verbose_name="Город проведения")
+    # tags = models.ManyToManyField(
+    #     Tags, on_delete=models.CASCADE, verbose_name="Теги")
+    # professions = models.ManyToManyField(
+    #     Profession, on_delete=models.CASCADE)
+    # topik = models.ManyToManyField(
+    #     Topic, on_delete=models.CASCADE, verbose_name="Направление")
+    # format = models.ManyToManyField(
+    #     Format, on_delete=models.CASCADE, verbose_name="Формат")
 
 
 class City(models.Model):
