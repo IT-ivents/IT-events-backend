@@ -18,6 +18,11 @@ class Event(models.Model):
         "Описание мероприятия",
         max_length=250
     )
+    url = models.URLField(
+        "Сайт мероприятия",
+        max_length=200,
+        unique=True
+    )
     image = models.ImageField(
         verbose_name='Афиша мероприятия',
         upload_to='events/image',
