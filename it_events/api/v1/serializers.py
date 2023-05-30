@@ -1,4 +1,4 @@
-from events.models import Event
+from events.models import City, Event, Format, SubTopic, Tag, Topic
 from rest_framework import serializers
 
 
