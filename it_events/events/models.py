@@ -2,11 +2,8 @@ from django.contrib.auth import get_user_model
 from django.db import models
 
 User = get_user_model()
-<<<<<<< HEAD
-=======
 
 
->>>>>>> e6c6871cd7af95f1ce903c7ef69160222dd84d3e
 class Event(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE,
@@ -53,6 +50,7 @@ class City(models.Model):
     class Meta:
         ordering = ['name']
 
+
 class Tags(models.Model):
     name = models.CharField(
         'Тэг', max_length=200)
@@ -66,6 +64,7 @@ class Tags(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Format(models.Model):
     name = models.CharField(

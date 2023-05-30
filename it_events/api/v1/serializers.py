@@ -2,13 +2,13 @@ from events.models import Event
 from rest_framework import serializers
 
 
-<<<<<<< HEAD
 class TagSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tag
         fields = (
             'id', 'name', 'slug')
+
 
 class CitySerializer(serializers.ModelSerializer):
 
@@ -17,12 +17,14 @@ class CitySerializer(serializers.ModelSerializer):
         fields = (
             'id', 'name')
 
+
 class TopicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Topic
         fields = (
             'id', 'name', 'slug')
+
 
 class FormatSerializer(serializers.ModelSerializer):
 
@@ -31,15 +33,16 @@ class FormatSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'name', 'slug')
 
+
 class SubTopicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SubTopic
         fields = (
             'id', 'name', 'slug')
-=======
+
+
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = '__all__'
->>>>>>> e6c6871cd7af95f1ce903c7ef69160222dd84d3e
