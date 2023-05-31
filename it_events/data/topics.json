@@ -1,0 +1,162 @@
+[
+{
+    "model": "events.topic",
+    "pk": 2,
+    "fields": {
+        "name": "Software Development",
+        "slug": "software-development"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 3,
+    "fields": {
+        "name": "Web Development",
+        "slug": "web-development"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 4,
+    "fields": {
+        "name": "Mobile Development",
+        "slug": "mobile-development"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 5,
+    "fields": {
+        "name": "Game Development",
+        "slug": "game-development"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 6,
+    "fields": {
+        "name": "Artificial Intelligence and Machine Learning",
+        "slug": "artificial-intelligence-and-machine-learning"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 7,
+    "fields": {
+        "name": "Big Data and Analytics",
+        "slug": "big-data-and-analytics"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 8,
+    "fields": {
+        "name": "Cybersecurity",
+        "slug": "cybersecurity"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 9,
+    "fields": {
+        "name": "Cloud and Virtualization",
+        "slug": "cloud-and-virtualization"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 10,
+    "fields": {
+        "name": "Internet of Things (IoT)",
+        "slug": "internet-of-things-iot"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 11,
+    "fields": {
+        "name": "DevOps",
+        "slug": "devops"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 12,
+    "fields": {
+        "name": "Software Testing",
+        "slug": "software-testing"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 13,
+    "fields": {
+        "name": "Project Management",
+        "slug": "project-management"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 14,
+    "fields": {
+        "name": "Blockchain",
+        "slug": "blockchain"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 15,
+    "fields": {
+        "name": "Frontend Development",
+        "slug": "frontend-development"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 16,
+    "fields": {
+        "name": "Backend Development",
+        "slug": "backend-development"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 17,
+    "fields": {
+        "name": "Data Science",
+        "slug": "data-science"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 18,
+    "fields": {
+        "name": "UI/UX Design",
+        "slug": "uiux-design"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 19,
+    "fields": {
+        "name": "Process Automation",
+        "slug": "process-automation"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 20,
+    "fields": {
+        "name": "System Administration",
+        "slug": "system-administration"
+    }
+},
+{
+    "model": "events.topic",
+    "pk": 21,
+    "fields": {
+        "name": "Virtual Reality (VR) and Augmented Reality (AR)",
+        "slug": "virtual-reality-vr-and-augmented-reality-ar"
+    }
+}
+]

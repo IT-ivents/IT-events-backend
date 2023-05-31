@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.utils.text import slugify
 
 User = get_user_model()
 
@@ -106,6 +107,11 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)  # Генерация слага на основе значения name
+        super().save(*args, **kwargs)
 
 
 class SubTopic(models.Model):
