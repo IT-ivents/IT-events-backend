@@ -37,8 +37,11 @@ class EventsViewSet(ModelViewSet):
         """Маршрутизатор для вывода списка ивентов
         находящихся в Избранном пользователя"""
         queryset = Event.objects.filter(favourite__user=request.user)
-        serializer = EventReadSerializer(data=queryset, many=True)
-        serializer.is_valid()
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = EventReadSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = EventReadSerializer(queryset, many=True)
         return Response(serializer.data)
 
     @action(detail=True, methods=["get"],
