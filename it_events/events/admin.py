@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from events.models import City, Event, Format, Tags, Topic
 
 admin.site.register(Event)

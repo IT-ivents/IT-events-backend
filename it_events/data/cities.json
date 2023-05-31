@@ -1,0 +1,142 @@
+[
+{
+    "model": "events.city",
+    "pk": 1,
+    "fields": {
+        "name": "Москва"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 2,
+    "fields": {
+        "name": "Санкт-Петербург"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 3,
+    "fields": {
+        "name": "Екатеринбург"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 4,
+    "fields": {
+        "name": "Новосибирск"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 5,
+    "fields": {
+        "name": "Казань"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 6,
+    "fields": {
+        "name": "Самара"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 7,
+    "fields": {
+        "name": "Омск"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 8,
+    "fields": {
+        "name": "Челябинск"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 9,
+    "fields": {
+        "name": "Нижний Новгород"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 10,
+    "fields": {
+        "name": "Ростов-на-Дону"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 11,
+    "fields": {
+        "name": "Уфа"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 12,
+    "fields": {
+        "name": "Красноярск"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 13,
+    "fields": {
+        "name": "Воронеж"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 14,
+    "fields": {
+        "name": "Пермь"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 15,
+    "fields": {
+        "name": "Волгоград"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 16,
+    "fields": {
+        "name": "Краснодар"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 17,
+    "fields": {
+        "name": "Тюмень"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 18,
+    "fields": {
+        "name": "Ижевск"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 19,
+    "fields": {
+        "name": "Тольятти"
+    }
+},
+{
+    "model": "events.city",
+    "pk": 20,
+    "fields": {
+        "name": "Барнаул"
+    }
+}
+]
