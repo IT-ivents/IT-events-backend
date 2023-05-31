@@ -8,15 +8,15 @@ class Event(models.Model):
         related_name='events', verbose_name='Автор публикации')
     title = models.CharField(
         "Название мероприятия", max_length=200, db_index=True)
-    description = models.CharField(
-        "Описание мероприятия", max_length=250)
+    description = models.TextField(
+        "Описание мероприятия", max_length=1000)
     url = models.URLField(
         "Сайт мероприятия", max_length=200, unique=True)
     image = models.ImageField(
         verbose_name='Афиша мероприятия', upload_to='events/image',
         help_text='Загрузите фотографию')
     program = models.TextField(
-        "Программа мероприятия", max_length=300)
+        "Программа мероприятия", max_length=3000)
     organizer = models.CharField(
         "Организатор", max_length=100)
     partners = models.CharField(
@@ -32,7 +32,8 @@ class Event(models.Model):
     created_at = models.DateTimeField(
         "Дата создания записи", auto_now_add=True)
     city = models.ForeignKey(
-        'City', on_delete=models.CASCADE, verbose_name="Город проведения")
+        'City', on_delete=models.SET_NULL,
+        verbose_name="Город проведения", blank=True, null=True)
     tags = models.ManyToManyField(
         'Tags', verbose_name="Теги")
     topic = models.ForeignKey(

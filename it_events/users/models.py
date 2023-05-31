@@ -18,7 +18,8 @@ class User(AbstractUser):
         choices=role_choices, default=USER
     )
     profile_photo = models.ImageField("Аватар", upload_to="users/avatars/",
-                                      help_text="Аватар пользователя")
+                                      help_text="Аватар пользователя",
+                                      blank=True)
 
     @property
     def is_admin(self):
