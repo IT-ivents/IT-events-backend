@@ -41,6 +41,12 @@ class Event(models.Model):
     #     Topic, on_delete=models.CASCADE, verbose_name="Направление")
     # format = models.ManyToManyField(
     #     Format, on_delete=models.CASCADE, verbose_name="Формат")
+    
+    class Meta:
+        ordering = ['-date']
+
+    def __str__(self):
+        return self.title
 
 
 class City(models.Model):
