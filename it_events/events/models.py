@@ -24,48 +24,93 @@ class Event(models.Model):
     partners = models.CharField(
         "Партнеры", max_length=200, blank=True)
     address = models.CharField(
-        "Адрес", max_length=200)
+        "Адрес", max_length=200, blank=True)
     price = models.DecimalField(
         "Цена", max_digits=8, decimal_places=2)
-    date = models.DateTimeField(
-        "Дата и время проведения")
+    date_start = models.DateTimeField(
+        "Дата и время начала")
+    date_end = models.DateTimeField(
+        "Дата и время окончания")
     created_at = models.DateTimeField(
         "Дата создания записи", auto_now_add=True)
-    # city = models.ManyToManyField(
-    #     City, on_delete=models.CASCADE, verbose_name="Город проведения")
-    # tags = models.ManyToManyField(
-    #     Tags, on_delete=models.CASCADE, verbose_name="Теги")
-    # professions = models.ManyToManyField(
-    #     Profession, on_delete=models.CASCADE)
-    # topik = models.ManyToManyField(
-    #     Topic, on_delete=models.CASCADE, verbose_name="Направление")
-    # format = models.ManyToManyField(
-    #     Format, on_delete=models.CASCADE, verbose_name="Формат")
-    
+    city = models.ForeignKey(
+        'City', on_delete=models.CASCADE, verbose_name="Город проведения")
+    tags = models.ManyToManyField(
+        'Tags', verbose_name="Теги")
+    topic = models.ForeignKey(
+        'Topic', on_delete=models.CASCADE, verbose_name="Направление")
+    format = models.ManyToManyField(
+        'Format', verbose_name="Формат")
+
     class Meta:
-        ordering = ['-date']
+        verbose_name = 'Событие'
+        verbose_name_plural = 'События'
 
     def __str__(self):
         return self.title
 
 
 class City(models.Model):
-    pass
+    name = models.CharField(
+        'Город проведения', max_length=200, unique=True)
+
+    class Meta:
+        verbose_name = 'Город'
+        verbose_name_plural = 'Города'
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
 
 
 class Tags(models.Model):
-    pass
+    name = models.CharField(
+        'Тэг', max_length=200)
+    slug = models.SlugField(
+        'слаг', max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'Тэг'
+        verbose_name_plural = 'Тэги'
+        ordering = ['-id']
+
+    def __str__(self):
+        return self.name
 
 
 class Format(models.Model):
-    pass
+    name = models.CharField(
+        'Формат', max_length=200, unique=True)
+    slug = models.SlugField(
+        'слаг', max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'Формат'
+        verbose_name_plural = 'Форматы'
+        ordering = ['-id']
+
+    def __str__(self):
+        return self.name
 
 
 class Topic(models.Model):
     """Направление(Дизайн, Разработка)"""
-    pass
+    name = models.CharField(
+        'Направление', max_length=200, unique=True)
+    slug = models.SlugField(
+        'слаг', max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'Топик'
+        verbose_name_plural = 'Топики'
+
+    def __str__(self):
+        return self.name
 
 
 class SubTopic(models.Model):
     """Под направление(Backend, Frontend)"""
-    pass
+    name = models.CharField(
+        'Направление', max_length=200, unique=True)
+    slug = models.SlugField(
+        'слаг', max_length=100, unique=True)
