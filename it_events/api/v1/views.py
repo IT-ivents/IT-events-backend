@@ -61,6 +61,8 @@ class TagsViewSet(ModelViewSet):
     serializer_class = TagSerializer
     http_method_names = ['get']
     queryset = Tags.objects.all()
+    filter_backends = [SearchFilter]
+    search_fields = ['name']
     # Нужно тестить когда будут ивенты
     # def get_queryset(self):
     #     queryset = Tags.objects.annotate(event_count=Count('event'))

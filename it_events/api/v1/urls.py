@@ -8,6 +8,7 @@ router = DefaultRouter()
 router.register('users', UserViewSet, basename='users')
 router.register('events', EventsViewSet, basename='events')
 router.register('tags', TagsViewSet, basename='tags')
+
 app_name = "v1"
 
 urlpatterns = [
