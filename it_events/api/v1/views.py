@@ -1,3 +1,5 @@
+from django.db.models import Count
+
 from api.v1.filters import EventFilterSet
 from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
@@ -66,7 +68,7 @@ class TagsViewSet(ModelViewSet):
     queryset = Tags.objects.all()
     filter_backends = [SearchFilter]
     search_fields = ['name']
-    # Нужно тестить когда будут ивенты
-    # def get_queryset(self):
-    #     queryset = Tags.objects.annotate(event_count=Count('event'))
-    #     return queryset.order_by('-event_count')
+
+    def get_queryset(self):
+        queryset = Tags.objects.annotate(event_count=Count('event'))
+        return queryset.order_by('-event_count')
