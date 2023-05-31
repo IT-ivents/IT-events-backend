@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-
 User = get_user_model()
 
 
@@ -107,10 +106,3 @@ class Topic(models.Model):
     def __str__(self):
         return self.name
 
-
-class SubTopic(models.Model):
-    """Под направление(Backend, Frontend)"""
-    name = models.CharField(
-        'Направление', max_length=200, unique=True)
-    slug = models.SlugField(
-        'слаг', max_length=100, unique=True)

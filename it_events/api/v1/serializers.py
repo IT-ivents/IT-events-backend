@@ -1,7 +1,7 @@
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
 
-from events.models import City, Event, Format, SubTopic, Tags, Topic
+from events.models import City, Event, Format, Tags, Topic
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -32,14 +32,6 @@ class FormatSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Format
-        fields = (
-            'id', 'name', 'slug')
-
-
-class SubTopicSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = SubTopic
         fields = (
             'id', 'name', 'slug')
 
