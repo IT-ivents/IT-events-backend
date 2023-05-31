@@ -3,6 +3,7 @@ from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
 from api.v1.serializers import (EventReadSerializer, EventWriteSerializer,
                                 TagSerializer)
+from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 from events.models import Event, Favourite, Tags
 from rest_framework import status
@@ -63,10 +64,9 @@ class EventsViewSet(ModelViewSet):
 class TagsViewSet(ModelViewSet):
     serializer_class = TagSerializer
     http_method_names = ['get']
-    queryset = Tags.objects.all()
     filter_backends = [SearchFilter]
     search_fields = ['name']
-    # Нужно тестить когда будут ивенты
-    # def get_queryset(self):
-    #     queryset = Tags.objects.annotate(event_count=Count('event'))
-    #     return queryset.order_by('-event_count')
+
+    def get_queryset(self):
+        queryset = Tags.objects.annotate(event_count=Count('event'))
+        return queryset.order_by('-event_count')
