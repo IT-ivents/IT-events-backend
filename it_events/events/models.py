@@ -1,7 +1,5 @@
-from django.contrib.auth import get_user_model
+from users.models import User
 from django.db import models
-
-User = get_user_model()
 
 
 class Event(models.Model):
@@ -72,7 +70,7 @@ class Tags(models.Model):
     class Meta:
         verbose_name = 'Тэг'
         verbose_name_plural = 'Тэги'
-        ordering = ['-id']
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -103,6 +101,22 @@ class Topic(models.Model):
     class Meta:
         verbose_name = 'Топик'
         verbose_name_plural = 'Топики'
+        ordering = ['name']
 
     def __str__(self):
         return self.name
+
+
+class Favourite(models.Model):
+    user = models.ForeignKey('users.User', on_delete=models.CASCADE,
+                             verbose_name='Пользователь')
+    event = models.ForeignKey('events.Event', on_delete=models.CASCADE,
+                              verbose_name='Ивент')
+
+    class Meta:
+        verbose_name = 'Избранное'
+        verbose_name_plural = 'Избранное'
+        ordering = ['id']
+
+    def __str__(self):
+        return f'Favourite(user={self.user}, event={self.event}'
