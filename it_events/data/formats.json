@@ -1,1 +1,1 @@
-[{"model": "events.format", "pk": 1, "fields": {"name": "онлайн", "slug": "online"}}, {"model": "events.format", "pk": 2, "fields": {"name": "офлайн", "slug": "offline"}}]
+[{"model": "events.format", "pk": 1, "fields": {"name": "РѕРЅР»Р°Р№РЅ", "slug": "online"}}, {"model": "events.format", "pk": 2, "fields": {"name": "РѕС„Р»Р°Р№РЅ", "slug": "offline"}}]
