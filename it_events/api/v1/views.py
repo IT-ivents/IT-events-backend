@@ -1,4 +1,5 @@
 from api.v1.filters import EventFilterSet
+from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
 from api.v1.serializers import (EventReadSerializer, EventWriteSerializer,
                                 TagSerializer)
@@ -15,6 +16,7 @@ from rest_framework.viewsets import ModelViewSet
 
 class EventsViewSet(ModelViewSet):
     permission_classes = (IsAdminAuthorOrReadOnly,)
+    pagination_class = PageLimitPagination
     queryset = Event.objects.all()
     filter_backends = [SearchFilter, DjangoFilterBackend]
     filterset_class = EventFilterSet
