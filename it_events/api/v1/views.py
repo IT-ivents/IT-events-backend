@@ -24,6 +24,19 @@ class EventsViewSet(ModelViewSet):
         serializer.save(author=self.request.user)
 
 
+class EventSearchView(ModelViewSet):
+    serializer_class = EventReadSerializer
+    permission_classes = (IsAdminAuthorOrReadOnly,)
+    http_method_names = ['get']
+
+    def get_queryset(self):
+        tag_name = self.request.GET.get('tag')
+        if tag_name:
+            return Event.objects.filter(tags__name__icontains=tag_name)
+        else:
+            return Event.objects.all()
+
+
 class TagsViewSet(ModelViewSet):
     serializer_class = TagSerializer
     http_method_names = ['get']
