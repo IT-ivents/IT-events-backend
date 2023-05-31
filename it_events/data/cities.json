@@ -3,140 +3,140 @@
     "model": "events.city",
     "pk": 1,
     "fields": {
-        "name": "Москва"
+        "name": "РњРѕСЃРєРІР°"
     }
 },
 {
     "model": "events.city",
     "pk": 2,
     "fields": {
-        "name": "Санкт-Петербург"
+        "name": "РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРі"
     }
 },
 {
     "model": "events.city",
     "pk": 3,
     "fields": {
-        "name": "Екатеринбург"
+        "name": "Р•РєР°С‚РµСЂРёРЅР±СѓСЂРі"
     }
 },
 {
     "model": "events.city",
     "pk": 4,
     "fields": {
-        "name": "Новосибирск"
+        "name": "РќРѕРІРѕСЃРёР±РёСЂСЃРє"
     }
 },
 {
     "model": "events.city",
     "pk": 5,
     "fields": {
-        "name": "Казань"
+        "name": "РљР°Р·Р°РЅСЊ"
     }
 },
 {
     "model": "events.city",
     "pk": 6,
     "fields": {
-        "name": "Самара"
+        "name": "РЎР°РјР°СЂР°"
     }
 },
 {
     "model": "events.city",
     "pk": 7,
     "fields": {
-        "name": "Омск"
+        "name": "РћРјСЃРє"
     }
 },
 {
     "model": "events.city",
     "pk": 8,
     "fields": {
-        "name": "Челябинск"
+        "name": "Р§РµР»СЏР±РёРЅСЃРє"
     }
 },
 {
     "model": "events.city",
     "pk": 9,
     "fields": {
-        "name": "Нижний Новгород"
+        "name": "РќРёР¶РЅРёР№ РќРѕРІРіРѕСЂРѕРґ"
     }
 },
 {
     "model": "events.city",
     "pk": 10,
     "fields": {
-        "name": "Ростов-на-Дону"
+        "name": "Р РѕСЃС‚РѕРІ-РЅР°-Р”РѕРЅСѓ"
     }
 },
 {
     "model": "events.city",
     "pk": 11,
     "fields": {
-        "name": "Уфа"
+        "name": "РЈС„Р°"
     }
 },
 {
     "model": "events.city",
     "pk": 12,
     "fields": {
-        "name": "Красноярск"
+        "name": "РљСЂР°СЃРЅРѕСЏСЂСЃРє"
     }
 },
 {
     "model": "events.city",
     "pk": 13,
     "fields": {
-        "name": "Воронеж"
+        "name": "Р’РѕСЂРѕРЅРµР¶"
     }
 },
 {
     "model": "events.city",
     "pk": 14,
     "fields": {
-        "name": "Пермь"
+        "name": "РџРµСЂРјСЊ"
     }
 },
 {
     "model": "events.city",
     "pk": 15,
     "fields": {
-        "name": "Волгоград"
+        "name": "Р’РѕР»РіРѕРіСЂР°Рґ"
     }
 },
 {
     "model": "events.city",
     "pk": 16,
     "fields": {
-        "name": "Краснодар"
+        "name": "РљСЂР°СЃРЅРѕРґР°СЂ"
     }
 },
 {
     "model": "events.city",
     "pk": 17,
     "fields": {
-        "name": "Тюмень"
+        "name": "РўСЋРјРµРЅСЊ"
     }
 },
 {
     "model": "events.city",
     "pk": 18,
     "fields": {
-        "name": "Ижевск"
+        "name": "РР¶РµРІСЃРє"
     }
 },
 {
     "model": "events.city",
     "pk": 19,
     "fields": {
-        "name": "Тольятти"
+        "name": "РўРѕР»СЊСЏС‚С‚Рё"
     }
 },
 {
     "model": "events.city",
     "pk": 20,
     "fields": {
-        "name": "Барнаул"
+        "name": "Р‘Р°СЂРЅР°СѓР»"
     }
 }
 ]
