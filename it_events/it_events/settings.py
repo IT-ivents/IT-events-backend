@@ -138,3 +138,4 @@ DJOSER = {
 
 # Константы
 USER_ROLE_NAME_LENGTH = 10
+PAGE_SIZE = 3
