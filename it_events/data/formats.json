@@ -1,0 +1,1 @@
+[{"model": "events.format", "pk": 1, "fields": {"name": "מםכאים", "slug": "online"}}, {"model": "events.format", "pk": 2, "fields": {"name": "מפכאים", "slug": "offline"}}]
