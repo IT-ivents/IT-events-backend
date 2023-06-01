@@ -1,1 +1,1414 @@
-[{"model": "auth.permission", "pk": 1, "fields": {"name": "Can add log entry", "content_type": 1, "codename": "add_logentry"}}, {"model": "auth.permission", "pk": 2, "fields": {"name": "Can change log entry", "content_type": 1, "codename": "change_logentry"}}, {"model": "auth.permission", "pk": 3, "fields": {"name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry"}}, {"model": "auth.permission", "pk": 4, "fields": {"name": "Can view log entry", "content_type": 1, "codename": "view_logentry"}}, {"model": "auth.permission", "pk": 5, "fields": {"name": "Can add permission", "content_type": 2, "codename": "add_permission"}}, {"model": "auth.permission", "pk": 6, "fields": {"name": "Can change permission", "content_type": 2, "codename": "change_permission"}}, {"model": "auth.permission", "pk": 7, "fields": {"name": "Can delete permission", "content_type": 2, "codename": "delete_permission"}}, {"model": "auth.permission", "pk": 8, "fields": {"name": "Can view permission", "content_type": 2, "codename": "view_permission"}}, {"model": "auth.permission", "pk": 9, "fields": {"name": "Can add group", "content_type": 3, "codename": "add_group"}}, {"model": "auth.permission", "pk": 10, "fields": {"name": "Can change group", "content_type": 3, "codename": "change_group"}}, {"model": "auth.permission", "pk": 11, "fields": {"name": "Can delete group", "content_type": 3, "codename": "delete_group"}}, {"model": "auth.permission", "pk": 12, "fields": {"name": "Can view group", "content_type": 3, "codename": "view_group"}}, {"model": "auth.permission", "pk": 13, "fields": {"name": "Can add content type", "content_type": 4, "codename": "add_contenttype"}}, {"model": "auth.permission", "pk": 14, "fields": {"name": "Can change content type", "content_type": 4, "codename": "change_contenttype"}}, {"model": "auth.permission", "pk": 15, "fields": {"name": "Can delete content type", "content_type": 4, "codename": "delete_contenttype"}}, {"model": "auth.permission", "pk": 16, "fields": {"name": "Can view content type", "content_type": 4, "codename": "view_contenttype"}}, {"model": "auth.permission", "pk": 17, "fields": {"name": "Can add session", "content_type": 5, "codename": "add_session"}}, {"model": "auth.permission", "pk": 18, "fields": {"name": "Can change session", "content_type": 5, "codename": "change_session"}}, {"model": "auth.permission", "pk": 19, "fields": {"name": "Can delete session", "content_type": 5, "codename": "delete_session"}}, {"model": "auth.permission", "pk": 20, "fields": {"name": "Can view session", "content_type": 5, "codename": "view_session"}}, {"model": "auth.permission", "pk": 21, "fields": {"name": "Can add Token", "content_type": 6, "codename": "add_token"}}, {"model": "auth.permission", "pk": 22, "fields": {"name": "Can change Token", "content_type": 6, "codename": "change_token"}}, {"model": "auth.permission", "pk": 23, "fields": {"name": "Can delete Token", "content_type": 6, "codename": "delete_token"}}, {"model": "auth.permission", "pk": 24, "fields": {"name": "Can view Token", "content_type": 6, "codename": "view_token"}}, {"model": "auth.permission", "pk": 25, "fields": {"name": "Can add token", "content_type": 7, "codename": "add_tokenproxy"}}, {"model": "auth.permission", "pk": 26, "fields": {"name": "Can change token", "content_type": 7, "codename": "change_tokenproxy"}}, {"model": "auth.permission", "pk": 27, "fields": {"name": "Can delete token", "content_type": 7, "codename": "delete_tokenproxy"}}, {"model": "auth.permission", "pk": 28, "fields": {"name": "Can view token", "content_type": 7, "codename": "view_tokenproxy"}}, {"model": "auth.permission", "pk": 29, "fields": {"name": "Can add Пользователь", "content_type": 8, "codename": "add_user"}}, {"model": "auth.permission", "pk": 30, "fields": {"name": "Can change Пользователь", "content_type": 8, "codename": "change_user"}}, {"model": "auth.permission", "pk": 31, "fields": {"name": "Can delete Пользователь", "content_type": 8, "codename": "delete_user"}}, {"model": "auth.permission", "pk": 32, "fields": {"name": "Can view Пользователь", "content_type": 8, "codename": "view_user"}}, {"model": "auth.permission", "pk": 33, "fields": {"name": "Can add Город", "content_type": 9, "codename": "add_city"}}, {"model": "auth.permission", "pk": 34, "fields": {"name": "Can change Город", "content_type": 9, "codename": "change_city"}}, {"model": "auth.permission", "pk": 35, "fields": {"name": "Can delete Город", "content_type": 9, "codename": "delete_city"}}, {"model": "auth.permission", "pk": 36, "fields": {"name": "Can view Город", "content_type": 9, "codename": "view_city"}}, {"model": "auth.permission", "pk": 37, "fields": {"name": "Can add Формат", "content_type": 10, "codename": "add_format"}}, {"model": "auth.permission", "pk": 38, "fields": {"name": "Can change Формат", "content_type": 10, "codename": "change_format"}}, {"model": "auth.permission", "pk": 39, "fields": {"name": "Can delete Формат", "content_type": 10, "codename": "delete_format"}}, {"model": "auth.permission", "pk": 40, "fields": {"name": "Can view Формат", "content_type": 10, "codename": "view_format"}}, {"model": "auth.permission", "pk": 41, "fields": {"name": "Can add Тэг", "content_type": 11, "codename": "add_tags"}}, {"model": "auth.permission", "pk": 42, "fields": {"name": "Can change Тэг", "content_type": 11, "codename": "change_tags"}}, {"model": "auth.permission", "pk": 43, "fields": {"name": "Can delete Тэг", "content_type": 11, "codename": "delete_tags"}}, {"model": "auth.permission", "pk": 44, "fields": {"name": "Can view Тэг", "content_type": 11, "codename": "view_tags"}}, {"model": "auth.permission", "pk": 45, "fields": {"name": "Can add Топик", "content_type": 12, "codename": "add_topic"}}, {"model": "auth.permission", "pk": 46, "fields": {"name": "Can change Топик", "content_type": 12, "codename": "change_topic"}}, {"model": "auth.permission", "pk": 47, "fields": {"name": "Can delete Топик", "content_type": 12, "codename": "delete_topic"}}, {"model": "auth.permission", "pk": 48, "fields": {"name": "Can view Топик", "content_type": 12, "codename": "view_topic"}}, {"model": "auth.permission", "pk": 49, "fields": {"name": "Can add Событие", "content_type": 13, "codename": "add_event"}}, {"model": "auth.permission", "pk": 50, "fields": {"name": "Can change Событие", "content_type": 13, "codename": "change_event"}}, {"model": "auth.permission", "pk": 51, "fields": {"name": "Can delete Событие", "content_type": 13, "codename": "delete_event"}}, {"model": "auth.permission", "pk": 52, "fields": {"name": "Can view Событие", "content_type": 13, "codename": "view_event"}}, {"model": "auth.permission", "pk": 53, "fields": {"name": "Can add Избранное", "content_type": 14, "codename": "add_favourite"}}, {"model": "auth.permission", "pk": 54, "fields": {"name": "Can change Избранное", "content_type": 14, "codename": "change_favourite"}}, {"model": "auth.permission", "pk": 55, "fields": {"name": "Can delete Избранное", "content_type": 14, "codename": "delete_favourite"}}, {"model": "auth.permission", "pk": 56, "fields": {"name": "Can view Избранное", "content_type": 14, "codename": "view_favourite"}}, {"model": "contenttypes.contenttype", "pk": 1, "fields": {"app_label": "admin", "model": "logentry"}}, {"model": "contenttypes.contenttype", "pk": 2, "fields": {"app_label": "auth", "model": "permission"}}, {"model": "contenttypes.contenttype", "pk": 3, "fields": {"app_label": "auth", "model": "group"}}, {"model": "contenttypes.contenttype", "pk": 4, "fields": {"app_label": "contenttypes", "model": "contenttype"}}, {"model": "contenttypes.contenttype", "pk": 5, "fields": {"app_label": "sessions", "model": "session"}}, {"model": "contenttypes.contenttype", "pk": 6, "fields": {"app_label": "authtoken", "model": "token"}}, {"model": "contenttypes.contenttype", "pk": 7, "fields": {"app_label": "authtoken", "model": "tokenproxy"}}, {"model": "contenttypes.contenttype", "pk": 8, "fields": {"app_label": "users", "model": "user"}}, {"model": "contenttypes.contenttype", "pk": 9, "fields": {"app_label": "events", "model": "city"}}, {"model": "contenttypes.contenttype", "pk": 10, "fields": {"app_label": "events", "model": "format"}}, {"model": "contenttypes.contenttype", "pk": 11, "fields": {"app_label": "events", "model": "tags"}}, {"model": "contenttypes.contenttype", "pk": 12, "fields": {"app_label": "events", "model": "topic"}}, {"model": "contenttypes.contenttype", "pk": 13, "fields": {"app_label": "events", "model": "event"}}, {"model": "contenttypes.contenttype", "pk": 14, "fields": {"app_label": "events", "model": "favourite"}}, {"model": "sessions.session", "pk": "km3vjpkeduvxfbrl9wjs4yclmab0zaxe", "fields": {"session_data": ".eJxVjEEOwiAQRe_C2hCg0Cku3XsGMswMUjVtUtqV8e7apAvd_vfef6mE21rT1mRJI6uzcur0u2Wkh0w74DtOt1nTPK3LmPWu6IM2fZ1ZnpfD_Tuo2Oq3RmshkvPsxRZrHWcRQOpAgHxgCBA9ERQT7eDQuNLnOEQmIBNz6Hr1_gDp7zff:1q4Rl2:huQ8xg0N-OBnIC1SZoQwESAiEt1CNXaLUzl-1U2YIq8", "expire_date": "2023-06-14T19:45:20.428Z"}}, {"model": "users.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$390000$iy7Ipisp6rwOVgFzFIOFK7$K4GVYtSGbCUekMF9IZfr7ZFQF0ht4tDf8BPO17HTN80=", "last_login": null, "is_superuser": false, "username": "test_user", "first_name": "", "last_name": "", "is_staff": false, "is_active": true, "date_joined": "2023-05-31T18:13:14.229Z", "email": "test@email.ru", "role": "user", "profile_photo": "", "groups": [], "user_permissions": []}}, {"model": "events.event", "pk": 1, "fields": {"author": 1, "title": "IT-конференция CrossConf'23", "description": "Крупнейшая IT-конференция о кроссплатформенной разработке и трендах IT пройдет 15 сентября в Москве. Более 60 экспертов по мобильной разработке, искусственному интеллекту, продуктовой разработке и менеджменту представят свежие кейсы и прогнозы о развитии IT-рынка. Ожидается участие около 700 гостей, среди которых разработчики, аналитики, тимлиды, product-менеджеры, дизайнеры, ML-инженеры и другие востребованные IT-специалисты. Билеты на конференцию уже в продаже на сайте crossconf.com.", "url": "https://crossconf.com/", "image": "events/image/content_340h100.jpg", "program": "На CrossConf’23 будет 5 тематических потоков: большой поток Mobile crossplatform с треками по Flutter и другим направлениям кроссплатформенной разработки, а также потоки Product&Design, Management&Teamlead, Тренды: AI&инструменты. Конференция пройдет в центре Москвы — в  пространстве «СтартХаб» на территории бывшего завода «Красный Октябрь» (м.Кропоткинская).\n\n«Наша задача не только сделать крупнейшую площадку для разговора о кроссплатформенной разработке, но и объединить экспертов смежных IT-направлений, которые обсудят самые значимые тренды. Мы придаем большое значение силе горизонтальных связей и кросс-технологичного взаимодействия, поэтому CrossConf – это место для знакомства с вдохновляющими людьми и выбора новых направлений роста», – поделился планами председатель программного комитета CrossConf Петр Чернышев.\n\nУ конференции CrossConf есть свое мобильное приложение. Оно помогает составлять персональное расписание докладов, добавлять в избранное лучшие, ставить оценки спикерам и вести переписку в экспресс-чатах, которые открываются при сканировании QR-кода с бейджа участника. Доступ в приложение открывается по номеру билета.\n\nПо традиции мощная зажигательная Afterparty с участием знатока «Что? Где? Когда?» Бориса Белозерова и IT-квизом станет элементом неформального нетворкинга. Вечер будет украшен живой музыкой, бокалами игристого, фуршетом и розыгрышами призов.\n\nВ 2022 году CrossConf проходила в Иннополисе и собрала более 700 участников из 165 компаний и 30 городов. Более 80 спикеров из технологичных компаний поделились своими лучшими практиками создания IT-продуктов. Партнерами CrossConf’22 выступили Яндекс GO, Friflex, Avito Работа, HH.ru, TenLab, SOK, RCI, Reg.ru, нон-фикшн издательство «Бомбора», кофейный бренд «Сварщица Екатерина», бренд офисной мебели «Kreslo» и другие компании. В составе спикеров были эксперты компаний Яндекс, Сбер, Friflex,  Тинькофф, Альфа, Ozon, Avito, ИВИ, Аврора, Surf, Контур, Ak Bars, СберЗдоровье, СберМаркет, Райффайзенбанк, Сибур, HH.ru, 1С Битрикс, Иннотех и других.", "organizer": "Александра Павлова", "partners": "Яндекс, Сбер, Friflex,  Тинькофф, Альфа, Ozon, Avito, ИВИ, Аврора, Surf, Контур, Ak Bars, СберЗдоровье, СберМаркет, Райффайзенбанк, Сибур, HH.ru, 1С Битрикс, Иннотех", "address": "Берсеневская набережная, 6, стр. 3 СтартХаб", "price": "9600.00", "date_start": "2023-09-15T10:00:00Z", "date_end": "2023-09-15T23:00:00Z", "created_at": "2023-05-31T19:00:19.474Z", "city": 1, "topic": 36, "tags": [21, 20, 5], "format": [2]}}, {"model": "events.event", "pk": 2, "fields": {"author": 1, "title": "FrontendConf 2023", "description": "Самая масштабная офлайн конференция по фронтенду в России", "url": "https://frontendconf.ru/moscow/2023", "image": "events/image/front.png", "program": "Почему это нельзя пропустить?\n50+ докладчиков, которых мы лично отобрали.\n\nСреди которых точно будет много интересного.\n\n700++ участников и все из IT-сообщества.\n\nИ все интересуются тем же, хорошая база для новых знакомств.\n\n2 дня и 4 плотных потока докладов и мастер-классов.\n\nВы не просто слушаете — вы обсуждаете, оспариваете, соглашаетесь, задаёте вопросы.", "organizer": "Онтико", "partners": "Skillbox, GP Solutions", "address": "Берсеневская Набережная, 6 ст.3, 4 эт.\nСтарт Хаб на Красном Октябре (ex. Digital October)", "price": "48000.00", "date_start": "2023-10-02T09:30:00Z", "date_end": "2023-10-03T19:00:00Z", "created_at": "2023-05-31T19:04:43.957Z", "city": 1, "topic": 2, "tags": [8, 11, 17, 14, 7], "format": [2]}}, {"model": "events.event", "pk": 3, "fields": {"author": 1, "title": "Виртуализация от ZStack: новые решения и возможности", "description": "ZStack\nДОБАВИТЬ В КАЛЕНДАРЬ\nПРОГРАММА РЕГИСТРАЦИЯ\nКомпания Softline и разработчик ZStack приглашают вас принять участие в вебинаре с обзором решений компании ZStack, который состоится 7 июня в 11:00\n\nZStack - ведущий поставщик программных решений для организации частных облаков, управления большими вычислительными мощностями, хранилищами и сетями в центрах обработки данных, а также инструментов для организации миграции с решений VMware.", "url": "http://webinar.ru", "image": "events/image/zstack.png", "program": "Что обсудим?\n\n* ZStack - год на рынке в РФ, что нового? Новые продукты, обновление лицензирования.\n\n* CStack - VDI в экосистеме ZStack. Возможности.\n\n* Возможности миграции с VMware\n\nА также: расскажем об архитектуре решений, какие версии существуют, поговорим о преимуществах использования и успешных кейсах, и, конечно, ответим на все ваши вопросы!\n\nСпикеры вебинара – ведущие эксперты средств виртуализации и VDI компании ZStack\n\nПрисоединяйтесь к вебинару 7 июня в 11:00!\n\nРегистрация на мероприятие обязательна.\n\nДо встречи на вебинаре!", "organizer": "ZStack", "partners": "VDI, ZStack", "address": "", "price": "0.00", "date_start": "2023-06-07T11:00:00Z", "date_end": "2023-06-07T13:00:00Z", "created_at": "2023-05-31T19:12:16.274Z", "city": null, "topic": 8, "tags": [3, 12], "format": [1]}}, {"model": "events.event", "pk": 4, "fields": {"author": 1, "title": "Вторая ежегодная конференция ITSMIR 2023 «ИT-суверенитет: мифы и реальность»", "description": "Что нужно для построения отечественного ИТ-ландшафта и можно ли его довести до идеала? Есть ли сложности импортозамещения для компаний из разных отраслей? В чем сила российского софта по сравнению с зарубежными вендорами?\n\nУзнать ответы на эти и другие вопросы, связанные с формированием ИТ-суверенитета, вы сможете 5-7 июня на конференции ITSMIR 2023. В рамках нее крупнейшие представители ритейла, промышленной и телекоммуникационной отраслей поделятся своим опытом внедрения отечественных цифровых продуктов.", "url": "https://itsmir.ru/", "image": "events/image/itsmir.png", "program": "В рамках конференции ITSMIR вы:\n\nобсудите итоги достижения ИТ-суверенитета за 2022 г., а также – идеи и возможности его развития на ближайшее будущее с учетом всех ограничений;\nмаксимально погрузитесь в специфику платформенного подхода к импортозамещению и на конкретных примерах разберете его плюсы и минусы;\nсовместно с отечественными поставщиками платформ, производителями ERP и BI, ведущими интеграторами обсудите актуальные тренды развития систем;\nузнаете об актуальных критериях “корпоративности” систем управления ресурсами для создания “ERP мечты”;\nобсудите с представителями различных отраслей эффективность эксплуатации существующего и нового ИТ-ландшафта;\nсоберете экспертные мнения о подходах к реализации технической поддержки и их соответствию западным стандартам.\nВместе с представителями «Сургутнефтегаз», «Татнефть», «Лукойл», НПО «Энергомаш», «Северсталь-Инфоком», Судостроительный завод «Северная верфь», а также банков и ретейла вы узнаете, чего уже достигли российские компании в области импортозамещения и что их ждет в будущем в рамках развития ИТ-суверенитета.\n\nКонференция будет интересна генеральным и исполнительным директорам, руководителям ИТ-подразделений и директорам по цифровой трансформации.", "organizer": "ITSMIR", "partners": "«Галактика», «СИГМА», «Бизнес Технологии», «Форсайт», VK Cloud, VK Tech", "address": "п. Репино, Приморское шоссе, д. 394, литера Б, отель PARK ОТЕЛЬ 4* РЕПИНО CRONWELL\n", "price": "20000.00", "date_start": "2023-06-05T09:30:00Z", "date_end": "2023-06-07T21:00:00Z", "created_at": "2023-05-31T19:17:59.201Z", "city": 2, "topic": 7, "tags": [3, 12], "format": [2]}}, {"model": "events.city", "pk": 1, "fields": {"name": "Москва"}}, {"model": "events.city", "pk": 2, "fields": {"name": "Санкт-Петербург"}}, {"model": "events.city", "pk": 3, "fields": {"name": "Екатеринбург"}}, {"model": "events.city", "pk": 4, "fields": {"name": "Новосибирск"}}, {"model": "events.city", "pk": 5, "fields": {"name": "Казань"}}, {"model": "events.city", "pk": 6, "fields": {"name": "Самара"}}, {"model": "events.city", "pk": 7, "fields": {"name": "Омск"}}, {"model": "events.city", "pk": 8, "fields": {"name": "Челябинск"}}, {"model": "events.city", "pk": 9, "fields": {"name": "Нижний Новгород"}}, {"model": "events.city", "pk": 10, "fields": {"name": "Ростов-на-Дону"}}, {"model": "events.city", "pk": 11, "fields": {"name": "Уфа"}}, {"model": "events.city", "pk": 12, "fields": {"name": "Красноярск"}}, {"model": "events.city", "pk": 13, "fields": {"name": "Воронеж"}}, {"model": "events.city", "pk": 14, "fields": {"name": "Пермь"}}, {"model": "events.city", "pk": 15, "fields": {"name": "Волгоград"}}, {"model": "events.city", "pk": 16, "fields": {"name": "Краснодар"}}, {"model": "events.city", "pk": 17, "fields": {"name": "Тюмень"}}, {"model": "events.city", "pk": 18, "fields": {"name": "Ижевск"}}, {"model": "events.city", "pk": 19, "fields": {"name": "Тольятти"}}, {"model": "events.city", "pk": 20, "fields": {"name": "Барнаул"}}, {"model": "events.tags", "pk": 1, "fields": {"name": "Python", "slug": "python"}}, {"model": "events.tags", "pk": 2, "fields": {"name": "C++", "slug": "c-plus-plus"}}, {"model": "events.tags", "pk": 3, "fields": {"name": "Docker", "slug": "docker"}}, {"model": "events.tags", "pk": 4, "fields": {"name": "Redis", "slug": "redis"}}, {"model": "events.tags", "pk": 5, "fields": {"name": "SQL", "slug": "sql"}}, {"model": "events.tags", "pk": 6, "fields": {"name": "PostgreSQL", "slug": "postgresql"}}, {"model": "events.tags", "pk": 7, "fields": {"name": "React", "slug": "react"}}, {"model": "events.tags", "pk": 8, "fields": {"name": "JavaScript", "slug": "javascript"}}, {"model": "events.tags", "pk": 9, "fields": {"name": "FastAPI", "slug": "fastapi"}}, {"model": "events.tags", "pk": 10, "fields": {"name": "Pandas", "slug": "pandas"}}, {"model": "events.tags", "pk": 11, "fields": {"name": "Laravel", "slug": "laravel"}}, {"model": "events.tags", "pk": 12, "fields": {"name": "Kubernetes", "slug": "kubernetes"}}, {"model": "events.tags", "pk": 13, "fields": {"name": "C#", "slug": "c-sharp"}}, {"model": "events.tags", "pk": 14, "fields": {"name": "PHP", "slug": "php"}}, {"model": "events.tags", "pk": 15, "fields": {"name": "Go", "slug": "go"}}, {"model": "events.tags", "pk": 16, "fields": {"name": "Rust", "slug": "rust"}}, {"model": "events.tags", "pk": 17, "fields": {"name": "MySQL", "slug": "mysql"}}, {"model": "events.tags", "pk": 18, "fields": {"name": "Git", "slug": "git"}}, {"model": "events.tags", "pk": 19, "fields": {"name": "Java", "slug": "java"}}, {"model": "events.tags", "pk": 20, "fields": {"name": "NGINX", "slug": "nginx"}}, {"model": "events.tags", "pk": 21, "fields": {"name": "Linux", "slug": "linux"}}, {"model": "events.format", "pk": 1, "fields": {"name": "онлайн", "slug": "online"}}, {"model": "events.format", "pk": 2, "fields": {"name": "офлайн", "slug": "offline"}}, {"model": "events.topic", "pk": 1, "fields": {"name": "Software Development", "slug": "software-development"}}, {"model": "events.topic", "pk": 2, "fields": {"name": "Web Development", "slug": "web-development"}}, {"model": "events.topic", "pk": 3, "fields": {"name": "Mobile Development", "slug": "mobile-development"}}, {"model": "events.topic", "pk": 4, "fields": {"name": "Game Development", "slug": "game-development"}}, {"model": "events.topic", "pk": 5, "fields": {"name": "Artificial Intelligence and Machine Learning", "slug": "artificial-intelligence-and-machine-learning"}}, {"model": "events.topic", "pk": 6, "fields": {"name": "Big Data and Analytics", "slug": "big-data-and-analytics"}}, {"model": "events.topic", "pk": 7, "fields": {"name": "Cybersecurity", "slug": "cybersecurity"}}, {"model": "events.topic", "pk": 8, "fields": {"name": "Cloud and Virtualization", "slug": "cloud-and-virtualization"}}, {"model": "events.topic", "pk": 9, "fields": {"name": "Internet of Things (IoT)", "slug": "internet-of-things-iot"}}, {"model": "events.topic", "pk": 10, "fields": {"name": "DevOps", "slug": "devops"}}, {"model": "events.topic", "pk": 11, "fields": {"name": "Software Testing", "slug": "software-testing"}}, {"model": "events.topic", "pk": 12, "fields": {"name": "Project Management", "slug": "project-management"}}, {"model": "events.topic", "pk": 13, "fields": {"name": "Blockchain", "slug": "blockchain"}}, {"model": "events.topic", "pk": 14, "fields": {"name": "Frontend Development", "slug": "frontend-development"}}, {"model": "events.topic", "pk": 15, "fields": {"name": "Backend Development", "slug": "backend-development"}}, {"model": "events.topic", "pk": 16, "fields": {"name": "Data Science", "slug": "data-science"}}, {"model": "events.topic", "pk": 17, "fields": {"name": "UI/UX Design", "slug": "uiux-design"}}, {"model": "events.topic", "pk": 18, "fields": {"name": "Process Automation", "slug": "process-automation"}}, {"model": "events.topic", "pk": 19, "fields": {"name": "System Administration", "slug": "system-administration"}}, {"model": "events.topic", "pk": 20, "fields": {"name": "Virtual Reality (VR) and Augmented Reality (AR)", "slug": "virtual-reality-vr-and-augmented-reality-ar"}}, {"model": "events.topic", "pk": 21, "fields": {"name": "Machine learning", "slug": "machine_learning"}}, {"model": "events.topic", "pk": 22, "fields": {"name": "E-commerce", "slug": "E-commerce"}}, {"model": "events.topic", "pk": 23, "fields": {"name": "Big Data", "slug": "big_data"}}, {"model": "events.topic", "pk": 24, "fields": {"name": "Системное администрирование", "slug": "system_administration"}}, {"model": "events.topic", "pk": 25, "fields": {"name": "Управление проектами", "slug": "project_management"}}, {"model": "events.topic", "pk": 26, "fields": {"name": "Цифровизация бизнеса", "slug": "digitization_of_business"}}, {"model": "events.topic", "pk": 27, "fields": {"name": "Электронные платежи", "slug": "electronic_payments"}}, {"model": "events.topic", "pk": 28, "fields": {"name": "Центры обработки данных", "slug": "data_centers"}}, {"model": "events.topic", "pk": 29, "fields": {"name": "Инвестиции", "slug": "investments"}}, {"model": "events.topic", "pk": 30, "fields": {"name": "HR-процессы", "slug": "hr_processes"}}, {"model": "events.topic", "pk": 31, "fields": {"name": "B2B", "slug": "2b2"}}, {"model": "events.topic", "pk": 32, "fields": {"name": "B2C", "slug": "b2c"}}, {"model": "events.topic", "pk": 33, "fields": {"name": "Банки", "slug": "banks"}}, {"model": "events.topic", "pk": 34, "fields": {"name": "Информационная безопасность", "slug": "information_security"}}, {"model": "events.topic", "pk": 35, "fields": {"name": "Искусственный интеллект", "slug": "artificial_intelligence"}}, {"model": "events.topic", "pk": 36, "fields": {"name": "Нетворкинг", "slug": "networking"}}, {"model": "events.topic", "pk": 37, "fields": {"name": "Проектирование", "slug": "design"}}, {"model": "events.topic", "pk": 38, "fields": {"name": "Сетевые технологии", "slug": "network_technologies"}}, {"model": "events.topic", "pk": 39, "fields": {"name": "Телеком", "slug": "telecom"}}, {"model": "events.topic", "pk": 40, "fields": {"name": "Экономика", "slug": "economy"}}, {"model": "events.topic", "pk": 41, "fields": {"name": "Электронный документооборот", "slug": "electronic_document_management"}}]
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add Token",
+      "content_type": 6,
+      "codename": "add_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change Token",
+      "content_type": 6,
+      "codename": "change_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": 6,
+      "codename": "delete_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view Token",
+      "content_type": 6,
+      "codename": "view_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add token",
+      "content_type": 7,
+      "codename": "add_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change token",
+      "content_type": 7,
+      "codename": "change_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete token",
+      "content_type": 7,
+      "codename": "delete_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view token",
+      "content_type": 7,
+      "codename": "view_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add Пользователь",
+      "content_type": 8,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change Пользователь",
+      "content_type": 8,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete Пользователь",
+      "content_type": 8,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view Пользователь",
+      "content_type": 8,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add Город",
+      "content_type": 9,
+      "codename": "add_city"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change Город",
+      "content_type": 9,
+      "codename": "change_city"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete Город",
+      "content_type": 9,
+      "codename": "delete_city"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view Город",
+      "content_type": 9,
+      "codename": "view_city"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add Формат",
+      "content_type": 10,
+      "codename": "add_format"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change Формат",
+      "content_type": 10,
+      "codename": "change_format"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete Формат",
+      "content_type": 10,
+      "codename": "delete_format"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view Формат",
+      "content_type": 10,
+      "codename": "view_format"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add Тэг",
+      "content_type": 11,
+      "codename": "add_tags"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change Тэг",
+      "content_type": 11,
+      "codename": "change_tags"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete Тэг",
+      "content_type": 11,
+      "codename": "delete_tags"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view Тэг",
+      "content_type": 11,
+      "codename": "view_tags"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add Топик",
+      "content_type": 12,
+      "codename": "add_topic"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change Топик",
+      "content_type": 12,
+      "codename": "change_topic"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete Топик",
+      "content_type": 12,
+      "codename": "delete_topic"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view Топик",
+      "content_type": 12,
+      "codename": "view_topic"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add Событие",
+      "content_type": 13,
+      "codename": "add_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change Событие",
+      "content_type": 13,
+      "codename": "change_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete Событие",
+      "content_type": 13,
+      "codename": "delete_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view Событие",
+      "content_type": 13,
+      "codename": "view_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add Избранное",
+      "content_type": 14,
+      "codename": "add_favourite"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change Избранное",
+      "content_type": 14,
+      "codename": "change_favourite"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete Избранное",
+      "content_type": 14,
+      "codename": "delete_favourite"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view Избранное",
+      "content_type": 14,
+      "codename": "view_favourite"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "token"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "tokenproxy"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "users",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "events",
+      "model": "city"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "events",
+      "model": "format"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "events",
+      "model": "tags"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "events",
+      "model": "topic"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "events",
+      "model": "event"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "events",
+      "model": "favourite"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "km3vjpkeduvxfbrl9wjs4yclmab0zaxe",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hCg0Cku3XsGMswMUjVtUtqV8e7apAvd_vfef6mE21rT1mRJI6uzcur0u2Wkh0w74DtOt1nTPK3LmPWu6IM2fZ1ZnpfD_Tuo2Oq3RmshkvPsxRZrHWcRQOpAgHxgCBA9ERQT7eDQuNLnOEQmIBNz6Hr1_gDp7zff:1q4Rl2:huQ8xg0N-OBnIC1SZoQwESAiEt1CNXaLUzl-1U2YIq8",
+      "expire_date": "2023-06-14T19:45:20.428Z"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$iy7Ipisp6rwOVgFzFIOFK7$K4GVYtSGbCUekMF9IZfr7ZFQF0ht4tDf8BPO17HTN80=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test_user",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-05-31T18:13:14.229Z",
+      "email": "test@email.ru",
+      "role": "user",
+      "profile_photo": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "title": "IT-конференция CrossConf'23",
+      "description": "Крупнейшая IT-конференция о кроссплатформенной разработке и трендах IT пройдет 15 сентября в Москве. Более 60 экспертов по мобильной разработке, искусственному интеллекту, продуктовой разработке и менеджменту представят свежие кейсы и прогнозы о развитии IT-рынка. Ожидается участие около 700 гостей, среди которых разработчики, аналитики, тимлиды, product-менеджеры, дизайнеры, ML-инженеры и другие востребованные IT-специалисты. Билеты на конференцию уже в продаже на сайте crossconf.com.",
+      "url": "https://crossconf.com/",
+      "image": "events/image/content_340h100.jpg",
+      "program": "На CrossConf’23 будет 5 тематических потоков: большой поток Mobile crossplatform с треками по Flutter и другим направлениям кроссплатформенной разработки, а также потоки Product&Design, Management&Teamlead, Тренды: AI&инструменты. Конференция пройдет в центре Москвы — в  пространстве «СтартХаб» на территории бывшего завода «Красный Октябрь» (м.Кропоткинская).\n\n«Наша задача не только сделать крупнейшую площадку для разговора о кроссплатформенной разработке, но и объединить экспертов смежных IT-направлений, которые обсудят самые значимые тренды. Мы придаем большое значение силе горизонтальных связей и кросс-технологичного взаимодействия, поэтому CrossConf – это место для знакомства с вдохновляющими людьми и выбора новых направлений роста», – поделился планами председатель программного комитета CrossConf Петр Чернышев.\n\nУ конференции CrossConf есть свое мобильное приложение. Оно помогает составлять персональное расписание докладов, добавлять в избранное лучшие, ставить оценки спикерам и вести переписку в экспресс-чатах, которые открываются при сканировании QR-кода с бейджа участника. Доступ в приложение открывается по номеру билета.\n\nПо традиции мощная зажигательная Afterparty с участием знатока «Что? Где? Когда?» Бориса Белозерова и IT-квизом станет элементом неформального нетворкинга. Вечер будет украшен живой музыкой, бокалами игристого, фуршетом и розыгрышами призов.\n\nВ 2022 году CrossConf проходила в Иннополисе и собрала более 700 участников из 165 компаний и 30 городов. Более 80 спикеров из технологичных компаний поделились своими лучшими практиками создания IT-продуктов. Партнерами CrossConf’22 выступили Яндекс GO, Friflex, Avito Работа, HH.ru, TenLab, SOK, RCI, Reg.ru, нон-фикшн издательство «Бомбора», кофейный бренд «Сварщица Екатерина», бренд офисной мебели «Kreslo» и другие компании. В составе спикеров были эксперты компаний Яндекс, Сбер, Friflex,  Тинькофф, Альфа, Ozon, Avito, ИВИ, Аврора, Surf, Контур, Ak Bars, СберЗдоровье, СберМаркет, Райффайзенбанк, Сибур, HH.ru, 1С Битрикс, Иннотех и других.",
+      "organizer": "Александра Павлова",
+      "partners": "Яндекс, Сбер, Friflex,  Тинькофф, Альфа, Ozon, Avito, ИВИ, Аврора, Surf, Контур, Ak Bars, СберЗдоровье, СберМаркет, Райффайзенбанк, Сибур, HH.ru, 1С Битрикс, Иннотех",
+      "address": "Берсеневская набережная, 6, стр. 3 СтартХаб",
+      "price": "9600.00",
+      "date_start": "2023-09-15T10:00:00Z",
+      "date_end": "2023-09-15T23:00:00Z",
+      "created_at": "2023-05-31T19:00:19.474Z",
+      "city": 1,
+      "topic": 36,
+      "tags": [
+        21,
+        20,
+        5
+      ],
+      "format": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+      "author": 1,
+      "title": "FrontendConf 2023",
+      "description": "Самая масштабная офлайн конференция по фронтенду в России",
+      "url": "https://frontendconf.ru/moscow/2023",
+      "image": "events/image/front.png",
+      "program": "Почему это нельзя пропустить?\n50+ докладчиков, которых мы лично отобрали.\n\nСреди которых точно будет много интересного.\n\n700++ участников и все из IT-сообщества.\n\nИ все интересуются тем же, хорошая база для новых знакомств.\n\n2 дня и 4 плотных потока докладов и мастер-классов.\n\nВы не просто слушаете — вы обсуждаете, оспариваете, соглашаетесь, задаёте вопросы.",
+      "organizer": "Онтико",
+      "partners": "Skillbox, GP Solutions",
+      "address": "Берсеневская Набережная, 6 ст.3, 4 эт.\nСтарт Хаб на Красном Октябре (ex. Digital October)",
+      "price": "48000.00",
+      "date_start": "2023-10-02T09:30:00Z",
+      "date_end": "2023-10-03T19:00:00Z",
+      "created_at": "2023-05-31T19:04:43.957Z",
+      "city": 1,
+      "topic": 2,
+      "tags": [
+        8,
+        11,
+        17,
+        14,
+        7
+      ],
+      "format": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+      "author": 1,
+      "title": "Виртуализация от ZStack: новые решения и возможности",
+      "description": "ZStack\nДОБАВИТЬ В КАЛЕНДАРЬ\nПРОГРАММА РЕГИСТРАЦИЯ\nКомпания Softline и разработчик ZStack приглашают вас принять участие в вебинаре с обзором решений компании ZStack, который состоится 7 июня в 11:00\n\nZStack - ведущий поставщик программных решений для организации частных облаков, управления большими вычислительными мощностями, хранилищами и сетями в центрах обработки данных, а также инструментов для организации миграции с решений VMware.",
+      "url": "http://webinar.ru",
+      "image": "events/image/zstack.png",
+      "program": "Что обсудим?\n\n* ZStack - год на рынке в РФ, что нового? Новые продукты, обновление лицензирования.\n\n* CStack - VDI в экосистеме ZStack. Возможности.\n\n* Возможности миграции с VMware\n\nА также: расскажем об архитектуре решений, какие версии существуют, поговорим о преимуществах использования и успешных кейсах, и, конечно, ответим на все ваши вопросы!\n\nСпикеры вебинара – ведущие эксперты средств виртуализации и VDI компании ZStack\n\nПрисоединяйтесь к вебинару 7 июня в 11:00!\n\nРегистрация на мероприятие обязательна.\n\nДо встречи на вебинаре!",
+      "organizer": "ZStack",
+      "partners": "VDI, ZStack",
+      "address": "",
+      "price": "0.00",
+      "date_start": "2023-06-07T11:00:00Z",
+      "date_end": "2023-06-07T13:00:00Z",
+      "created_at": "2023-05-31T19:12:16.274Z",
+      "city": null,
+      "topic": 8,
+      "tags": [
+        3,
+        12
+      ],
+      "format": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 4,
+    "fields": {
+      "author": 1,
+      "title": "Вторая ежегодная конференция ITSMIR 2023 «ИT-суверенитет: мифы и реальность»",
+      "description": "Что нужно для построения отечественного ИТ-ландшафта и можно ли его довести до идеала? Есть ли сложности импортозамещения для компаний из разных отраслей? В чем сила российского софта по сравнению с зарубежными вендорами?\n\nУзнать ответы на эти и другие вопросы, связанные с формированием ИТ-суверенитета, вы сможете 5-7 июня на конференции ITSMIR 2023. В рамках нее крупнейшие представители ритейла, промышленной и телекоммуникационной отраслей поделятся своим опытом внедрения отечественных цифровых продуктов.",
+      "url": "https://itsmir.ru/",
+      "image": "events/image/itsmir.png",
+      "program": "В рамках конференции ITSMIR вы:\n\nобсудите итоги достижения ИТ-суверенитета за 2022 г., а также – идеи и возможности его развития на ближайшее будущее с учетом всех ограничений;\nмаксимально погрузитесь в специфику платформенного подхода к импортозамещению и на конкретных примерах разберете его плюсы и минусы;\nсовместно с отечественными поставщиками платформ, производителями ERP и BI, ведущими интеграторами обсудите актуальные тренды развития систем;\nузнаете об актуальных критериях “корпоративности” систем управления ресурсами для создания “ERP мечты”;\nобсудите с представителями различных отраслей эффективность эксплуатации существующего и нового ИТ-ландшафта;\nсоберете экспертные мнения о подходах к реализации технической поддержки и их соответствию западным стандартам.\nВместе с представителями «Сургутнефтегаз», «Татнефть», «Лукойл», НПО «Энергомаш», «Северсталь-Инфоком», Судостроительный завод «Северная верфь», а также банков и ретейла вы узнаете, чего уже достигли российские компании в области импортозамещения и что их ждет в будущем в рамках развития ИТ-суверенитета.\n\nКонференция будет интересна генеральным и исполнительным директорам, руководителям ИТ-подразделений и директорам по цифровой трансформации.",
+      "organizer": "ITSMIR",
+      "partners": "«Галактика», «СИГМА», «Бизнес Технологии», «Форсайт», VK Cloud, VK Tech",
+      "address": "п. Репино, Приморское шоссе, д. 394, литера Б, отель PARK ОТЕЛЬ 4* РЕПИНО CRONWELL\n",
+      "price": "20000.00",
+      "date_start": "2023-06-05T09:30:00Z",
+      "date_end": "2023-06-07T21:00:00Z",
+      "created_at": "2023-05-31T19:17:59.201Z",
+      "city": 2,
+      "topic": 7,
+      "tags": [
+        3,
+        12
+      ],
+      "format": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 1,
+    "fields": {
+      "name": "Москва"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 2,
+    "fields": {
+      "name": "Санкт-Петербург"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 3,
+    "fields": {
+      "name": "Екатеринбург"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 4,
+    "fields": {
+      "name": "Новосибирск"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 5,
+    "fields": {
+      "name": "Казань"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 6,
+    "fields": {
+      "name": "Самара"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 7,
+    "fields": {
+      "name": "Омск"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 8,
+    "fields": {
+      "name": "Челябинск"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 9,
+    "fields": {
+      "name": "Нижний Новгород"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 10,
+    "fields": {
+      "name": "Ростов-на-Дону"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 11,
+    "fields": {
+      "name": "Уфа"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 12,
+    "fields": {
+      "name": "Красноярск"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 13,
+    "fields": {
+      "name": "Воронеж"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 14,
+    "fields": {
+      "name": "Пермь"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 15,
+    "fields": {
+      "name": "Волгоград"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 16,
+    "fields": {
+      "name": "Краснодар"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 17,
+    "fields": {
+      "name": "Тюмень"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 18,
+    "fields": {
+      "name": "Ижевск"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 19,
+    "fields": {
+      "name": "Тольятти"
+    }
+  },
+  {
+    "model": "events.city",
+    "pk": 20,
+    "fields": {
+      "name": "Барнаул"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 1,
+    "fields": {
+      "name": "Python",
+      "slug": "python"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 2,
+    "fields": {
+      "name": "C++",
+      "slug": "c-plus-plus"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 3,
+    "fields": {
+      "name": "Docker",
+      "slug": "docker"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 4,
+    "fields": {
+      "name": "Redis",
+      "slug": "redis"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 5,
+    "fields": {
+      "name": "SQL",
+      "slug": "sql"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 6,
+    "fields": {
+      "name": "PostgreSQL",
+      "slug": "postgresql"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 7,
+    "fields": {
+      "name": "React",
+      "slug": "react"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 8,
+    "fields": {
+      "name": "JavaScript",
+      "slug": "javascript"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 9,
+    "fields": {
+      "name": "FastAPI",
+      "slug": "fastapi"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 10,
+    "fields": {
+      "name": "Pandas",
+      "slug": "pandas"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 11,
+    "fields": {
+      "name": "Laravel",
+      "slug": "laravel"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 12,
+    "fields": {
+      "name": "Kubernetes",
+      "slug": "kubernetes"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 13,
+    "fields": {
+      "name": "C#",
+      "slug": "c-sharp"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 14,
+    "fields": {
+      "name": "PHP",
+      "slug": "php"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 15,
+    "fields": {
+      "name": "Go",
+      "slug": "go"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 16,
+    "fields": {
+      "name": "Rust",
+      "slug": "rust"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 17,
+    "fields": {
+      "name": "MySQL",
+      "slug": "mysql"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 18,
+    "fields": {
+      "name": "Git",
+      "slug": "git"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 19,
+    "fields": {
+      "name": "Java",
+      "slug": "java"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 20,
+    "fields": {
+      "name": "NGINX",
+      "slug": "nginx"
+    }
+  },
+  {
+    "model": "events.tags",
+    "pk": 21,
+    "fields": {
+      "name": "Linux",
+      "slug": "linux"
+    }
+  },
+  {
+    "model": "events.format",
+    "pk": 1,
+    "fields": {
+      "name": "Online",
+      "slug": "online"
+    }
+  },
+  {
+    "model": "events.format",
+    "pk": 2,
+    "fields": {
+      "name": "Offline",
+      "slug": "offline"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Software Development",
+      "slug": "software-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Web Development",
+      "slug": "web-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Mobile Development",
+      "slug": "mobile-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 4,
+    "fields": {
+      "name": "Game Development",
+      "slug": "game-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 5,
+    "fields": {
+      "name": "Artificial Intelligence and Machine Learning",
+      "slug": "artificial-intelligence-and-machine-learning"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 6,
+    "fields": {
+      "name": "Big Data and Analytics",
+      "slug": "big-data-and-analytics"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 7,
+    "fields": {
+      "name": "Cybersecurity",
+      "slug": "cybersecurity"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 8,
+    "fields": {
+      "name": "Cloud and Virtualization",
+      "slug": "cloud-and-virtualization"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 9,
+    "fields": {
+      "name": "Internet of Things (IoT)",
+      "slug": "internet-of-things-iot"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 10,
+    "fields": {
+      "name": "DevOps",
+      "slug": "devops"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 11,
+    "fields": {
+      "name": "Software Testing",
+      "slug": "software-testing"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 12,
+    "fields": {
+      "name": "Project Management",
+      "slug": "project-management"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 13,
+    "fields": {
+      "name": "Blockchain",
+      "slug": "blockchain"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 14,
+    "fields": {
+      "name": "Frontend",
+      "slug": "frontend"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 15,
+    "fields": {
+      "name": "Backend",
+      "slug": "backend"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 16,
+    "fields": {
+      "name": "Data Science",
+      "slug": "data-science"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 17,
+    "fields": {
+      "name": "UI/UX Design",
+      "slug": "uiux-design"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 18,
+    "fields": {
+      "name": "Process Automation",
+      "slug": "process-automation"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 19,
+    "fields": {
+      "name": "System Administration",
+      "slug": "system-administration"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 20,
+    "fields": {
+      "name": "Virtual Reality (VR) and Augmented Reality (AR)",
+      "slug": "virtual-reality-vr-and-augmented-reality-ar"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 21,
+    "fields": {
+      "name": "Machine learning",
+      "slug": "machine_learning"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 22,
+    "fields": {
+      "name": "E-commerce",
+      "slug": "E-commerce"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 23,
+    "fields": {
+      "name": "Big Data",
+      "slug": "big_data"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 24,
+    "fields": {
+      "name": "Системное администрирование",
+      "slug": "system_administration"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 25,
+    "fields": {
+      "name": "Управление проектами",
+      "slug": "project_management"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 26,
+    "fields": {
+      "name": "Цифровизация бизнеса",
+      "slug": "digitization_of_business"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 27,
+    "fields": {
+      "name": "Электронные платежи",
+      "slug": "electronic_payments"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 28,
+    "fields": {
+      "name": "Центры обработки данных",
+      "slug": "data_centers"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 29,
+    "fields": {
+      "name": "Инвестиции",
+      "slug": "investments"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 30,
+    "fields": {
+      "name": "HR-процессы",
+      "slug": "hr_processes"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 31,
+    "fields": {
+      "name": "B2B",
+      "slug": "2b2"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 32,
+    "fields": {
+      "name": "B2C",
+      "slug": "b2c"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 33,
+    "fields": {
+      "name": "Банки",
+      "slug": "banks"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 34,
+    "fields": {
+      "name": "Информационная безопасность",
+      "slug": "information_security"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 35,
+    "fields": {
+      "name": "Искусственный интеллект",
+      "slug": "artificial_intelligence"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 36,
+    "fields": {
+      "name": "Нетворкинг",
+      "slug": "networking"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 37,
+    "fields": {
+      "name": "Проектирование",
+      "slug": "design"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 38,
+    "fields": {
+      "name": "Сетевые технологии",
+      "slug": "network_technologies"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 39,
+    "fields": {
+      "name": "Телеком",
+      "slug": "telecom"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 40,
+    "fields": {
+      "name": "Экономика",
+      "slug": "economy"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 41,
+    "fields": {
+      "name": "Электронный документооборот",
+      "slug": "electronic_document_management"
+    }
+  }
+]
