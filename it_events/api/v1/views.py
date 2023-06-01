@@ -1,11 +1,9 @@
 from api.v1.filters import EventFilterSet
 from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
-
 from api.v1.serializers import (CitySerializer, EventReadSerializer,
                                 EventWriteSerializer, TagSerializer,
                                 TopicSerializer)
-
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 from events.models import City, Event, Favourite, Tags, Topic
