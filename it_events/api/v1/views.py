@@ -1,11 +1,14 @@
 from api.v1.filters import EventFilterSet
 from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
+
 from api.v1.serializers import (CitySerializer, EventReadSerializer,
-                                EventWriteSerializer, TagSerializer)
+                                EventWriteSerializer, TagSerializer,
+                                TopicSerializer)
+
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
-from events.models import Event, Favourite, Tags
+from events.models import City, Event, Favourite, Tags, Topic
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
@@ -73,7 +76,16 @@ class TagsViewSet(ModelViewSet):
 
 
 class CityViewSet(ModelViewSet):
+    queryset = City.objects.all()
     serializer_class = CitySerializer
+    http_method_names = ['get']
+    filter_backends = [SearchFilter]
+    search_fields = ['name']
+
+
+class TopicsViewSet(ModelViewSet):
+    queryset = Topic.objects.all()
+    serializer_class = TopicSerializer
     http_method_names = ['get']
     filter_backends = [SearchFilter]
     search_fields = ['name']
