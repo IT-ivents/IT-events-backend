@@ -22,7 +22,7 @@ class EventsViewSet(ModelViewSet):
     queryset = Event.objects.all()
     filter_backends = [SearchFilter, DjangoFilterBackend]
     filterset_class = EventFilterSet
-    search_fields = ['city__name']
+    search_fields = ['city__name', 'title', 'tags__name', 'topic__name']
     http_method_names = ['get', 'patch', 'delete', 'post']
 
     def get_serializer_class(self):
