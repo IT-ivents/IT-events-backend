@@ -44,5 +44,10 @@ jobs:
       - name: Test with django tests
         run: |
           # запуск тестов Django
+          touch .env
+          echo SQLITE=True >> .env
+          echo SECRET_KEY=secretkey >> .env
+          echo DEBUG=True >> .env
+          echo ALLOWED_HOSTS=localhost,127.0.0.1 >> .env
           cd it_events/
           python manage.py test users.tests
