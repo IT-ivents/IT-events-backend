@@ -8,7 +8,6 @@ def search_events(query: str):
      под запрос пользователя и возвращает их.
      query - запрос пользователя в поисковой строке
      """
-    print(query)
     search_vector = SearchVector(
         'title', 'description', 'program', 'organizer', 'partners', 'address',
         'city__name', 'tags__name', 'topic__name'
