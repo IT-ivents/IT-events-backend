@@ -4,6 +4,7 @@ from api.v1.permissions import IsAdminAuthorOrReadOnly
 from api.v1.serializers import (CitySerializer, EventReadSerializer,
                                 EventWriteSerializer, TagSerializer,
                                 TopicSerializer)
+from api.v1.utils import search_events
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 from events.models import City, Event, Favourite, Tags, Topic
@@ -19,11 +20,13 @@ from rest_framework.viewsets import ModelViewSet
 class EventsViewSet(ModelViewSet):
     permission_classes = (IsAdminAuthorOrReadOnly,)
     pagination_class = PageLimitPagination
-    queryset = Event.objects.all()
-    filter_backends = [SearchFilter, DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend]
     filterset_class = EventFilterSet
-    search_fields = ['city__name', 'title', 'tags__name', 'topic__name']
     http_method_names = ['get', 'patch', 'delete', 'post']
+
+    def get_queryset(self):
+        query = self.request.query_params.get('search', '')
+        return Event.objects.all() if not query else search_events(query)
 
     def get_serializer_class(self):
         if self.action in ['list', 'retrieve']:
