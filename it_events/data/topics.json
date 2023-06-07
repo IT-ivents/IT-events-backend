@@ -1,0 +1,330 @@
+[
+  {
+    "model": "events.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Software Development",
+      "slug": "software-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Web Development",
+      "slug": "web-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Mobile Development",
+      "slug": "mobile-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 4,
+    "fields": {
+      "name": "Game Development",
+      "slug": "game-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 5,
+    "fields": {
+      "name": "Artificial Intelligence and Machine Learning",
+      "slug": "artificial-intelligence-and-machine-learning"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 6,
+    "fields": {
+      "name": "Big Data and Analytics",
+      "slug": "big-data-and-analytics"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 7,
+    "fields": {
+      "name": "Cybersecurity",
+      "slug": "cybersecurity"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 8,
+    "fields": {
+      "name": "Cloud and Virtualization",
+      "slug": "cloud-and-virtualization"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 9,
+    "fields": {
+      "name": "Internet of Things (IoT)",
+      "slug": "internet-of-things-iot"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 10,
+    "fields": {
+      "name": "DevOps",
+      "slug": "devops"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 11,
+    "fields": {
+      "name": "Software Testing",
+      "slug": "software-testing"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 12,
+    "fields": {
+      "name": "Project Management",
+      "slug": "project-management"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 13,
+    "fields": {
+      "name": "Blockchain",
+      "slug": "blockchain"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 14,
+    "fields": {
+      "name": "Frontend Development",
+      "slug": "frontend-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 15,
+    "fields": {
+      "name": "Backend Development",
+      "slug": "backend-development"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 16,
+    "fields": {
+      "name": "Data Science",
+      "slug": "data-science"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 17,
+    "fields": {
+      "name": "UI/UX Design",
+      "slug": "uiux-design"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 18,
+    "fields": {
+      "name": "Process Automation",
+      "slug": "process-automation"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 19,
+    "fields": {
+      "name": "System Administration",
+      "slug": "system-administration"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 20,
+    "fields": {
+      "name": "Virtual Reality (VR) and Augmented Reality (AR)",
+      "slug": "virtual-reality-vr-and-augmented-reality-ar"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 21,
+    "fields": {
+      "name": "Machine learning",
+      "slug": "machine_learning"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 22,
+    "fields": {
+      "name": "E-commerce",
+      "slug": "E-commerce"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 23,
+    "fields": {
+      "name": "Big Data",
+      "slug": "big_data"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 24,
+    "fields": {
+      "name": "Системное администрирование",
+      "slug": "system_administration"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 25,
+    "fields": {
+      "name": "Управление проектами",
+      "slug": "project_management"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 26,
+    "fields": {
+      "name": "Цифровизация бизнеса",
+      "slug": "digitization_of_business"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 27,
+    "fields": {
+      "name": "Электронные платежи",
+      "slug": "electronic_payments"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 28,
+    "fields": {
+      "name": "Центры обработки данных",
+      "slug": "data_centers"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 29,
+    "fields": {
+      "name": "Инвестиции",
+      "slug": "investments"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 30,
+    "fields": {
+      "name": "HR-процессы",
+      "slug": "hr_processes"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 31,
+    "fields": {
+      "name": "B2B",
+      "slug": "2b2"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 32,
+    "fields": {
+      "name": "B2C",
+      "slug": "b2c"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 33,
+    "fields": {
+      "name": "Банки",
+      "slug": "banks"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 34,
+    "fields": {
+      "name": "Информационная безопасность",
+      "slug": "information_security"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 35,
+    "fields": {
+      "name": "Искусственный интеллект",
+      "slug": "artificial_intelligence"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 36,
+    "fields": {
+      "name": "Нетворкинг",
+      "slug": "networking"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 37,
+    "fields": {
+      "name": "Проектирование",
+      "slug": "design"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 38,
+    "fields": {
+      "name": "Сетевые технологии",
+      "slug": "network_technologies"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 39,
+    "fields": {
+      "name": "Телеком",
+      "slug": "telecom"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 40,
+    "fields": {
+      "name": "Экономика",
+      "slug": "economy"
+    }
+  },
+  {
+    "model": "events.topic",
+    "pk": 41,
+    "fields": {
+      "name": "Электронный документооборот",
+      "slug": "electronic_document_management"
+    }
+  }
+]
