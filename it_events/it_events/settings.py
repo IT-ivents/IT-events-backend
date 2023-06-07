@@ -74,18 +74,15 @@ WSGI_APPLICATION = 'it_events.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-SQLite = os.environ.get("SQLITE", 'False') == 'True'
+# SQLite = os.environ.get("SQLITE", 'False') == 'True'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3'} if SQLite else
-    {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": os.environ.get("PG_DB"),
-        "USER": os.environ.get("PG_USER"),
-        "PASSWORD": os.environ.get("PG_PASSWORD"),
-        "HOST": os.environ.get("PG_HOST"),
-        "PORT": os.environ.get("PG_PORT"),
+        "NAME": os.environ.get("DB_NAME"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "HOST": os.environ.get("DB_HOST"),
+        "PORT": os.environ.get("DB_PORT"),
     }
 }
 
