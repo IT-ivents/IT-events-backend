@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'it_events.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-# SQLite = os.environ.get("SQLITE", 'False') == 'True'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
