@@ -29,12 +29,14 @@ class TopicAdmin(admin.ModelAdmin):
     """
     prepopulated_fields = {'slug': ('name',)}
 
+
 @admin.register(Tags)
 class TagsAdmin(admin.ModelAdmin):
     """
     Админ-панель модели Тег
     """
     prepopulated_fields = {'slug': ('name',)}
+
 
 @admin.register(Format)
 class TagsAdmin(admin.ModelAdmin):
@@ -43,5 +45,5 @@ class TagsAdmin(admin.ModelAdmin):
     """
     prepopulated_fields = {'slug': ('name',)}
 
-admin.site.register(City)
 
+admin.site.register(City)
