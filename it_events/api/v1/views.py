@@ -1,3 +1,5 @@
+import os
+
 from api.v1.filters import EventFilterSet
 from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
@@ -6,6 +8,7 @@ from api.v1.serializers import (CitySerializer, EventReadSerializer,
                                 TopicSerializer)
 from api.v1.utils import search_events
 from django.db.models import Count
+from django.http import FileResponse
 from django_filters.rest_framework import DjangoFilterBackend
 from events.models import City, Event, Favourite, Tags, Topic
 from rest_framework import status
@@ -90,3 +93,13 @@ class TopicsViewSet(ModelViewSet):
     http_method_names = ['get']
     filter_backends = [SearchFilter]
     search_fields = ['name']
+
+
+def cookies_view(request):
+    file_path = "cookies.pdf"
+    return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+
+
+def privacy_view(request):
+    file_path = "privacy.pdf"
+    return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
