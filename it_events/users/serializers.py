@@ -1,7 +1,8 @@
 from djoser.conf import settings
 from djoser.serializers import UserCreateSerializer as DjoserUsCreateSerializer
-from users.models import User, Organisation
 from rest_framework import serializers
+
+from users.models import Organisation, User
 
 
 class UserCreateSerializer(DjoserUsCreateSerializer):

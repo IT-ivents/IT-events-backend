@@ -1,9 +1,9 @@
 from djoser.views import UserViewSet as DjoserViewSet
-from rest_framework.viewsets import ModelViewSet
-from .models import Organisation
 from rest_framework.filters import SearchFilter
-from .permissions import IsManagerOrReeadOnly
+from rest_framework.viewsets import ModelViewSet
 
+from .models import Organisation
+from .permissions import IsManagerOrReeadOnly
 from .serializers import OrganisationSerializer
 
 
