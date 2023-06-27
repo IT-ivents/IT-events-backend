@@ -1,5 +1,3 @@
-import os
-
 from api.v1.filters import EventFilterSet
 from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
