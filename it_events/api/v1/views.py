@@ -15,6 +15,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from django.utils import timezone
 
 
 class EventsViewSet(ModelViewSet):
@@ -35,6 +36,17 @@ class EventsViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+        
+    @action(detail=False, methods=["get"])
+    def popular(self, request):
+        """Маршрутизатор для вывода списка популярных событий"""
+        upcoming_events = Event.objects.filter(date_start__gte=timezone.now())
+        popular_tags = upcoming_events.values('tags').annotate(count=Count('tags')).order_by('-count')
+        sorted_tag_ids = [tag['tags'] for tag in popular_tags]
+        queryset = Event.objects.filter(tags__in=sorted_tag_ids).order_by('-date_start')
+        page = self.paginate_queryset(queryset)
+        serializer = EventReadSerializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
 
     @action(detail=False, methods=["get"],
             permission_classes=[IsAuthenticated])

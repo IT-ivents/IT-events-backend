@@ -5,7 +5,8 @@ from users.models import User
 class Event(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE,
-        related_name='events', verbose_name='Автор публикации')
+        related_name='events', verbose_name='Автор публикации',
+        )
     title = models.CharField(
         "Название мероприятия", max_length=200, db_index=True)
     description = models.TextField(
