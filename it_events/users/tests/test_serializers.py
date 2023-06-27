@@ -1,6 +1,5 @@
 from djoser.serializers import TokenCreateSerializer
 from rest_framework.test import APITestCase
-
 from users.models import User
 from users.serializers import UserCreateSerializer
 

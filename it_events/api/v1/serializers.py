@@ -1,7 +1,6 @@
 from drf_extra_fields.fields import Base64ImageField
-from rest_framework import serializers
-
 from events.models import City, Event, Format, Tags, Topic
+from rest_framework import serializers
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -46,9 +45,10 @@ class EventReadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'title', 'description', 'url', 'image', 'image_small', 
-                  'program','organizer', 'partners', 'address', 'price', 'date_start',
-                  'date_end', 'created_at', 'city', 'tags', 'topic', 'format',)
+        fields = ('id', 'title', 'description', 'url', 'image', 'image_small',
+                  'program', 'organizer', 'partners', 'address', 'price',
+                  'date_start', 'date_end', 'created_at', 'city', 'tags',
+                  'topic', 'format',)
 
 
 class EventWriteSerializer(serializers.ModelSerializer):
@@ -71,5 +71,5 @@ class EventWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ('id', 'title', 'description', 'url', 'image', 'image_small'
-                  'program', 'organizer', 'partners', 'address', 'price', 'date_start',
-                  'date_end', 'city', 'tags', 'topic', 'format',)
+                  'program', 'organizer', 'partners', 'address', 'price',
+                  'date_start', 'date_end', 'city', 'tags', 'topic', 'format',)
