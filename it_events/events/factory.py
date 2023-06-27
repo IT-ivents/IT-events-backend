@@ -4,6 +4,7 @@ from datetime import timedelta
 import factory
 import pytz
 from faker import Faker
+
 from users.models import User
 
 from .models import City, Event, Format, Tags, Topic
@@ -26,6 +27,7 @@ class EventFactory(factory.django.DjangoModelFactory):
         lambda _: fake_ru.text(max_nb_chars=500))
     url = factory.LazyAttribute(lambda _: fake_ru.url())
     image = factory.django.ImageField(color='gray')
+    image_small = factory.django.ImageField(color='gray')
     program = factory.LazyAttribute(lambda _: fake_ru.text(max_nb_chars=1000))
     organizer = factory.LazyAttribute(lambda _: fake_ru.company())
     partners = factory.LazyAttribute(

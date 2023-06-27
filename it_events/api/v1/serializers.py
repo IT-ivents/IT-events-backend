@@ -1,6 +1,7 @@
 from drf_extra_fields.fields import Base64ImageField
-from events.models import City, Event, Format, Tags, Topic
 from rest_framework import serializers
+
+from events.models import City, Event, Format, Tags, Topic
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -38,21 +39,22 @@ class FormatSerializer(serializers.ModelSerializer):
 class EventReadSerializer(serializers.ModelSerializer):
     city = CitySerializer()
     tags = TagSerializer(many=True)
-    topic = TopicSerializer()
+    topic = TopicSerializer(many=True)
     format = FormatSerializer(many=True)
     # date = serializers.DateTimeField(format='%d-%m-%Y %H:%M')
     # created_at = serializers.DateTimeField(format='%d-%m-%Y %H:%M')
 
     class Meta:
         model = Event
-        fields = ('id', 'title', 'description', 'url', 'image', 'program',
-                  'organizer', 'partners', 'address', 'price', 'date_start',
+        fields = ('id', 'title', 'description', 'url', 'image', 'image_small', 
+                  'program','organizer', 'partners', 'address', 'price', 'date_start',
                   'date_end', 'created_at', 'city', 'tags', 'topic', 'format',)
 
 
 class EventWriteSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     image = Base64ImageField()
+    image_small = Base64ImageField()
     city = serializers.SlugRelatedField(
         slug_field='name', queryset=City.objects.all()
     )
@@ -60,7 +62,7 @@ class EventWriteSerializer(serializers.ModelSerializer):
         slug_field='slug', queryset=Tags.objects.all(), many=True
     )
     topic = serializers.SlugRelatedField(
-        slug_field='slug', queryset=Topic.objects.all()
+        slug_field='slug', queryset=Topic.objects.all(), many=True
     )
     format = serializers.SlugRelatedField(
         slug_field='slug', queryset=Format.objects.all(), many=True
@@ -68,6 +70,6 @@ class EventWriteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'title', 'description', 'url', 'image', 'program',
-                  'organizer', 'partners', 'address', 'price', 'date_start',
+        fields = ('id', 'title', 'description', 'url', 'image', 'image_small'
+                  'program', 'organizer', 'partners', 'address', 'price', 'date_start',
                   'date_end', 'city', 'tags', 'topic', 'format',)
