@@ -38,7 +38,8 @@ class User(AbstractUser):
 
 
 class Organisation(models.Model):
-    manager = models.OneToOneField(User, on_delete=models.CASCADE,
+    manager = models.OneToOneField(User,
+                                   on_delete=models.CASCADE,
                                    verbose_name="Менеджер организации")
     name = models.CharField(max_length=200, db_index=True)
 
