@@ -76,6 +76,6 @@ class EventWriteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'title', 'description', 'url', 'image', 'image_small'
+        fields = ('id', 'title', 'description', 'url', 'image', 'image_small',
                   'program', 'organizer', 'partners', 'address', 'price',
                   'date_start', 'date_end', 'city', 'tags', 'topic', 'format',)

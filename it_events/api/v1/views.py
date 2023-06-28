@@ -48,18 +48,12 @@ class EventsViewSet(ModelViewSet):
 
     @action(detail=False, methods=["get"])
     def popular(self, request):
-        """Маршрутизатор для вывода списка популярных событий"""
-        events = Event.objects.filter(date_start__gte=timezone.now())
-        popular_tags = events.values('tags').annotate(
+        current_datetime = timezone.now()
+        active_events = Event.objects.filter(date_end__gt=current_datetime)
+        sorted_events = active_events.annotate(
             tag_count=Count('tags')).order_by('-tag_count')
-        sorted_tag_ids = [
-            tag['tags'] for tag in popular_tags
-        ]
-        queryset = Event.objects.filter(
-            tags__in=sorted_tag_ids).order_by('-date_start')
-        page = self.paginate_queryset(queryset)
-        serializer = EventReadSerializer(page, many=True)
-        return self.get_paginated_response(serializer.data)
+        serializer = EventWriteSerializer(sorted_events, many=True)
+        return Response(serializer.data)
 
     @action(detail=False, methods=["get"],
             permission_classes=[IsAuthenticated])
