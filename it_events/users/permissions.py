@@ -1,7 +1,7 @@
 from rest_framework import permissions
 
 
-class IsManagerOrReeadOnly(permissions.BasePermission):
+class IsManagerOrReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
         return (
             request.method in permissions.SAFE_METHODS
