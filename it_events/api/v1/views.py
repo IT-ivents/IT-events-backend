@@ -7,9 +7,10 @@ from api.v1.serializers import (CitySerializer, EventReadSerializer,
 from api.v1.utils import search_events
 from django.db.models import Count
 from django.http import FileResponse
+from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
 from events.models import City, Event, Favourite, Tags, Topic
-from rest_framework import status
+from rest_framework import exceptions, status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
@@ -35,7 +36,19 @@ class EventsViewSet(ModelViewSet):
         return EventWriteSerializer
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+        if not self.request.user.is_manager:
+            raise exceptions.PermissionDenied("У вас нет прав.")
+        organization = self.request.user.organization
+        serializer.save(author=self.request.user, organizer=organization)
+
+    @action(detail=False, methods=["get"])
+    def popular(self, request):
+        current_datetime = timezone.now()
+        active_events = Event.objects.filter(date_end__gt=current_datetime)
+        sorted_events = active_events.annotate(
+            tag_count=Count('tags')).order_by('-tag_count')
+        serializer = EventWriteSerializer(sorted_events, many=True)
+        return Response(serializer.data)
 
     @action(detail=False, methods=["get"],
             permission_classes=[IsAuthenticated])

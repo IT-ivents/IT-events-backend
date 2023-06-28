@@ -39,7 +39,7 @@ class TagsAdmin(admin.ModelAdmin):
 
 
 @admin.register(Format)
-class TagsAdmin(admin.ModelAdmin):
+class FormatAdmin(admin.ModelAdmin):
     """
     Админ-панель модели Формат
     """

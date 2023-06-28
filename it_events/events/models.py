@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from users.models import Organisation, User
 
 
 class Event(models.Model):
@@ -7,7 +7,7 @@ class Event(models.Model):
         User, on_delete=models.CASCADE,
         related_name='events', verbose_name='Автор публикации')
     title = models.CharField(
-        "Название мероприятия", max_length=200, db_index=True)
+        "Название мероприятия", max_length=50, db_index=True)
     description = models.TextField(
         "Описание мероприятия", max_length=1000)
     url = models.URLField(
@@ -15,10 +15,14 @@ class Event(models.Model):
     image = models.ImageField(
         verbose_name='Афиша мероприятия', upload_to='events/image',
         help_text='Загрузите фотографию')
+    image_small = models.ImageField(
+        verbose_name='Фотография мероприятия', upload_to='events/image',
+        help_text='Загрузите фотографию', blank=True)
     program = models.TextField(
         "Программа мероприятия", max_length=3000)
-    organizer = models.CharField(
-        "Организатор", max_length=100)
+    organizer = models.ForeignKey(
+        Organisation, on_delete=models.SET_NULL,
+        verbose_name="Организация", blank=True, null=True)
     partners = models.CharField(
         "Партнеры", max_length=200, blank=True)
     address = models.CharField(
@@ -36,8 +40,8 @@ class Event(models.Model):
         verbose_name="Город проведения", blank=True, null=True)
     tags = models.ManyToManyField(
         'Tags', verbose_name="Теги")
-    topic = models.ForeignKey(
-        'Topic', on_delete=models.CASCADE, verbose_name="Направление")
+    topic = models.ManyToManyField(
+        'Topic', verbose_name="Направление")
     format = models.ManyToManyField(
         'Format', verbose_name="Формат")
 
