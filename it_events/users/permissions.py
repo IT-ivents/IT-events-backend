@@ -15,4 +15,3 @@ class IsManagerOrReadOnly(permissions.BasePermission):
             or obj.author == request.user
             or request.user.is_admin
         )
-
