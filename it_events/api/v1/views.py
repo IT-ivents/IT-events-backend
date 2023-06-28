@@ -10,7 +10,7 @@ from django.http import FileResponse
 from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
 from events.models import City, Event, Favourite, Tags, Topic
-from rest_framework import status
+from rest_framework import exceptions, status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
@@ -36,15 +36,25 @@ class EventsViewSet(ModelViewSet):
         return EventWriteSerializer
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+        if not self.request.user.is_manager:
+            raise exceptions.PermissionDenied("У вас нет прав.")
+
+        organization = self.request.user.organization
+
+        event_data = serializer.validated_data
+        event_data['organizer'] = organization
+
+        serializer.save()
 
     @action(detail=False, methods=["get"])
     def popular(self, request):
         """Маршрутизатор для вывода списка популярных событий"""
         events = Event.objects.filter(date_start__gte=timezone.now())
         popular_tags = events.values('tags').annotate(
-            count=Count('tags')).order_by('-count')
-        sorted_tag_ids = [tag['tags'] for tag in popular_tags]
+            tag_count=Count('tags')).order_by('-tag_count')
+        sorted_tag_ids = [
+            tag['tags'] for tag in popular_tags
+        ]
         queryset = Event.objects.filter(
             tags__in=sorted_tag_ids).order_by('-date_start')
         page = self.paginate_queryset(queryset)

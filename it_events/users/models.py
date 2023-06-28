@@ -40,8 +40,12 @@ class User(AbstractUser):
 class Organisation(models.Model):
     manager = models.OneToOneField(User,
                                    on_delete=models.CASCADE,
+                                   related_name="organization",
                                    verbose_name="Менеджер организации")
     name = models.CharField(max_length=200, db_index=True)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = "Организация"

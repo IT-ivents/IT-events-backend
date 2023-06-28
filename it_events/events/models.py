@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from users.models import Organisation, User
 
 
 class Event(models.Model):
@@ -20,8 +20,9 @@ class Event(models.Model):
         help_text='Загрузите фотографию', blank=True)
     program = models.TextField(
         "Программа мероприятия", max_length=3000)
-    organizer = models.CharField(
-        "Организатор", max_length=100)
+    organizer = models.ForeignKey(
+        Organisation, on_delete=models.SET_NULL,
+        verbose_name="Организация", blank=True, null=True)
     partners = models.CharField(
         "Партнеры", max_length=200, blank=True)
     address = models.CharField(

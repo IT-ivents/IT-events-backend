@@ -1,6 +1,8 @@
 from drf_extra_fields.fields import Base64ImageField
 from events.models import City, Event, Format, Tags, Topic
 from rest_framework import serializers
+from users.models import Organisation
+from users.serializers import OrganisationSerializer
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -40,6 +42,7 @@ class EventReadSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True)
     topic = TopicSerializer(many=True)
     format = FormatSerializer(many=True)
+    organizer = OrganisationSerializer()
     # date = serializers.DateTimeField(format='%d-%m-%Y %H:%M')
     # created_at = serializers.DateTimeField(format='%d-%m-%Y %H:%M')
 
@@ -53,6 +56,9 @@ class EventReadSerializer(serializers.ModelSerializer):
 
 class EventWriteSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
+    organizer = serializers.PrimaryKeyRelatedField(
+        queryset=Organisation.objects.all()
+    )
     image = Base64ImageField()
     image_small = Base64ImageField()
     city = serializers.SlugRelatedField(
