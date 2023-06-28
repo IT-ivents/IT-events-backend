@@ -38,13 +38,8 @@ class EventsViewSet(ModelViewSet):
     def perform_create(self, serializer):
         if not self.request.user.is_manager:
             raise exceptions.PermissionDenied("У вас нет прав.")
-
         organization = self.request.user.organization
-
-        event_data = serializer.validated_data
-        event_data['organizer'] = organization
-
-        serializer.save()
+        serializer.save(author=self.request.user, organizer=organization)
 
     @action(detail=False, methods=["get"])
     def popular(self, request):
