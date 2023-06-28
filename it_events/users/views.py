@@ -2,7 +2,7 @@ from djoser.views import UserViewSet as DjoserViewSet
 from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ModelViewSet
 
-from .models import User, Organisation
+from .models import Organisation, User
 from .permissions import IsManagerOrReadOnly
 from .serializers import OrganisationSerializer
 
