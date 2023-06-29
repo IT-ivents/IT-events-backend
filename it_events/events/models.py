@@ -20,7 +20,7 @@ class Event(models.Model):
         help_text='Загрузите фотографию', blank=True)
     program = models.TextField(
         "Программа мероприятия", max_length=3000)
-    organizer = organizer = models.ForeignKey(
+    organizer = models.ForeignKey(
         Organisation, on_delete=models.SET_NULL,
         verbose_name="Организация", blank=True, null=True)
     partners = models.CharField(
