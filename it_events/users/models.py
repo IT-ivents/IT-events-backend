@@ -24,6 +24,10 @@ class User(AbstractUser):
     profile_photo = models.ImageField("Аватар", upload_to="users/avatars/",
                                       help_text="Аватар пользователя",
                                       blank=True)
+    organization = models.CharField(
+        "Организация",
+        help_text="Название организации"
+    )
 
     @property
     def is_admin(self):
