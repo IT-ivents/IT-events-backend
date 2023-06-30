@@ -2,6 +2,8 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from events.models import Event
+
 
 class User(AbstractUser):
     """Кастомная модель пользователя"""
@@ -46,3 +48,20 @@ class Organisation(models.Model):
     class Meta:
         verbose_name = "Организация"
         verbose_name_plural = "Организации"
+
+
+class OwnerEvents(models.Model):
+    owner = models.ForeignKey(User,
+                              on_delete=models.CASCADE,
+                              verbose_name="Организатор")
+    event = models.ForeignKey(Event,
+                              on_delete=models.CASCADE)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['owner', 'event'],
+                                    name='unique_owner_event')
+        ]
+
+    def __str__(self):
+        return f'{self.owner} создал событие {self.event}'
