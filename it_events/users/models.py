@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from events.models import Event
+# from events.models import Event
 
 
 class User(AbstractUser):
@@ -25,7 +25,7 @@ class User(AbstractUser):
                                       blank=True)
     organization = models.CharField(
         "Организация",
-        min_length=2,
+        # min_length=2,
         max_length=100,
         help_text="Название организации"
     )
@@ -55,18 +55,18 @@ class Organisation(models.Model):
         verbose_name_plural = "Организации"
 
 
-class OwnerEvents(models.Model):
-    owner = models.ForeignKey(User,
-                              on_delete=models.CASCADE,
-                              verbose_name="Организатор")
-    event = models.ForeignKey(Event,
-                              on_delete=models.CASCADE)
-
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=['owner', 'event'],
-                                    name='unique_owner_event')
-        ]
-
-    def __str__(self):
-        return f'{self.owner} создал событие {self.event}'
+# class OwnerEvents(models.Model):
+#     author = models.ForeignKey(User,
+#                                on_delete=models.CASCADE,
+#                                verbose_name="Организатор")
+#     event = models.ForeignKey(Event,
+#                               on_delete=models.CASCADE)
+#
+#     class Meta:
+#         constraints = [
+#             models.UniqueConstraint(fields=['owner', 'event'],
+#                                     name='unique_owner_event')
+#         ]
+#
+#     def __str__(self):
+#         return f'{self.owner} создал событие {self.event}'
