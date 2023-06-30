@@ -2,19 +2,19 @@ from djoser.views import UserViewSet as DjoserViewSet
 from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Organisation, User
+from .models import Organization, User
 from .permissions import IsManagerOrReadOnly
-from .serializers import OrganisationSerializer
+from .serializers import OrganizationSerializer
 
 
 class UserViewSet(DjoserViewSet):
     pass
 
 
-class OrganisationViewsSet(ModelViewSet):
+class OrganizationViewsSet(ModelViewSet):
     permission_classes = (IsManagerOrReadOnly,)
-    queryset = Organisation.objects.all()
-    serializer_class = OrganisationSerializer
+    queryset = Organization.objects.all()
+    serializer_class = OrganizationSerializer
     filter_backends = [SearchFilter]
     search_fields = ['name']
 

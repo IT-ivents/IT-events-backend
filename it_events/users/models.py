@@ -25,12 +25,13 @@ class User(AbstractUser):
     profile_photo = models.ImageField("Аватар", upload_to="users/avatars/",
                                       help_text="Аватар пользователя",
                                       blank=True)
-    organization = models.CharField(
-        "organization.Organisation",
-        validators=[MinLengthValidator(2)],
-        max_length=100,
-        help_text="Название организации"
-    )
+    # organization = models.OneToOneField(
+    #     'organization.Organization',
+    #     on_delete=models.CASCADE,
+    #     validators=[MinLengthValidator(2)],
+    #     max_length=100,
+    #     help_text="Название организации"
+    # )
 
     @property
     def is_admin(self):
@@ -46,7 +47,7 @@ class User(AbstractUser):
         verbose_name_plural = "Пользователи"
 
 
-class Organisation(models.Model):
+class Organization(models.Model):
     manager = models.OneToOneField(User,
                                    on_delete=models.CASCADE,
                                    verbose_name="Менеджер организации")
