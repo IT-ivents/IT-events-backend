@@ -26,7 +26,7 @@ class User(AbstractUser):
                                       help_text="Аватар пользователя",
                                       blank=True)
     organization = models.CharField(
-        'Organisation',
+        "organization.Organisation",
         validators=[MinLengthValidator(2)],
         max_length=100,
         help_text="Название организации"
