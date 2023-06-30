@@ -11,7 +11,7 @@ router.register('events', EventsViewSet, basename='events')
 router.register('tags', TagsViewSet, basename='tags')
 router.register('sities', CityViewSet, basename='sities')
 router.register('topics', TopicsViewSet, basename='topics')
-router.register('organisation', OrganizationViewsSet, basename='organisation')
+router.register('organization', OrganizationViewsSet, basename='organisation')
 
 app_name = "v1"
 
