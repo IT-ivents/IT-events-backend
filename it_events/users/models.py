@@ -25,6 +25,8 @@ class User(AbstractUser):
                                       blank=True)
     organization = models.CharField(
         "Организация",
+        min_length=2,
+        max_length=100,
         help_text="Название организации"
     )
 
