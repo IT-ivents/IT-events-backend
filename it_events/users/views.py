@@ -8,7 +8,7 @@ from .permissions import IsManagerOrReadOnly
 from .serializers import OrganisationSerializer, UserCreateSerializer
 
 
-class UserViewSet(ModelViewSet):
+class UserViewSet(DjoserViewSet):
     queryset = User.objects.all()
     serializer_class = UserCreateSerializer
     permission_classes = (IsAdminAuthorOrReadOnly,)
