@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
-from users.models import User, Organisation
+
+User = get_user_model()
 
 
 class Event(models.Model):
@@ -22,7 +24,7 @@ class Event(models.Model):
     program = models.TextField(
         "Программа мероприятия", max_length=3000)
     organizer = models.ForeignKey(
-        Organisation, on_delete=models.SET_NULL,
+        'users.Organisation', on_delete=models.SET_NULL,
         verbose_name="Организация", blank=True, null=True)
     partners = models.CharField(
         "Партнеры", max_length=200, blank=True)
