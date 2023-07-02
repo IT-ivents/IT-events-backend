@@ -1,3 +1,4 @@
+from django.db import transaction
 from drf_extra_fields.fields import Base64ImageField
 from events.models import City, Event, Format, Tags, Topic
 from rest_framework import serializers
@@ -54,7 +55,7 @@ class EventReadSerializer(serializers.ModelSerializer):
                   'topic', 'format',)
 
 
-class EventWriteSerializer(serializers.ModelSerializer):
+class EventWriteUpdateSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     organizer = serializers.PrimaryKeyRelatedField(
         queryset=Organisation.objects.all()
@@ -79,3 +80,21 @@ class EventWriteSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'description', 'url', 'image', 'image_small',
                   'program', 'organizer', 'partners', 'address', 'price',
                   'date_start', 'date_end', 'city', 'tags', 'topic', 'format',)
+
+    @transaction.atomic
+    def create(self, validated_data):
+        user = self.context['request'].user
+        validated_data['organizer'] = user.organisation
+        return super().create(validated_data)
+
+
+class EventDeleteSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only = True)
+
+    def delete(self):
+        event_id = self.validated_data['id']
+        try:
+            event = Event.objects.get(id=event_id)
+        except Event.DoesNotExist:
+            raise serializers.ValidationError("Событие не найдено.")
+        event.delete()

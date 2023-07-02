@@ -17,6 +17,7 @@ app_name = "v1"
 
 urlpatterns = [
     path("", include(router.urls)),
+    path("auth/", include('djoser.urls')),
     path("auth/", include("djoser.urls.authtoken")),
     path('cookies/', cookies_view, name='cookies'),
     path('privacy/', privacy_view, name='privacy'),

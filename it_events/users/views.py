@@ -1,14 +1,19 @@
+from api.v1.permissions import IsAdminAuthorOrReadOnly
 from djoser.views import UserViewSet as DjoserViewSet
+from rest_framework import status
 from rest_framework.filters import SearchFilter
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from .models import Organisation, User
 from .permissions import IsManagerOrReadOnly
-from .serializers import OrganisationSerializer
+from .serializers import OrganisationSerializer, UserCreateSerializer
 
 
-class UserViewSet(DjoserViewSet):
-    pass
+class UserViewSet(ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserCreateSerializer
+    permission_classes = (IsAdminAuthorOrReadOnly,)
 
 
 class OrganisationViewsSet(ModelViewSet):
@@ -21,11 +26,13 @@ class OrganisationViewsSet(ModelViewSet):
     def perform_create(self, serializer):
         user = self.request.user
         user.role = User.MANAGER
-        user.save(update_fields=['role'])
+        user.organization_name = serializer.validated_data['name']
+        user.save(update_fields=['role', 'organization_name'])
         serializer.save(manager=user)
 
     def perform_destroy(self, instance):
         user = self.request.user
         user.role = User.USER
-        user.save(update_fields=['role'])
+        user.organization_name = ""
+        user.save(update_fields=['role', 'organization_name'])
         instance.delete()

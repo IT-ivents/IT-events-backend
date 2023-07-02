@@ -1,8 +1,9 @@
 from api.v1.filters import EventFilterSet
 from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
-from api.v1.serializers import (CitySerializer, EventReadSerializer,
-                                EventWriteSerializer, TagSerializer,
+from api.v1.serializers import (CitySerializer, EventDeleteSerializer,
+                                EventReadSerializer,
+                                EventWriteUpdateSerializer, TagSerializer,
                                 TopicSerializer)
 from api.v1.utils import search_events
 from django.db.models import Count
@@ -21,7 +22,7 @@ from rest_framework.viewsets import ModelViewSet
 
 class EventsViewSet(ModelViewSet):
     permission_classes = (IsAdminAuthorOrReadOnly,)
-    pagination_class = PageLimitPagination
+    # pagination_class = PageLimitPagination
     filter_backends = [DjangoFilterBackend]
     filterset_class = EventFilterSet
     http_method_names = ['get', 'patch', 'delete', 'post']
@@ -31,16 +32,18 @@ class EventsViewSet(ModelViewSet):
         return Event.objects.all() if not query else search_events(query)
 
     def get_serializer_class(self):
-        if self.action in ['list', 'retrieve']:
+        if self.request.method == 'GET':
             return EventReadSerializer
-        return EventWriteSerializer
+        elif self.request.method == 'DELETE':
+            return EventDeleteSerializer
+        return EventWriteUpdateSerializer
 
     def perform_create(self, serializer):
         if not self.request.user.is_manager:
             raise exceptions.PermissionDenied("У вас нет прав.")
         organization = self.request.user.organization
         serializer.save(author=self.request.user, organizer=organization)
-
+        
     @action(detail=False, methods=["get"])
     def popular(self, request):
         current_datetime = timezone.now()
@@ -77,7 +80,6 @@ class EventsViewSet(ModelViewSet):
             return Response(status=status.HTTP_204_NO_CONTENT)
         Favourite.objects.create(user=request.user, event=event)
         return Response(status=status.HTTP_201_CREATED)
-
 
 class TagsViewSet(ModelViewSet):
     serializer_class = TagSerializer

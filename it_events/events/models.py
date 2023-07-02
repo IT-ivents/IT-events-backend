@@ -1,5 +1,6 @@
 from django.db import models
-from users.models import Organisation, User
+
+from users.models import User, Organisation
 
 
 class Event(models.Model):
