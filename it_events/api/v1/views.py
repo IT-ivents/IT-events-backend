@@ -33,7 +33,7 @@ class EventsViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.request.method == 'GET':
             return EventReadSerializer
-        elif self.request.method == 'DELETE':
+        if self.request.method == 'DELETE':
             return EventDeleteSerializer
         return EventWriteUpdateSerializer
 
