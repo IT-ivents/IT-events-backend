@@ -1,5 +1,4 @@
 from api.v1.filters import EventFilterSet
-from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
 from api.v1.serializers import (CitySerializer, EventDeleteSerializer,
                                 EventReadSerializer,
@@ -43,14 +42,14 @@ class EventsViewSet(ModelViewSet):
             raise exceptions.PermissionDenied("У вас нет прав.")
         organization = self.request.user.organization
         serializer.save(author=self.request.user, organizer=organization)
-        
+
     @action(detail=False, methods=["get"])
     def popular(self, request):
         current_datetime = timezone.now()
         active_events = Event.objects.filter(date_end__gt=current_datetime)
         sorted_events = active_events.annotate(
             tag_count=Count('tags')).order_by('-tag_count')
-        serializer = EventWriteSerializer(sorted_events, many=True)
+        serializer = EventWriteUpdateSerializer(sorted_events, many=True)
         return Response(serializer.data)
 
     @action(detail=False, methods=["get"],
@@ -80,6 +79,7 @@ class EventsViewSet(ModelViewSet):
             return Response(status=status.HTTP_204_NO_CONTENT)
         Favourite.objects.create(user=request.user, event=event)
         return Response(status=status.HTTP_201_CREATED)
+
 
 class TagsViewSet(ModelViewSet):
     serializer_class = TagSerializer

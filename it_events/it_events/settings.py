@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'djoser',
     'django.contrib.postgres',
 
-    'users.apps.UsersConfig',
+    'users',
     'events.apps.EventsConfig',
     'api.apps.ApiConfig',
 ]
@@ -153,7 +153,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',),
 }
 
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = 'users.User'
 
 # Djoser
 

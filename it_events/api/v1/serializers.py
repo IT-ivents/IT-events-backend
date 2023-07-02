@@ -89,7 +89,7 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
 
 
 class EventDeleteSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only = True)
+    id = serializers.IntegerField(read_only=True)
 
     def delete(self):
         event_id = self.validated_data['id']

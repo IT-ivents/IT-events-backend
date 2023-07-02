@@ -7,19 +7,21 @@ from users.models import Organisation, User, UserProfile, UserProfileEvent
 class UserCreateSerializer(DjoserUsCreateSerializer):
     """Для регистрации пользователя."""
     organization_name = serializers.CharField()
-       
+
     class Meta:
         model = User
         fields = tuple(User.REQUIRED_FIELDS) + (settings.USER_ID_FIELD,
                                                 'username',
                                                 "password",
                                                 'organization_name')
-        
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     """Для Личного кабинета."""
     class Meta:
         model = UserProfile
-        fields = ('user', 'email', 'profile_photo', 'organization_name', 'name')
+        fields = (
+            'user', 'email', 'profile_photo', 'organization_name', 'name')
         read_only_fields = ('user', 'organization_name')
 
 
@@ -35,9 +37,11 @@ class UserProfileEventSerializer(serializers.ModelSerializer):
         model = UserProfileEvent
         fields = ('id', 'user_profile', 'event')
 
+
 class UserSerializer(serializers.ModelSerializer):
-    """Используется для сериализации и десериализации данных пользователя
-    в разных ситуациях, включая обновление, чтение или вывод списка пользователей.
+    """Используется для сериализации и десериализации
+    данных пользователя в разных ситуациях, включая
+    обновление, чтение или вывод списка пользователей.
     """
     profile = UserProfileSerializer()
 
