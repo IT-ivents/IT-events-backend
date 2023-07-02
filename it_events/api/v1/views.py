@@ -1,15 +1,7 @@
-from api.v1.filters import EventFilterSet
-from api.v1.permissions import IsAdminAuthorOrReadOnly
-from api.v1.serializers import (CitySerializer, EventDeleteSerializer,
-                                EventReadSerializer,
-                                EventWriteUpdateSerializer, TagSerializer,
-                                TopicSerializer)
-from api.v1.utils import search_events
 from django.db.models import Count
 from django.http import FileResponse
 from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
-from events.models import City, Event, Favourite, Tags, Topic
 from rest_framework import exceptions, status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
@@ -17,6 +9,15 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+
+from api.v1.filters import EventFilterSet
+from api.v1.permissions import IsAdminAuthorOrReadOnly
+from api.v1.serializers import (CitySerializer, EventDeleteSerializer,
+                                EventReadSerializer,
+                                EventWriteUpdateSerializer, TagSerializer,
+                                TopicSerializer)
+from api.v1.utils import search_events
+from events.models import City, Event, Favourite, Tags, Topic
 
 
 class EventsViewSet(ModelViewSet):

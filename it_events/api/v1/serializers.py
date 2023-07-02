@@ -1,7 +1,8 @@
 from django.db import transaction
 from drf_extra_fields.fields import Base64ImageField
-from events.models import City, Event, Format, Tags, Topic
 from rest_framework import serializers
+
+from events.models import City, Event, Format, Tags, Topic
 from users.models import Organisation
 from users.serializers import OrganisationSerializer
 
@@ -79,13 +80,39 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
         model = Event
         fields = ('id', 'title', 'description', 'url', 'image', 'image_small',
                   'program', 'organizer', 'partners', 'address', 'price',
-                  'date_start', 'date_end', 'city', 'tags', 'topic', 'format',)
+                  'date_start', 'date_end', 'city', 'tags', 'topic', 'format',
+                  )
 
     @transaction.atomic
     def create(self, validated_data):
-        user = self.context['request'].user
-        validated_data['organizer'] = user.organisation
         return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        instance.title = validated_data.get('title', instance.title)
+        instance.description = validated_data.get('description',
+                                                  instance.description)
+        instance.url = validated_data.get('url', instance.url)
+        instance.image = validated_data.get('image', instance.image)
+        instance.image_small = validated_data.get('image_small',
+                                                  instance.image_small)
+        instance.program = validated_data.get('program', instance.program)
+        instance.partners = validated_data.get('partners', instance.partners)
+        instance.address = validated_data.get('address', instance.address)
+        instance.date_start = validated_data.get('date_start',
+                                                 instance.date_start)
+        instance.date_end = validated_data.get('date_end', instance.date_end)
+        instance.city = validated_data.get('city', instance.city)
+        tags = validated_data.pop('tags')
+        if tags:
+            instance.tags.set(tags)
+        topic = validated_data.pop('topic')
+        if topic:
+            instance.topic.set(topic)
+        format = validated_data.pop('format')
+        if format:
+            instance.format.set(format)
+        instance.save()
+        return instance
 
 
 class EventDeleteSerializer(serializers.Serializer):

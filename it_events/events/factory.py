@@ -4,6 +4,7 @@ from datetime import timedelta
 import factory
 import pytz
 from faker import Faker
+
 from users.models import User
 
 from .models import City, Event, Format, Tags, Topic
