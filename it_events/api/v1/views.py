@@ -9,7 +9,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-
 from api.v1.filters import EventFilterSet
 from api.v1.permissions import IsAdminAuthorOrReadOnly
 from api.v1.serializers import (CitySerializer, EventDeleteSerializer,

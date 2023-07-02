@@ -1,5 +1,4 @@
 from django_filters import rest_framework as filters
-
 from events.models import City, Format, Tags, Topic
 
 

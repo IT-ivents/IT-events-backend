@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.utils.html import format_html
-
 from events.models import City, Event, Format, Tags, Topic
 
 
