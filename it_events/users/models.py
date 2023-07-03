@@ -103,6 +103,7 @@ class UserProfileEvent(models.Model):
 
 
 class Organisation(models.Model):
+    """Организация пользователя."""
     name = models.CharField(max_length=200, db_index=True)
     manager = models.OneToOneField(User,
                                    on_delete=models.CASCADE,
