@@ -8,7 +8,7 @@ class UserCreateSerializer(DjoserUsCreateSerializer):
     """Для регистрации пользователя."""
     organization_name = serializers.CharField()
 
-    class Meta:
+    class Meta(DjoserUsCreateSerializer.Meta):
         model = User
         fields = tuple(User.REQUIRED_FIELDS) + (settings.USER_ID_FIELD,
                                                 'username',
@@ -38,16 +38,17 @@ class UserProfileEventSerializer(serializers.ModelSerializer):
         fields = ('id', 'user_profile', 'event')
 
 
-class UserSerializer(serializers.ModelSerializer):
-    """Используется для сериализации и десериализации
-    данных пользователя в разных ситуациях, включая
-    обновление, чтение или вывод списка пользователей.
-    """
+class UserSerializer(UserCreateSerializer):
+    """Используется для сериализации и десериализации данных пользователя."""
+
     profile = UserProfileSerializer()
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password', 'profile')
+        fields = (
+            'id', 'username', 'email', 'password', 'first_name', 'last_name',
+            'organization_name', 'profile'
+        )
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
