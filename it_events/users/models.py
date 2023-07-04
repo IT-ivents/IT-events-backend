@@ -42,13 +42,15 @@ class User(AbstractUser):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         if self.organization_name:
-            try:
-                organization = Organisation.objects.get(manager=self)
-                organization.name = self.organization_name
-                organization.save()
-            except Organisation.DoesNotExist:
-                organization = Organisation.objects.create(
-                    manager=self, name=self.organization_name)
+            # try:
+            #     organization = Organisation.objects.get(manager=self)
+            #     organization.name = self.organization_name
+            #     organization.save()
+            # except Organisation.DoesNotExist:
+            #     organization = Organisation.objects.create(
+            #         manager=self, name=self.organization_name)
+            Organisation.objects.get_or_create(
+                manager=self, name=self.organization_name)
 
     class Meta:
         ordering = ["-id"]

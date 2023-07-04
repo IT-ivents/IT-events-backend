@@ -5,12 +5,12 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import Organisation, User
 from .permissions import IsManagerOrReadOnly
-from .serializers import OrganisationSerializer, UserCreateSerializer
+from .serializers import OrganisationSerializer, UserSerializer
 
 
 class UserViewSet(DjoserViewSet):
     queryset = User.objects.all()
-    serializer_class = UserCreateSerializer
+    serializer_class = UserSerializer
     permission_classes = (IsAdminAuthorOrReadOnly,)
 
 
