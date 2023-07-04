@@ -10,7 +10,7 @@ from django.http import FileResponse
 from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
 from events.models import City, Event, Favourite, Tags, Topic
-from rest_framework import exceptions, status
+from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
@@ -21,6 +21,7 @@ from rest_framework.viewsets import ModelViewSet
 
 class EventsViewSet(ModelViewSet):
     permission_classes = (IsAdminAuthorOrReadOnly,)
+    serializer_class = EventWriteUpdateSerializer
     # pagination_class = PageLimitPagination
     filter_backends = [DjangoFilterBackend]
     filterset_class = EventFilterSet
@@ -38,8 +39,6 @@ class EventsViewSet(ModelViewSet):
         return EventWriteUpdateSerializer
 
     def perform_create(self, serializer):
-        if not self.request.user.is_manager:
-            raise exceptions.PermissionDenied("У вас нет прав.")
         organization = self.request.user.organization
         serializer.save(author=self.request.user, organizer=organization)
 

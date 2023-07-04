@@ -46,7 +46,7 @@ class OrganisationViewsSet(ModelViewSet):
 
     def perform_create(self, serializer):
         user = self.request.user
-        user.role = User.MANAGER
+        user.role = User.ADMIN
         user.organization_name = serializer.validated_data['name']
         user.save(update_fields=['role', 'organization_name'])
         serializer.save(manager=user)
