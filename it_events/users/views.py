@@ -1,17 +1,40 @@
-from api.v1.permissions import IsAdminAuthorOrReadOnly
-from djoser.views import UserViewSet as DjoserViewSet
+from django.contrib.auth import get_user_model
+from djoser.views import UserViewSet
+from rest_framework import status
+from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Organisation, User
+from .models import Organisation
 from .permissions import IsManagerOrReadOnly
-from .serializers import OrganisationSerializer, UserSerializer
+from .serializers import OrganisationSerializer, UserProfileSerializer
+
+User = get_user_model()
 
 
-class UserViewSet(DjoserViewSet):
+class UserViewSet(UserViewSet):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = (IsAdminAuthorOrReadOnly,)
+
+    @action(detail=False, methods=['patch'])
+    def update_profile(self, request, *args, **kwargs):
+        user = self.request.user
+        profile_data = request.data.get('profile', {})
+        profile_serializer = UserProfileSerializer(
+            user.profile, data=profile_data, partial=True)
+        if profile_serializer.is_valid():
+            profile_serializer.save()
+            return Response(
+                {'message': 'Profile updated'}, status=status.HTTP_200_OK)
+        return Response(
+            profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, methods=['delete'])
+    def delete_profile(self, request, *args, **kwargs):
+        user = self.request.user
+        user.delete()
+        return Response(
+            {'message': 'Profile deleted'}, status=status.HTTP_204_NO_CONTENT)
 
 
 class OrganisationViewsSet(ModelViewSet):

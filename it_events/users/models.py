@@ -81,6 +81,9 @@ class UserProfile(models.Model):
         verbose_name = "Личный кабинет"
         verbose_name_plural = "Личный кабинет"
 
+    def __str__(self):
+        return self.user.username
+
 
 class UserProfileEvent(models.Model):
     """События созданные организатором."""

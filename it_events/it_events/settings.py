@@ -157,11 +157,18 @@ AUTH_USER_MODEL = 'users.User'
 
 # Djoser
 
+
 DJOSER = {
-    "LOGIN_FIELD": 'email',
+    'LOGIN_FIELD': 'email',
+    'HIDE_USERS': False,
     'SERIALIZERS': {
-        'user_create': 'users.serializers.UserSerializer',
-    }
+        'user': 'users.serializers.UserSerializer',
+        'current_user': 'users.serializers.UserSerializer',
+        'user_create': 'users.serializers.CustomUserCreateSerializer',
+    },
+    'PERMISSIONS': {
+        'user': ['rest_framework.permissions.AllowAny'],
+    },
 }
 
 # Константы
