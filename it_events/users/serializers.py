@@ -1,28 +1,48 @@
-from djoser.conf import settings
-from djoser.serializers import UserCreateSerializer as DjoserUsCreateSerializer
+from django.contrib.auth import get_user_model
+from djoser.serializers import UserCreateSerializer, UserSerializer
 from rest_framework import serializers
-from users.models import Organisation, User, UserProfile, UserProfileEvent
+from users.models import Organisation, UserProfile, UserProfileEvent
+
+User = get_user_model()
 
 
-class UserCreateSerializer(DjoserUsCreateSerializer):
-    """Для регистрации пользователя."""
+class UserSerializer(UserSerializer):
     organization_name = serializers.CharField()
 
-    class Meta(DjoserUsCreateSerializer.Meta):
+    class Meta:
         model = User
-        fields = tuple(User.REQUIRED_FIELDS) + (settings.USER_ID_FIELD,
-                                                'username',
-                                                "password",
-                                                'organization_name')
+        fields = (
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'organization_name',
+        )
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
-    """Для Личного кабинета."""
+    """Сериализатор для профиля пользователя."""
+
     class Meta:
         model = UserProfile
-        fields = (
-            'user', 'email', 'profile_photo', 'organization_name', 'name')
+        fields = ('user', 'email', 'profile_photo',
+                  'organization_name', 'name',)
         read_only_fields = ('user', 'organization_name')
+
+
+class CustomUserCreateSerializer(UserCreateSerializer):
+    organization_name = serializers.CharField()
+    profile = UserProfileSerializer()
+
+    class Meta(UserCreateSerializer.Meta):
+        fields = UserCreateSerializer.Meta.fields + ('profile',)
+
+    def create(self, validated_data):
+        profile_data = validated_data.pop('profile')
+        user = super().create(validated_data)
+        UserProfile.objects.create(user=user, **profile_data)
+        return user
 
 
 class OrganisationSerializer(serializers.ModelSerializer):
@@ -36,27 +56,3 @@ class UserProfileEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfileEvent
         fields = ('id', 'user_profile', 'event')
-
-
-class UserSerializer(UserCreateSerializer):
-    """Используется для сериализации и десериализации данных пользователя."""
-
-    profile = UserProfileSerializer()
-
-    class Meta:
-        model = User
-        fields = (
-            'id', 'username', 'email', 'password', 'first_name', 'last_name',
-            'organization_name', 'profile'
-        )
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def create(self, validated_data):
-        profile_data = validated_data.pop('profile')
-        password = validated_data.pop('password')
-        user = User(**validated_data)
-        user.set_password(password)
-        user.save()
-
-        UserProfile.objects.create(user=user, email=user.email, **profile_data)
-        return user
