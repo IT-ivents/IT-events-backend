@@ -1,6 +1,7 @@
 from django.db import transaction
 from drf_extra_fields.fields import Base64ImageField
 from events.models import City, Event, Format, Tags, Topic
+from users.models import Organisation
 from rest_framework import serializers
 
 
@@ -55,20 +56,21 @@ class EventReadSerializer(serializers.ModelSerializer):
 class EventWriteUpdateSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     organizer = serializers.PrimaryKeyRelatedField(
-        read_only=True, default=serializers.CurrentUserDefault())
+        queryset=Organisation.objects.all()
+    )
     image = Base64ImageField()
     image_small = Base64ImageField()
-    city = serializers.PrimaryKeyRelatedField(
-        queryset=City.objects.all()
+    city = serializers.SlugRelatedField(
+        slug_field='name', queryset=City.objects.all()
     )
-    tags = serializers.PrimaryKeyRelatedField(
-        queryset=Tags.objects.all(), many=True
+    tags = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Tags.objects.all(), many=True
     )
-    topic = serializers.PrimaryKeyRelatedField(
-        queryset=Topic.objects.all(), many=True
+    topic = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Topic.objects.all(), many=True
     )
-    format = serializers.PrimaryKeyRelatedField(
-        queryset=Format.objects.all(), many=True
+    format = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Format.objects.all(), many=True
     )
 
     class Meta:
