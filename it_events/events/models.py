@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from users.models import UserProfileEvent, UserProfile
 
 User = get_user_model()
 
@@ -54,11 +55,21 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        created = not self.pk  # Проверяем, является ли объект новым
+        super().save(*args, **kwargs)  # Сохраняем объект
+
+        if created:
+            user_profile = UserProfile.objects.get(user=self.author)
+            UserProfileEvent.objects.create(event=self, user_profile=user_profile)
 
 
 class City(models.Model):
     name = models.CharField(
         'Город проведения', max_length=200, unique=True)
+    slug = models.SlugField(
+        'слаг', max_length=100, unique=True)
 
     class Meta:
         verbose_name = 'Город'

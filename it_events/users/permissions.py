@@ -15,3 +15,16 @@ class IsManagerOrReadOnly(permissions.BasePermission):
             and (obj.manager == request.user
                  or request.user.is_admin)
         )
+
+
+class AdminOrAuthor(permissions.BasePermission):
+    """Разрешение на изменение только для админа и автора.
+    """
+    message = 'У вас недостаточно прав для выполнения данного действия.'
+
+    def has_object_permission(self, request, view, obj):
+        return (
+            request.method in permissions.SAFE_METHODS
+            or (request.user == obj.author)
+            or request.user.is_superuser
+        )

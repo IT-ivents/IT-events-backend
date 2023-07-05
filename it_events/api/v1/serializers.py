@@ -55,22 +55,35 @@ class EventReadSerializer(serializers.ModelSerializer):
 class EventWriteUpdateSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     organizer = serializers.PrimaryKeyRelatedField(
-        read_only=True, default=serializers.CurrentUserDefault())
+        read_only=True, default=serializers.CurrentUserDefault()
+    )
     image = Base64ImageField()
     image_small = Base64ImageField()
-    city = serializers.PrimaryKeyRelatedField(
-        queryset=City.objects.all()
+    city = serializers.SlugRelatedField(
+        slug_field='name', queryset=City.objects.all()
     )
-    tags = serializers.PrimaryKeyRelatedField(
-        queryset=Tags.objects.all(), many=True
+    tags = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Tags.objects.all(), many=True
     )
-    topic = serializers.PrimaryKeyRelatedField(
-        queryset=Topic.objects.all(), many=True
+    topic = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Topic.objects.all()
     )
-    format = serializers.PrimaryKeyRelatedField(
-        queryset=Format.objects.all(), many=True
+    format = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Format.objects.all(), many=True
     )
-
+    # city = serializers.PrimaryKeyRelatedField(
+    #     queryset=City.objects.all()
+    # )
+    # tags = serializers.PrimaryKeyRelatedField(
+    #     queryset=Tags.objects.all(), many=True
+    # )
+    # topic = serializers.PrimaryKeyRelatedField(
+    #     queryset=Topic.objects.all(), many=True
+    # )
+    # format = serializers.PrimaryKeyRelatedField(
+    #     queryset=Format.objects.all(), many=True
+    # )
+    
     class Meta:
         model = Event
         fields = ('id', 'title', 'description', 'url', 'image', 'image_small',

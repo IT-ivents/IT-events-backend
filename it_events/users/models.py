@@ -41,16 +41,7 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        if self.organization_name:
-            # try:
-            #     organization = Organisation.objects.get(manager=self)
-            #     organization.name = self.organization_name
-            #     organization.save()
-            # except Organisation.DoesNotExist:
-            #     organization = Organisation.objects.create(
-            #         manager=self, name=self.organization_name)
-            Organisation.objects.get_or_create(
-                manager=self, name=self.organization_name)
+        Organisation.objects.get_or_create(manager=self, name=self.organization_name)
 
     class Meta:
         ordering = ["-id"]
@@ -61,8 +52,7 @@ class User(AbstractUser):
 class UserProfile(models.Model):
     """Личный кабинет организатора."""
     user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name='profile')
-    email = models.EmailField("Email address", unique=True)
+        User, on_delete=models.CASCADE, related_name='profile', related_query_name='profile')
     profile_photo = models.ImageField("Аватар", upload_to="users/avatars/",
                                       help_text="Аватар пользователя",
                                       blank=True)
@@ -76,6 +66,7 @@ class UserProfile(models.Model):
         verbose_name='ФИО',
         blank=True
     )
+    email = models.EmailField("email address", unique=True)
 
     class Meta:
         verbose_name = "Личный кабинет"

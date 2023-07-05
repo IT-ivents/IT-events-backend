@@ -4,6 +4,7 @@ from api.v1.serializers import (CitySerializer, EventDeleteSerializer,
                                 EventReadSerializer,
                                 EventWriteUpdateSerializer, TagSerializer,
                                 TopicSerializer)
+from users.models import UserProfileEvent
 from api.v1.utils import search_events
 from django.db.models import Count
 from django.http import FileResponse
@@ -40,7 +41,8 @@ class EventsViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         organization = self.request.user.organization
-        serializer.save(author=self.request.user, organizer=organization)
+        event = serializer.save(author=self.request.user, organizer=organization)
+        
 
     @action(detail=False, methods=["get"])
     def popular(self, request):

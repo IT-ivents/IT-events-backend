@@ -8,7 +8,8 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import Organisation
 from .permissions import IsManagerOrReadOnly
-from .serializers import OrganisationSerializer, UserProfileSerializer
+from .serializers import (OrganisationSerializer,
+                          UserProfileSerializer)
 
 User = get_user_model()
 
