@@ -1,8 +1,8 @@
 from django.db import transaction
 from drf_extra_fields.fields import Base64ImageField
+from rest_framework import serializers
 from events.models import City, Event, Format, Tags, Topic
 from users.models import Organisation
-from rest_framework import serializers
 
 
 class TagSerializer(serializers.ModelSerializer):
