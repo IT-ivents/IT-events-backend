@@ -39,11 +39,6 @@ class User(AbstractUser):
         if not self.organization_name:
             raise ValidationError({'Организация является обязательным полем.'})
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        Organisation.objects.get_or_create(
-            manager=self, name=self.organization_name)
-
     class Meta:
         ordering = ["-id"]
         verbose_name = "Пользователь"
