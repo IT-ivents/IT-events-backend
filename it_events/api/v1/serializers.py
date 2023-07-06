@@ -1,8 +1,11 @@
+from django.contrib.auth import get_user_model
 from django.db import transaction
 from drf_extra_fields.fields import Base64ImageField
 from events.models import City, Event, Format, Tags, Topic
 from rest_framework import serializers
 from users.models import Organisation
+
+User = get_user_model()
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -41,8 +44,6 @@ class EventReadSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True)
     topic = TopicSerializer(many=True)
     format = FormatSerializer(many=True)
-    # date = serializers.DateTimeField(format='%d-%m-%Y %H:%M')
-    # created_at = serializers.DateTimeField(format='%d-%m-%Y %H:%M')
 
     class Meta:
         model = Event
@@ -54,8 +55,9 @@ class EventReadSerializer(serializers.ModelSerializer):
 
 class EventWriteUpdateSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
-    organizer = serializers.PrimaryKeyRelatedField(
-        queryset=Organisation.objects.all()
+    author = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(),
+        default=serializers.CurrentUserDefault()
     )
     image = Base64ImageField()
     image_small = Base64ImageField()
@@ -73,11 +75,19 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
         model = Event
         fields = ('id', 'title', 'description', 'url', 'image', 'image_small',
                   'program', 'organizer', 'partners', 'address', 'price',
-                  'date_start', 'date_end', 'city', 'tags', 'topic', 'format',
-                  )
+                  'author', 'date_start', 'date_end', 'city', 'tags', 'topic',
+                  'format',)
+        read_only_fields = ('organizer',)
 
-    @transaction.atomic
     def create(self, validated_data):
+        author = self.context['request'].user
+        try:
+            organizer = Organisation.objects.get(manager=author)
+        except Organisation.DoesNotExist:
+            raise serializers.ValidationError(
+                "Организация автора события не найдена")
+        validated_data['organizer'] = organizer
+
         return super().create(validated_data)
 
     @transaction.atomic

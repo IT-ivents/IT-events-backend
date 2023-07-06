@@ -23,8 +23,8 @@ class Event(models.Model):
     program = models.TextField(
         "Программа мероприятия", max_length=3000)
     organizer = models.ForeignKey(
-        'users.Organisation', on_delete=models.SET_NULL,
-        verbose_name="Организация", blank=True, null=True)
+        'users.Organisation', on_delete=models.CASCADE,
+        verbose_name="Организация", blank=True, null=True, editable=False)
     partners = models.CharField(
         "Партнеры", max_length=200, blank=True)
     address = models.CharField(

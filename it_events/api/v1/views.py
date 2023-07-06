@@ -17,6 +17,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from users.models import Organisation
 
 
 class EventsViewSet(ModelViewSet):
@@ -39,8 +40,12 @@ class EventsViewSet(ModelViewSet):
         return EventWriteUpdateSerializer
 
     def perform_create(self, serializer):
-        organization = self.request.user.organization
-        serializer.save(author=self.request.user, organizer=organization)
+        author = self.request.user
+        try:
+            organizer = Organisation.objects.get(manager=author)
+        except Organisation.DoesNotExist:
+            raise Exception("Организация автора события не найдена")
+        serializer.save(organizer=organizer)
 
     @action(detail=False, methods=["get"])
     def popular(self, request):
