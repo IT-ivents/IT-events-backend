@@ -78,7 +78,6 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
                   'author', 'date_start', 'date_end', 'city', 'tags', 'topic',
                   'format',)
         read_only_fields = ('organizer',)
-        
 
     def create(self, validated_data):
         author = self.context['request'].user
