@@ -37,9 +37,8 @@ class Event(models.Model):
         "Дата и время окончания")
     created_at = models.DateTimeField(
         "Дата создания записи", auto_now_add=True)
-    city = models.ForeignKey(
-        'City', on_delete=models.SET_NULL,
-        verbose_name="Город проведения", blank=True, null=True)
+    city = models.CharField(
+        "Город проведения", max_length=50, blank=True)
     tags = models.ManyToManyField(
         'Tags', verbose_name="Теги")
     topic = models.ManyToManyField(
