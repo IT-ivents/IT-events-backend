@@ -60,17 +60,17 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
     )
     image = Base64ImageField()
     image_small = Base64ImageField()
-    city = serializers.SlugRelatedField(
-        slug_field='name', queryset=City.objects.all()
+    city = serializers.PrimaryKeyRelatedField(
+        queryset=City.objects.all()
     )
-    tags = serializers.SlugRelatedField(
-        slug_field='slug', queryset=Tags.objects.all(), many=True
+    tags = serializers.PrimaryKeyRelatedField(
+        queryset=Tags.objects.all(), many=True
     )
-    topic = serializers.SlugRelatedField(
-        slug_field='slug', queryset=Topic.objects.all(), many=True
+    topic = serializers.PrimaryKeyRelatedField(
+        queryset=Topic.objects.all(), many=True
     )
-    format = serializers.SlugRelatedField(
-        slug_field='slug', queryset=Format.objects.all(), many=True
+    format = serializers.PrimaryKeyRelatedField(
+        queryset=Format.objects.all(), many=True
     )
 
     class Meta:
