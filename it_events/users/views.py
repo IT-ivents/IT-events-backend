@@ -8,7 +8,8 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import Organisation
 from .permissions import IsManagerOrReadOnly
-from .serializers import OrganisationSerializer, UserProfileSerializer, UserSerializer, CustomUserCreateSerializer
+from .serializers import (OrganisationSerializer, UserProfileSerializer,
+                          UserSerializer)
 
 User = get_user_model()
 
@@ -16,11 +17,12 @@ User = get_user_model()
 class UserViewSet(UserViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    
+
+
 class UserProfileViewSet(UserViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    
+
     @action(detail=True, methods=['get'], url_path='profile')
     def get_profile(self, request, id=None):
         user = self.get_object()
@@ -32,7 +34,8 @@ class UserProfileViewSet(UserViewSet):
     def update_profile(self, request, id=None):
         user = self.get_object()
         profile = user.profile
-        serializer = UserProfileSerializer(profile, data=request.data, partial=True)
+        serializer = UserProfileSerializer(
+            profile, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -42,7 +45,8 @@ class UserProfileViewSet(UserViewSet):
     def delete_profile(self, request, id=None):
         user = self.get_object()
         user.profile.delete()
-        return Response({'message': 'Профиль удален'}, status=status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'Профиль удален'},
+                        status=status.HTTP_204_NO_CONTENT)
 
 
 class OrganisationViewsSet(ModelViewSet):
