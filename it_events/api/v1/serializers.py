@@ -38,7 +38,6 @@ class FormatSerializer(serializers.ModelSerializer):
 
 
 class EventReadSerializer(serializers.ModelSerializer):
-    city = CitySerializer()
     tags = TagSerializer(many=True)
     topic = TopicSerializer(many=True)
     format = FormatSerializer(many=True)
@@ -60,9 +59,6 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
     )
     image = Base64ImageField()
     image_small = Base64ImageField()
-    city = serializers.PrimaryKeyRelatedField(
-        queryset=City.objects.all()
-    )
     tags = serializers.PrimaryKeyRelatedField(
         queryset=Tags.objects.all(), many=True
     )
