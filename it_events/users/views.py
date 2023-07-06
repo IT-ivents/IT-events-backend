@@ -8,33 +8,45 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import Organisation
 from .permissions import IsManagerOrReadOnly
-from .serializers import OrganisationSerializer, UserProfileSerializer
+from .serializers import (OrganisationSerializer, UserProfileSerializer,
+                          UserSerializer)
 
 User = get_user_model()
 
 
 class UserViewSet(UserViewSet):
     queryset = User.objects.all()
+    serializer_class = UserSerializer
 
-    @action(detail=False, methods=['patch'])
-    def update_profile(self, request, *args, **kwargs):
-        user = self.request.user
-        profile_data = request.data.get('profile', {})
-        profile_serializer = UserProfileSerializer(
-            user.profile, data=profile_data, partial=True)
-        if profile_serializer.is_valid():
-            profile_serializer.save()
-            return Response(
-                {'message': 'Profile updated'}, status=status.HTTP_200_OK)
-        return Response(
-            profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=False, methods=['delete'])
-    def delete_profile(self, request, *args, **kwargs):
-        user = self.request.user
-        user.delete()
-        return Response(
-            {'message': 'Profile deleted'}, status=status.HTTP_204_NO_CONTENT)
+class UserProfileViewSet(UserViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    @action(detail=True, methods=['get'], url_path='profile')
+    def get_profile(self, request, id=None):
+        user = self.get_object()
+        profile = user.profile
+        serializer = UserProfileSerializer(profile)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['patch'], url_path='profile')
+    def update_profile(self, request, id=None):
+        user = self.get_object()
+        profile = user.profile
+        serializer = UserProfileSerializer(
+            profile, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=True, methods=['delete'], url_path='profile')
+    def delete_profile(self, request, id=None):
+        user = self.get_object()
+        user.profile.delete()
+        return Response({'message': 'Профиль удален'},
+                        status=status.HTTP_204_NO_CONTENT)
 
 
 class OrganisationViewsSet(ModelViewSet):
