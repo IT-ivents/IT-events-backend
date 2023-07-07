@@ -122,8 +122,9 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
         formats_val = data.get('format')
         offline = 'offline'
         for formats in formats_val:
-            if offline == str(formats) and (data.get('city') is None or
-                                            data.get('address') is None):
+            if offline == str(formats) and (
+                    data.get('city') is None or data.get('address') is None
+            ):
                 raise serializers.ValidationError(
                     'Добавьте город и адрес.'
                 )
