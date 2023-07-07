@@ -21,10 +21,16 @@ class User(AbstractUser):
         blank=True
     )
     email = models.EmailField("email address", unique=True)
+    username = models.CharField(
+        max_length=150,
+        unique=False,
+    )
     role = models.CharField(
         max_length=settings.USER_ROLE_NAME_LENGTH,
         choices=role_choices, default=USER
     )
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
     @property
     def is_admin(self):

@@ -14,8 +14,6 @@ class UserSerializer(UserSerializer):
         fields = (
             'id',
             'username',
-            'first_name',
-            'last_name',
             'email',
             'organization_name',
         )
@@ -36,18 +34,19 @@ class CustomUserCreateSerializer(UserCreateSerializer):
     organization_name = serializers.CharField(required=True)
 
     class Meta(UserCreateSerializer.Meta):
-        fields = ('username', 'password', 'email',
-                  'first_name', 'last_name', 'organization_name',)
+        fields = ('username', 'password', 'email', 'organization_name',)
 
     def create(self, validated_data):
         organization_name = validated_data.pop('organization_name')
         user = super().create(validated_data)
+        user.organization_name = organization_name
+        user.save()
         Organisation.objects.create(name=organization_name, manager=user)
         profile_data = {
             'user': user,
+            'name': user.username,
             'email': user.email,
             'organization_name': organization_name,
-            'name': f"{user.first_name} {user.last_name}"
         }
         UserProfile.objects.create(**profile_data)
         user.profile.organization_name = organization_name
