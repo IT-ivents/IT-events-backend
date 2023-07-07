@@ -28,7 +28,7 @@ class EventsViewSet(ModelViewSet):
 
     def get_queryset(self):
         query = self.request.query_params.get('search', '')
-        return Event.objects.all() if not query else search_events(query)
+        return Event.objects.filter(user=self.request.user) if not query else search_events(query)
 
     def get_serializer_class(self):
         if self.action in ['list', 'retrieve']:
@@ -77,6 +77,11 @@ class EventsViewSet(ModelViewSet):
             return Response(status=status.HTTP_204_NO_CONTENT)
         Favourite.objects.create(user=request.user, event=event)
         return Response(status=status.HTTP_201_CREATED)
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 class TagsViewSet(ModelViewSet):
