@@ -130,8 +130,6 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(
                     'Добавьте город и адрес.'
                 )
-            print(str(formats).lower().translate(str.maketrans('', '',
-                                                               string.punctuation)))
         return data
 
 
