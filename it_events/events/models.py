@@ -13,7 +13,7 @@ class Event(models.Model):
     description = models.TextField(
         "Описание мероприятия", max_length=1000)
     url = models.URLField(
-        "Сайт мероприятия", max_length=200, unique=True)
+        "Сайт мероприятия", max_length=200, blank=True)
     image = models.ImageField(
         verbose_name='Афиша мероприятия', upload_to='events/image',
         help_text='Загрузите фотографию')
