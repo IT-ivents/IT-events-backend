@@ -118,6 +118,17 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
+    def validate(self, data):
+        formats_val = data.get('format')
+        offline = 'offline'
+        for formats in formats_val:
+            if offline == str(formats) and (data.get('city') is None or
+                                            data.get('address') is None):
+                raise serializers.ValidationError(
+                    'Обязателен город и адрес'
+                )
+        return data
+
 
 class EventDeleteSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
