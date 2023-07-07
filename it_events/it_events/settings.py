@@ -160,6 +160,8 @@ AUTH_USER_MODEL = 'users.User'
 
 DJOSER = {
     'LOGIN_FIELD': 'email',
+    # 'USERNAME_FIELD': 'email',
+    # 'REQUIRED_FIELDS': [], 
     'HIDE_USERS': False,
     'SERIALIZERS': {
         'user': 'users.serializers.UserSerializer',

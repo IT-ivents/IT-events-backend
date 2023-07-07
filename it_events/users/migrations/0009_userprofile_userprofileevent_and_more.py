@@ -12,37 +12,37 @@ class Migration(migrations.Migration):
         ('users', '0008_remove_user_profile_photo_organisation_manager'),
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='UserProfile',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(max_length=254, unique=True, verbose_name='Email address')),
-                ('profile_photo', models.ImageField(blank=True, help_text='Аватар пользователя', upload_to='users/avatars/', verbose_name='Аватар')),
-                ('organization_name', models.CharField(blank=True, max_length=100, verbose_name='Организация')),
-                ('name', models.CharField(blank=True, max_length=100, verbose_name='ФИО')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='profile', to=settings.AUTH_USER_MODEL)),
-            ],
-            options={
-                'verbose_name': 'Личный кабинет',
-                'verbose_name_plural': 'Личный кабинет',
-            },
-        ),
-        migrations.CreateModel(
-            name='UserProfileEvent',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('event', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='participants', to='events.event')),
-                ('user_profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='events', to='users.userprofile')),
-            ],
-            options={
-                'verbose_name': 'Список событий организатора',
-                'verbose_name_plural': 'Список событий организатора',
-                'ordering': ('-id',),
-            },
-        ),
-        migrations.AddConstraint(
-            model_name='userprofileevent',
-            constraint=models.UniqueConstraint(fields=('user_profile', 'event'), name='unique_user_event'),
-        ),
-    ]
+    # operations = [
+    #     migrations.CreateModel(
+    #         name='UserProfile',
+    #         fields=[
+    #             ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+    #             ('email', models.EmailField(max_length=254, unique=True, verbose_name='Email address')),
+    #             ('profile_photo', models.ImageField(blank=True, help_text='Аватар пользователя', upload_to='users/avatars/', verbose_name='Аватар')),
+    #             ('organization_name', models.CharField(blank=True, max_length=100, verbose_name='Организация')),
+    #             ('name', models.CharField(blank=True, max_length=100, verbose_name='ФИО')),
+    #             ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='profile', to=settings.AUTH_USER_MODEL)),
+    #         ],
+    #         options={
+    #             'verbose_name': 'Личный кабинет',
+    #             'verbose_name_plural': 'Личный кабинет',
+    #         },
+    #     ),
+    #     migrations.CreateModel(
+    #         name='UserProfileEvent',
+    #         fields=[
+    #             ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+    #             ('event', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='participants', to='events.event')),
+    #             ('user_profile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='events', to='users.userprofile')),
+    #         ],
+    #         options={
+    #             'verbose_name': 'Список событий организатора',
+    #             'verbose_name_plural': 'Список событий организатора',
+    #             'ordering': ('-id',),
+    #         },
+    #     ),
+    #     migrations.AddConstraint(
+    #         model_name='userprofileevent',
+    #         constraint=models.UniqueConstraint(fields=('user_profile', 'event'), name='unique_user_event'),
+    #     ),
+    # ]

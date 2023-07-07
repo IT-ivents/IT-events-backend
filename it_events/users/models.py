@@ -21,10 +21,17 @@ class User(AbstractUser):
         blank=True
     )
     email = models.EmailField("email address", unique=True)
+    username = models.CharField(
+        max_length=150,
+        unique=False,
+    )
     role = models.CharField(
         max_length=settings.USER_ROLE_NAME_LENGTH,
         choices=role_choices, default=USER
     )
+    
+    USERNAME_FIELD = 'email' 
+    REQUIRED_FIELDS = [] 
 
     @property
     def is_admin(self):
@@ -45,42 +52,42 @@ class User(AbstractUser):
         verbose_name_plural = "Пользователи"
 
 
-class UserProfile(models.Model):
-    """Личный кабинет организатора."""
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name='profile')
-    email = models.EmailField("Email address", unique=True)
-    profile_photo = models.ImageField("Аватар", upload_to="users/avatars/",
-                                      help_text="Аватар пользователя",
-                                      blank=True)
-    organization_name = models.CharField(
-        max_length=100,
-        verbose_name='Организация',
-        blank=True
-    )
-    name = models.CharField(
-        max_length=100,
-        verbose_name='ФИО',
-        blank=True
-    )
+# class UserProfile(models.Model):
+#     """Личный кабинет организатора."""
+#     user = models.OneToOneField(
+#         User, on_delete=models.CASCADE, related_name='profile')
+#     email = models.EmailField("Email address", unique=True)
+#     profile_photo = models.ImageField("Аватар", upload_to="users/avatars/",
+#                                       help_text="Аватар пользователя",
+#                                       blank=True)
+#     organization_name = models.CharField(
+#         max_length=100,
+#         verbose_name='Организация',
+#         blank=True
+#     )
+#     name = models.CharField(
+#         max_length=100,
+#         verbose_name='ФИО',
+#         blank=True
+#     )
 
-    class Meta:
-        verbose_name = "Личный кабинет"
-        verbose_name_plural = "Личный кабинет"
+#     class Meta:
+#         verbose_name = "Личный кабинет"
+#         verbose_name_plural = "Личный кабинет"
 
-    def __str__(self):
-        return self.user.username
+#     def __str__(self):
+#         return self.user.username
 
 
-class UserProfileEvent(models.Model):
+class UserEvent(models.Model):
     """События созданные организатором."""
-    user_profile = models.ForeignKey(
-        UserProfile, on_delete=models.CASCADE, related_name='events')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_events')
     event = models.ForeignKey(
-        'events.Event', on_delete=models.CASCADE, related_name='participants')
+        'events.Event', on_delete=models.CASCADE, related_name='event_users')
 
     def __str__(self):
-        return f'{self.user_profile.user.username} - {self.event.title}'
+        return f'{self.user.user.username} - {self.event.title}'
 
     class Meta:
         ordering = ('-id', )
@@ -88,7 +95,7 @@ class UserProfileEvent(models.Model):
         verbose_name_plural = 'Список событий организатора'
         constraints = [
             models.UniqueConstraint(
-                fields=['user_profile', 'event'],
+                fields=['user', 'event'],
                 name='unique_user_event'
             )
         ]
