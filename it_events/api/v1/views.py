@@ -28,7 +28,8 @@ class EventsViewSet(ModelViewSet):
 
     def get_queryset(self):
         query = self.request.query_params.get('search', '')
-        return Event.objects.filter(user=self.request.user) if not query else search_events(query)
+        return Event.objects.filter(user=self.request.user
+                                    ) if not query else search_events(query)
 
     def get_serializer_class(self):
         if self.action in ['list', 'retrieve']:
