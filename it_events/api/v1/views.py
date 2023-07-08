@@ -3,7 +3,7 @@ from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
 from api.v1.serializers import (CitySerializer, EventReadSerializer,
                                 EventWriteSerializer, TagSerializer,
-                                TopicSerializer)
+                                TopicSerializer, UsersEventsSerializer)
 from api.v1.utils import search_events
 from django.db.models import Count
 from django.http import FileResponse
@@ -104,6 +104,16 @@ class TopicsViewSet(ModelViewSet):
     http_method_names = ['get']
     filter_backends = [SearchFilter]
     search_fields = ['name']
+
+
+class UsersEventsViewSet(ModelViewSet):
+    serializer_class = UsersEventsSerializer
+    # serializer_class = EventReadSerializer
+    http_method_names = ['get']
+
+    def get_queryset(self):
+        user = self.request.user
+        return Event.objects.filter(author=user)
 
 
 def cookies_view(request):

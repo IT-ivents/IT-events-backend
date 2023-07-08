@@ -79,3 +79,20 @@ class EventWriteSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'description', 'url', 'image', 'image_small',
                   'program', 'organizer', 'partners', 'address', 'price',
                   'date_start', 'date_end', 'city', 'tags', 'topic', 'format',)
+
+
+class UsersEventsSerializer(serializers.ModelSerializer):
+    city = CitySerializer()
+    tags = TagSerializer(many=True)
+    topic = TopicSerializer(many=True)
+    format = FormatSerializer(many=True)
+    organizer = OrganisationSerializer()
+
+    class Meta:
+        model = Event
+        fields = (
+            'id', 'title', 'description', 'url', 'image', 'image_small',
+            'program', 'organizer', 'partners', 'address', 'price',
+            'date_start', 'date_end', 'created_at', 'city', 'tags', 'topic',
+            'format',
+        )
