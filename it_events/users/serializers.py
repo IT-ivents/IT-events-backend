@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from djoser.serializers import UserCreateSerializer, UserSerializer
 from rest_framework import serializers
-from users.models import Organisation, UserProfile, UserProfileEvent
+from users.models import Organisation, UserProfile
 
 User = get_user_model()
 
@@ -59,9 +59,3 @@ class OrganisationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organisation
         fields = ('id', 'manager', 'name')
-
-
-class UserProfileEventSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserProfileEvent
-        fields = ('id', 'user_profile', 'event')

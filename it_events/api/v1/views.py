@@ -30,8 +30,7 @@ class EventsViewSet(ModelViewSet):
 
     def get_queryset(self):
         query = self.request.query_params.get('search', '')
-        return Event.objects.filter(user=self.request.user
-                                    ) if not query else search_events(query)
+        return Event.objects.all() if not query else search_events(query)
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
@@ -89,6 +88,17 @@ class EventsViewSet(ModelViewSet):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class UsersEventsViewSet(ModelViewSet):
+    permission_classes = (IsAdminAuthorOrReadOnly,)
+    serializer_class = EventReadSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = EventFilterSet
+    http_method_names = ['get',]
+
+    def get_queryset(self):
+        return self.request.user.events.all()
 
 
 class TagsViewSet(ModelViewSet):
