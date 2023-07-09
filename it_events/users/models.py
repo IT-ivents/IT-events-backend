@@ -78,28 +78,6 @@ class UserProfile(models.Model):
         return self.user.username
 
 
-class UserProfileEvent(models.Model):
-    """События созданные организатором."""
-    user_profile = models.ForeignKey(
-        UserProfile, on_delete=models.CASCADE, related_name='events')
-    event = models.ForeignKey(
-        'events.Event', on_delete=models.CASCADE, related_name='participants')
-
-    def __str__(self):
-        return f'{self.user_profile.user.username} - {self.event.title}'
-
-    class Meta:
-        ordering = ('-id', )
-        verbose_name = 'Список событий организатора'
-        verbose_name_plural = 'Список событий организатора'
-        constraints = [
-            models.UniqueConstraint(
-                fields=['user_profile', 'event'],
-                name='unique_user_event'
-            )
-        ]
-
-
 class Organisation(models.Model):
     """Организация пользователя."""
     name = models.CharField(max_length=200, db_index=True)
