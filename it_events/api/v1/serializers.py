@@ -4,6 +4,7 @@ from drf_extra_fields.fields import Base64ImageField
 from events.models import City, Event, Format, Tags, Topic
 from rest_framework import serializers
 from users.models import Organisation
+from users.serializers import OrganisationSerializer
 
 User = get_user_model()
 
@@ -44,6 +45,7 @@ class EventReadSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True)
     topic = TopicSerializer(many=True)
     format = FormatSerializer(many=True)
+    organizer = OrganisationSerializer()
 
     class Meta:
         model = Event
