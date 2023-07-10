@@ -23,7 +23,5 @@ class EventFilterSet(filters.FilterSet):
         field_name='topic__slug',
         to_field_name='slug',
         queryset=Topic.objects.all())
-    # city = filters.ModelMultipleChoiceFilter(
-    #     field_name='city__name',
-    #     to_field_name='name',
-    #     queryset=City.objects.all())
+    city = filters.AllValuesMultipleFilter(
+        field_name='city')
