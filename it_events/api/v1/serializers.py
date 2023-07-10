@@ -100,6 +100,7 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
         instance.image_small = validated_data.get('image_small',
                                                   instance.image_small)
         instance.program = validated_data.get('program', instance.program)
+        instance.price = validated_data.get('price', instance.price)
         instance.partners = validated_data.get('partners', instance.partners)
         instance.address = validated_data.get('address', instance.address)
         instance.date_start = validated_data.get('date_start',
