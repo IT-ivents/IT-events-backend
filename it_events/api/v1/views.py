@@ -105,6 +105,18 @@ class UsersEventsViewSet(ModelViewSet):
             return EventDeleteSerializer
         return EventWriteUpdateSerializer
 
+    @action(detail=False, methods=['delete'])
+    def batch_delete(self, request, *args, **kwargs):
+        event_ids = request.data.get('event_ids', [])
+        events = Event.objects.filter(id__in=event_ids)
+        events.delete()
+        remaining_events = self.get_queryset()
+        serializer = EventReadSerializer(remaining_events, many=True)
+        response_data = {
+            'remaining_events': serializer.data
+        }
+        return Response(response_data, status=status.HTTP_200_OK)
+
 
 class TagsViewSet(ModelViewSet):
     serializer_class = TagSerializer
