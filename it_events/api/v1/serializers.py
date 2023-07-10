@@ -141,11 +141,3 @@ class EventDeleteSerializer(serializers.Serializer):
         except Event.DoesNotExist:
             raise serializers.ValidationError("Событие не найдено.")
         event.delete()
-
-# class EventDeleteSerializer(serializers.Serializer):
-#     ids = serializers.ListField(child=serializers.IntegerField())
-
-#     def delete(self):
-#         event_ids = self.validated_data['ids']
-#         events = Event.objects.filter(id__in=event_ids)
-#         events.delete()

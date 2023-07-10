@@ -104,14 +104,6 @@ class UsersEventsViewSet(ModelViewSet):
         if self.request.method == 'DELETE':
             return EventDeleteSerializer
         return EventWriteUpdateSerializer
-    
-    def destroy(self, request, *args, **kwargs):
-        # Логика удаления событий
-        event_ids = request.data.get('event_ids', [])
-        events = Event.objects.filter(id__in=event_ids)
-        events.delete()
-        
-        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class TagsViewSet(ModelViewSet):
