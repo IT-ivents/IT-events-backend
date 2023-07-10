@@ -93,7 +93,7 @@ class UsersEventsViewSet(ModelViewSet):
     serializer_class = EventWriteUpdateSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = EventFilterSet
-    http_method_names = ['get', 'patch', 'delete',]
+    http_method_names = ['get', 'patch', 'delete']
 
     def get_queryset(self):
         return self.request.user.events.all()
@@ -104,6 +104,14 @@ class UsersEventsViewSet(ModelViewSet):
         if self.request.method == 'DELETE':
             return EventDeleteSerializer
         return EventWriteUpdateSerializer
+    
+    def destroy(self, request, *args, **kwargs):
+        # Логика удаления событий
+        event_ids = request.data.get('event_ids', [])
+        events = Event.objects.filter(id__in=event_ids)
+        events.delete()
+        
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class TagsViewSet(ModelViewSet):

@@ -100,6 +100,7 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
         instance.image_small = validated_data.get('image_small',
                                                   instance.image_small)
         instance.program = validated_data.get('program', instance.program)
+        instance.price = validated_data.get('price', instance.price)
         instance.partners = validated_data.get('partners', instance.partners)
         instance.address = validated_data.get('address', instance.address)
         instance.date_start = validated_data.get('date_start',
@@ -140,3 +141,11 @@ class EventDeleteSerializer(serializers.Serializer):
         except Event.DoesNotExist:
             raise serializers.ValidationError("Событие не найдено.")
         event.delete()
+
+# class EventDeleteSerializer(serializers.Serializer):
+#     ids = serializers.ListField(child=serializers.IntegerField())
+
+#     def delete(self):
+#         event_ids = self.validated_data['ids']
+#         events = Event.objects.filter(id__in=event_ids)
+#         events.delete()
