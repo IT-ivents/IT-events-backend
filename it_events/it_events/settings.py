@@ -172,6 +172,15 @@ DJOSER = {
     },
 }
 
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 6,
+        }
+    },
+]
+
 # Константы
 USER_ROLE_NAME_LENGTH = 10
 PAGE_SIZE = 100

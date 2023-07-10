@@ -26,7 +26,7 @@ class EventsViewSet(ModelViewSet):
     # pagination_class = PageLimitPagination
     filter_backends = [DjangoFilterBackend]
     filterset_class = EventFilterSet
-    http_method_names = ['get', 'patch', 'delete', 'post']
+    http_method_names = ['get', 'post']
 
     def get_queryset(self):
         query = self.request.query_params.get('search', '')
@@ -35,8 +35,6 @@ class EventsViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.request.method == 'GET':
             return EventReadSerializer
-        if self.request.method == 'DELETE':
-            return EventDeleteSerializer
         return EventWriteUpdateSerializer
 
     def perform_create(self, serializer):
@@ -92,13 +90,20 @@ class EventsViewSet(ModelViewSet):
 
 class UsersEventsViewSet(ModelViewSet):
     permission_classes = (IsAdminAuthorOrReadOnly,)
-    serializer_class = EventReadSerializer
+    serializer_class = EventWriteUpdateSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = EventFilterSet
-    http_method_names = ['get',]
+    http_method_names = ['get', 'patch', 'delete',]
 
     def get_queryset(self):
         return self.request.user.events.all()
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return EventReadSerializer
+        if self.request.method == 'DELETE':
+            return EventDeleteSerializer
+        return EventWriteUpdateSerializer
 
 
 class TagsViewSet(ModelViewSet):
