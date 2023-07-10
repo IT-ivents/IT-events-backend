@@ -1,5 +1,5 @@
 from django_filters import rest_framework as filters
-from events.models import Format, Tags, Topic, City
+from events.models import Format, Tags, Topic
 
 
 class EventFilterSet(filters.FilterSet):
