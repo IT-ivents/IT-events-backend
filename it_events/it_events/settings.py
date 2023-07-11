@@ -162,6 +162,7 @@ AUTH_USER_MODEL = 'users.User'
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'HIDE_USERS': False,
+    'PASSWORD_VALIDATORS': [],
     'SERIALIZERS': {
         'user': 'users.serializers.UserSerializer',
         'current_user': 'users.serializers.UserSerializer',
@@ -178,6 +179,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'OPTIONS': {
             'min_length': 6,
         }
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 

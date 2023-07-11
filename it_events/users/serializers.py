@@ -36,6 +36,24 @@ class CustomUserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         fields = ('username', 'password', 'email', 'organization_name',)
 
+    def validate(self, attrs):
+        password = attrs.get('password')
+        username = attrs.get('username')
+        email = attrs.get('email')
+        if password == username:
+            raise serializers.ValidationError(
+                "Пароль не может быть идентичным логину.")
+        if password == email:
+            raise serializers.ValidationError(
+                "Пароль не может быть идентичным email.")
+        if username and username in password:
+            raise serializers.ValidationError(
+                "Пароль не может содержать логин.")
+        if email and email in password:
+            raise serializers.ValidationError(
+                "Пароль не может содержать email.")
+        return attrs
+
     def create(self, validated_data):
         organization_name = validated_data.pop('organization_name')
         user = super().create(validated_data)
