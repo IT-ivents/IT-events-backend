@@ -59,3 +59,6 @@ class OrganisationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organisation
         fields = ('id', 'manager', 'name')
+
+    def to_representation(self, instance):
+        return instance.name
