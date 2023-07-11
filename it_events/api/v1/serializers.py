@@ -131,7 +131,7 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(
                     'Добавьте город и адрес.'
                 )
-            elif online == str(formats).lower().replace(' ', '') and (
+            if online == str(formats).lower().replace(' ', '') and (
                     data.get('city') or data.get('address')):
                 raise serializers.ValidationError(
                     'Город и адрес не нужны.'
