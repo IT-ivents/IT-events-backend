@@ -1,5 +1,5 @@
 from django_filters import rest_framework as filters
-from events.models import City, Format, Tags, Topic
+from events.models import Format, Tags, Topic
 
 
 class EventFilterSet(filters.FilterSet):
@@ -23,7 +23,5 @@ class EventFilterSet(filters.FilterSet):
         field_name='topic__slug',
         to_field_name='slug',
         queryset=Topic.objects.all())
-    city = filters.ModelMultipleChoiceFilter(
-        field_name='city__name',
-        to_field_name='name',
-        queryset=City.objects.all())
+    city = filters.AllValuesMultipleFilter(
+        field_name='city')

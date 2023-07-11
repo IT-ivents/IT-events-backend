@@ -17,7 +17,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['format', 'price', 'date_start', 'created_at']
     search_fields = ['title', 'organizer', 'city__name',
                      'topic__name', 'tags__name']
-    raw_id_fields = ['author', 'city', 'topic']
+    raw_id_fields = ['author', 'topic']
     date_hierarchy = 'date_start'
     ordering = ['-created_at']
 

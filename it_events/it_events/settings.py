@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'djoser',
     'django.contrib.postgres',
 
-    'users.apps.UsersConfig',
+    'users',
     'events.apps.EventsConfig',
     'api.apps.ApiConfig',
 ]
@@ -90,7 +90,8 @@ SQLITE = os.environ.get("SQLITE", 'False') == "TRUE"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        "NAME": BASE_DIR / 'db.sqlite3'} if SQLITE else
+        "NAME": BASE_DIR / 'db.sqlite3'}
+    if SQLITE else
     {
         'ENGINE': 'django.db.backends.postgresql',
         "NAME": os.environ.get("DB_NAME"),
@@ -153,16 +154,32 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',),
 }
 
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = 'users.User'
 
 # Djoser
 
+
 DJOSER = {
-    "LOGIN_FIELD": 'email',
+    'LOGIN_FIELD': 'email',
+    'HIDE_USERS': False,
     'SERIALIZERS': {
-        'user_create': 'users.serializers.UserCreateSerializer'
-    }
+        'user': 'users.serializers.UserSerializer',
+        'current_user': 'users.serializers.UserSerializer',
+        'user_create': 'users.serializers.CustomUserCreateSerializer',
+    },
+    'PERMISSIONS': {
+        'user': ['rest_framework.permissions.AllowAny'],
+    },
 }
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 6,
+        }
+    },
+]
 
 # Константы
 USER_ROLE_NAME_LENGTH = 10
