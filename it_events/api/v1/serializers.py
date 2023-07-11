@@ -135,10 +135,9 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
             data.get('address') is not None) and (
                 offline not in str(formats_val)):
             raise serializers.ValidationError(
-                'город и адрес не нужны'
+                'Город и адрес не нужны'
             )
-        else:
-            return data
+        return data
 
 
 class EventDeleteSerializer(serializers.Serializer):
