@@ -130,17 +130,15 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 'Добавьте город и адрес.'
             )
-        elif online in str(formats_val) and (
-                data.get('city') is not None or
-                data.get('address') is not None) and (
+        if online in str(formats_val) and (
+            data.get('city') is not None or
+            data.get('address') is not None) and (
                 offline not in str(formats_val)):
             raise serializers.ValidationError(
                 'город и адрес не нужны'
             )
         else:
             return data
-
-
 
 
 class EventDeleteSerializer(serializers.Serializer):
