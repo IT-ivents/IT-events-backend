@@ -124,11 +124,17 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
     def validate(self, data):
         formats_val = data.get('format')
         offline = 'offline'
+        online = 'online'
         for formats in formats_val:
             if offline == str(formats).lower().replace(' ', '') and (
                     data.get('city') is None or data.get('address') is None):
                 raise serializers.ValidationError(
                     'Добавьте город и адрес.'
+                )
+            elif online == str(formats).lower().replace(' ', '') and (
+                    data.get('city') or data.get('address')):
+                raise serializers.ValidationError(
+                    'Город и адрес не нужны.'
                 )
         return data
 
