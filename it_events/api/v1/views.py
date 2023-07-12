@@ -146,10 +146,10 @@ class TopicsViewSet(ModelViewSet):
 
 
 def cookies_view(request):
-    file_path = "cookies.pdf"
+    file_path = "backend_static/cookies.pdf"
     return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
 
 
 def privacy_view(request):
-    file_path = "privacy.pdf"
+    file_path = "backend_static/privacy.pdf"
     return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
