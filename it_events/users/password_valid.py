@@ -64,6 +64,6 @@ class UserAttributeSimilarityValidator(pw.UserAttributeSimilarityValidator):
 
     def get_help_text(self):
         return _(
-            f"Your password can’t be too similar to your other personal "
-            f"information."
+            "Your password can’t be too similar to your other personal "
+            "information."
         )
