@@ -22,7 +22,7 @@ class CommonPasswordValidator(pw.CommonPasswordValidator):
     def validate(self, password, user=None):
         if password.lower().strip() in self.passwords:
             raise NotAcceptable(
-                'Введённый пароль состоит только из цифр.'
+                'Введённый пароль слишком распространен.'
             )
 
     def get_help_text(self):
