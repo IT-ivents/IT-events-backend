@@ -2,7 +2,6 @@ import re
 from difflib import SequenceMatcher
 
 from django.contrib.auth import password_validation as pw
-from django.core.exceptions import FieldDoesNotExist
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import NotAcceptable
 
@@ -50,16 +49,8 @@ class UserAttributeSimilarityValidator(pw.UserAttributeSimilarityValidator):
                     SequenceMatcher(a=password, b=value_part).quick_ratio()
                     >= self.max_similarity
                 ):
-                    try:
-                        verbose_name = str(
-                            user._meta.get_field(attribute_name).verbose_name
-                        )
-                    except FieldDoesNotExist:
-                        verbose_name = attribute_name
                     raise NotAcceptable(
                         _('Введённый пароль слишком похож на email address.'),
-                        code="password_too_similar",
-                        params={"verbose_name": verbose_name},
                     )
 
     def get_help_text(self):
