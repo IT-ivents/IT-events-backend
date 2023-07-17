@@ -5,6 +5,7 @@ from api.v1.serializers import (CitySerializer, EventDeleteSerializer,
                                 EventWriteUpdateSerializer, TagSerializer,
                                 TopicSerializer)
 from api.v1.utils import search_events
+from django.contrib.auth.models import AnonymousUser
 from django.db.models import Count
 from django.http import FileResponse
 from django.utils import timezone
@@ -96,6 +97,8 @@ class UsersEventsViewSet(ModelViewSet):
     http_method_names = ['get', 'patch', 'delete']
 
     def get_queryset(self):
+        if isinstance(self.request.user, AnonymousUser):
+            return Event.objects.none()
         return self.request.user.events.all()
 
     def get_serializer_class(self):
