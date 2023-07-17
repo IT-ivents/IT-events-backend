@@ -26,13 +26,8 @@ ALLOWED_HOSTS = [] if not any(ALLOWED_HOSTS) else ALLOWED_HOSTS
 CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
 CSRF_TRUSTED_ORIGINS = [] if not any(CSRF_TRUSTED_ORIGINS) else CSRF_TRUSTED_ORIGINS
 # CORS_URLS_REGEX = r"^/api/.*$"
-# CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000',
-    'https://it.acceleratorpracticum.ru',
-    'http://80.87.107.15',
-    # Добавьте другие домены, с которых вы хотите разрешить запросы
-]
+CORS_ALLOW_ALL_ORIGINS = True
+
 # Application definition
 
 INSTALLED_APPS = [
