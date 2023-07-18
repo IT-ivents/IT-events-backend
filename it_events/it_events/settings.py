@@ -27,6 +27,7 @@ CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
 CSRF_TRUSTED_ORIGINS = [] if not any(CSRF_TRUSTED_ORIGINS) else CSRF_TRUSTED_ORIGINS
 # CORS_URLS_REGEX = r"^/api/.*$"
 CORS_ALLOW_ALL_ORIGINS = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -107,7 +108,7 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'users.password_valid.UserAttributeSimilarityValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
@@ -116,10 +117,10 @@ AUTH_PASSWORD_VALIDATORS = [
         }
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'users.password_valid.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'users.password_valid.NumericPasswordValid',
     },
 ]
 
@@ -165,7 +166,6 @@ AUTH_USER_MODEL = 'users.User'
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'HIDE_USERS': False,
-    # 'PASSWORD_VALIDATORS': [],
     'SERIALIZERS': {
         'user': 'users.serializers.UserSerializer',
         'current_user': 'users.serializers.UserSerializer',
