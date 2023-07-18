@@ -44,7 +44,15 @@ class EventsViewSet(ModelViewSet):
             organizer = Organisation.objects.get(manager=author)
         except Organisation.DoesNotExist:
             raise Exception("Организация автора события не найдена")
-        serializer.save(organizer=organizer)
+
+        # Извлекаем значение поля "city" из переданных данных
+        city_name = self.request.data.get('city')
+        if city_name:
+            # Ищем город в базе данных по его имени
+            city, created = City.objects.get_or_create(name=city_name)
+            serializer.save(organizer=organizer, city=city)
+        else:
+            serializer.save(organizer=organizer)
 
     @action(detail=False, methods=["get"])
     def popular(self, request):

@@ -90,6 +90,13 @@ class EventWriteUpdateSerializer(serializers.ModelSerializer):
                 "Организация автора события не найдена")
         validated_data['organizer'] = organizer
 
+        # Получаем значение поля "city" из validated_data
+        city_name = validated_data.get('city')
+        if city_name:
+            # Ищем город в базе данных по его имени
+            city, created = City.objects.get_or_create(name=city_name)
+            validated_data['city'] = city
+
         return super().create(validated_data)
 
     @transaction.atomic
