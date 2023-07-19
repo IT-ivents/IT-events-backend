@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
 from django.db import models
 
+from .managers import CustomUserManager
+
 
 class User(AbstractUser):
     """Кастомная модель пользователя"""
@@ -29,6 +31,7 @@ class User(AbstractUser):
         max_length=settings.USER_ROLE_NAME_LENGTH,
         choices=role_choices, default=USER
     )
+    objects = CustomUserManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
