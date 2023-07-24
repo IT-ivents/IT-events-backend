@@ -39,15 +39,17 @@ class EventFilterSet(filters.FilterSet):
     )
 
     def filter_by_search(self, queryset, name, value):
-        queryset = queryset.filter(
-            Q(title__icontains=value)
-            | Q(url__icontains=value)
-            | Q(program__icontains=value)
-            | Q(tags__name__icontains=value)
-            | Q(topic__name__icontains=value)
-            | Q(city__icontains=value)
-            | Q(format__name__icontains=value)
-        )
-        if not queryset.exists():
-            Event.objects.none()
-        return queryset
+        search_terms = value.split()
+        if search_terms:
+            search_q = Q()
+            for term in search_terms:
+                search_q &= (Q(title__icontains=term)
+                             | Q(url__icontains=term)
+                             | Q(description__icontains=term)
+                             | Q(program__icontains=term)
+                             | Q(tags__name__icontains=term)
+                             | Q(topic__name__icontains=term)
+                             | Q(city__icontains=term)
+                             | Q(format__name__icontains=term))
+            queryset = queryset.filter(search_q)
+        return queryset.distinct()
