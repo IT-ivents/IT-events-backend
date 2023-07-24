@@ -1,5 +1,6 @@
+from django.db.models import Q
 from django_filters import rest_framework as filters
-from events.models import Format, Tags, Topic
+from events.models import Event, Format, Tags, Topic
 
 
 class EventFilterSet(filters.FilterSet):
@@ -23,5 +24,30 @@ class EventFilterSet(filters.FilterSet):
         field_name='topic__slug',
         to_field_name='slug',
         queryset=Topic.objects.all())
-    city = filters.AllValuesMultipleFilter(
-        field_name='city')
+    city = filters.CharFilter(
+        field_name='city__name',
+        lookup_expr='icontains'
+    )
+
+    class Meta:
+        model = Event
+        fields = []
+
+    q = filters.CharFilter(
+        method='filter_by_search',
+        label='Search',
+    )
+
+    def filter_by_search(self, queryset, name, value):
+        queryset = queryset.filter(
+            Q(title__icontains=value)
+            | Q(url__icontains=value)
+            | Q(program__icontains=value)
+            | Q(tags__name__icontains=value)
+            | Q(topic__name__icontains=value)
+            | Q(city__icontains=value)
+            | Q(format__name__icontains=value)
+        )
+        if not queryset.exists():
+            Event.objects.none()
+        return queryset

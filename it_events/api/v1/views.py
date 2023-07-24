@@ -101,7 +101,7 @@ class UsersEventsViewSet(ModelViewSet):
     permission_classes = (IsAdminAuthorOrReadOnly,)
     serializer_class = EventWriteUpdateSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_class = EventFilterSet
+    # filterset_class = EventFilterSet
     http_method_names = ['get', 'patch', 'delete']
 
     def get_queryset(self):

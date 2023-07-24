@@ -18,7 +18,7 @@
             "created_at": "2023-05-31T19:00:19.474Z",
             "city": "Москва",
             "topic": [
-                36
+                7
             ],
             "tags": [
                 21,
@@ -49,7 +49,7 @@
             "created_at": "2023-05-31T19:12:16.274Z",
             "city": "Москва",
             "topic": [
-                8
+                12
             ],
             "tags": [
                 3,
@@ -79,7 +79,7 @@
             "created_at": "2023-05-31T19:17:59.201Z",
             "city": "Санкт-Петербург",
             "topic": [
-                7
+                12
             ],
             "tags": [
                 3,
@@ -109,7 +109,7 @@
             "created_at": "2023-06-09T12:22:16.195Z",
             "city": "Барнаул",
             "topic": [
-                4
+                15
             ],
             "tags": [
                 24,
@@ -141,7 +141,7 @@
             "created_at": "2023-06-09T12:39:11.464Z",
             "city": "Москва",
             "topic": [
-                13
+                15
             ],
             "tags": [
                 2,
@@ -200,7 +200,7 @@
             "date_end": "2023-06-28T18:00:00Z",
             "created_at": "2023-06-09T13:10:37.886Z",
             "city": "Москва",
-            "topic": [18],
+            "topic": [10],
             "tags": [
                 15,
                 1,
@@ -231,7 +231,7 @@
             "created_at": "2023-06-09T17:11:43.506Z",
             "city": "Москва",
             "topic": [
-                39
+                12
             ],
             "tags": [
                 9,
@@ -262,7 +262,7 @@
             "created_at": "2023-06-09T17:19:07.410Z",
             "city": "Москва",
             "topic": [
-                29
+                42
             ],
             "tags": [
                 3,
@@ -350,7 +350,7 @@
             "created_at": "2023-06-09T20:10:59.036Z",
             "city": " ",
             "topic": [
-                22
+                12
             ],
             "tags": [
                 33
@@ -379,7 +379,7 @@
             "created_at": "2023-06-09T20:20:41.876Z",
             "city": " ",
             "topic": [
-                25
+                12
             ],
             "tags": [
                 31
@@ -440,7 +440,7 @@
             "created_at": "2023-06-09T20:31:42.226Z",
             "city": "Москва",
             "topic": [
-                26
+                12
             ],
             "tags": [
                 27
@@ -469,7 +469,7 @@
             "created_at": "2023-06-09T20:41:10.402Z",
             "city": "Москва",
             "topic": [
-                31
+                42
             ],
             "tags": [
                 34
@@ -498,7 +498,7 @@
             "created_at": "2023-06-09T20:46:25.710Z",
             "city": "Москва",
             "topic": [
-                16
+                5
             ],
             "tags": [
                 37,
@@ -529,7 +529,7 @@
             "created_at": "2023-06-09T20:48:42.271Z",
             "city": "Москва",
             "topic": [
-                32
+                42
             ],
             "tags": [
                 38
@@ -558,7 +558,7 @@
             "created_at": "2023-06-09T20:54:02.970Z",
             "city": "Москва",
             "topic": [
-                33
+                7
             ],
             "tags": [
                 39
@@ -587,7 +587,7 @@
             "created_at": "2023-06-09T20:59:26.515Z",
             "city": " ",
             "topic": [
-                40
+                12
             ],
             "tags": [
                 33
@@ -616,7 +616,7 @@
             "created_at": "2023-06-09T21:23:15.016Z",
             "city": " ",
             "topic": [
-                23
+                5
             ],
             "tags": [
                 29,
@@ -647,7 +647,7 @@
             "created_at": "2023-06-09T21:40:57.791Z",
             "city": " ",
             "topic": [
-                34
+                7
             ],
             "tags": [
                 44,
@@ -679,7 +679,7 @@
             "created_at": "2023-06-09T21:56:49.019Z",
             "city": "Москва",
             "topic": [
-                37
+                10
             ],
             "tags": [
                 45
@@ -708,7 +708,7 @@
             "created_at": "2023-06-09T22:14:11.752Z",
             "city": " ",
             "topic": [
-                41
+                12
             ],
             "tags": [
                 47,
@@ -739,7 +739,7 @@
             "created_at": "2023-06-09T23:28:02.343Z",
             "city": "Москва",
             "topic": [
-                1
+                5
             ],
             "tags": [
                 13,
@@ -785,7 +785,7 @@
             "created_at": "2023-06-09T23:48:26.355Z",
             "city": " ",
             "topic": [
-                2
+                14
             ],
             "tags": [
                 19,
@@ -817,7 +817,7 @@
             "created_at": "2023-06-10T00:16:27.302Z",
             "city": " ",
             "topic": [
-                3
+                15
             ],
             "tags": [
                 13,
@@ -854,7 +854,7 @@
             "created_at": "2023-06-10T00:24:39.349Z",
             "city": "Москва",
             "topic": [
-                6
+                5
             ],
             "tags": [
                 37,
@@ -888,7 +888,7 @@
             "created_at": "2023-06-10T00:43:28.887Z",
             "city": "Москва",
             "topic": [
-                8
+                12
             ],
             "tags": [
                 32,
@@ -923,7 +923,7 @@
             "created_at": "2023-06-10T02:41:21.501Z",
             "city": "Санкт-Петербург",
             "topic": [
-                28
+                12
             ],
             "tags": [
                 2,
@@ -1101,7 +1101,7 @@
             "created_at": "2023-06-10T07:24:45.618Z",
             "city": " ",
             "topic": [
-                35
+                5
             ],
             "tags": [
                 29
@@ -1130,7 +1130,7 @@
             "created_at": "2023-06-10T07:33:16.244Z",
             "city": " ",
             "topic": [
-                21
+                10
             ],
             "tags": [
                 32,
@@ -1734,38 +1734,6 @@
     },
     {
         "model": "events.topic",
-        "pk": 1,
-        "fields": {
-            "name": "Software Development",
-            "slug": "software-development"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 2,
-        "fields": {
-            "name": "Web Development",
-            "slug": "web-development"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 3,
-        "fields": {
-            "name": "Mobile Development",
-            "slug": "mobile-development"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 4,
-        "fields": {
-            "name": "Game Development",
-            "slug": "game-development"
-        }
-    },
-    {
-        "model": "events.topic",
         "pk": 5,
         "fields": {
             "name": "Artificial Intelligence and Machine Learning",
@@ -1774,10 +1742,10 @@
     },
     {
         "model": "events.topic",
-        "pk": 6,
+        "pk": 42,
         "fields": {
-            "name": "Big Data and Analytics",
-            "slug": "big-data-and-analytics"
+            "name": "Data Analytics",
+            "slug": "data-analytics"
         }
     },
     {
@@ -1790,22 +1758,6 @@
     },
     {
         "model": "events.topic",
-        "pk": 8,
-        "fields": {
-            "name": "Cloud and Virtualization",
-            "slug": "cloud-and-virtualization"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 9,
-        "fields": {
-            "name": "Internet of Things (IoT)",
-            "slug": "internet-of-things-iot"
-        }
-    },
-    {
-        "model": "events.topic",
         "pk": 10,
         "fields": {
             "name": "DevOps",
@@ -1814,26 +1766,10 @@
     },
     {
         "model": "events.topic",
-        "pk": 11,
-        "fields": {
-            "name": "Software Testing",
-            "slug": "software-testing"
-        }
-    },
-    {
-        "model": "events.topic",
         "pk": 12,
         "fields": {
             "name": "Project Management",
             "slug": "project-management"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 13,
-        "fields": {
-            "name": "Blockchain",
-            "slug": "blockchain"
         }
     },
     {
@@ -1854,114 +1790,10 @@
     },
     {
         "model": "events.topic",
-        "pk": 16,
-        "fields": {
-            "name": "Data Science",
-            "slug": "data-science"
-        }
-    },
-    {
-        "model": "events.topic",
         "pk": 17,
         "fields": {
             "name": "UI/UX Design",
             "slug": "uiux-design"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 18,
-        "fields": {
-            "name": "Process Automation",
-            "slug": "process-automation"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 19,
-        "fields": {
-            "name": "System Administration",
-            "slug": "system-administration"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 20,
-        "fields": {
-            "name": "Virtual Reality (VR) and Augmented Reality (AR)",
-            "slug": "virtual-reality-vr-and-augmented-reality-ar"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 21,
-        "fields": {
-            "name": "Machine learning",
-            "slug": "machine_learning"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 22,
-        "fields": {
-            "name": "E-commerce",
-            "slug": "E-commerce"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 23,
-        "fields": {
-            "name": "Big Data",
-            "slug": "big_data"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 24,
-        "fields": {
-            "name": "Системное администрирование",
-            "slug": "system_administration"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 25,
-        "fields": {
-            "name": "Управление проектами",
-            "slug": "project_management"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 26,
-        "fields": {
-            "name": "Цифровизация бизнеса",
-            "slug": "digitization_of_business"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 27,
-        "fields": {
-            "name": "Электронные платежи",
-            "slug": "electronic_payments"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 28,
-        "fields": {
-            "name": "Центры обработки данных",
-            "slug": "data_centers"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 29,
-        "fields": {
-            "name": "Инвестиции",
-            "slug": "investments"
         }
     },
     {
@@ -1974,90 +1806,10 @@
     },
     {
         "model": "events.topic",
-        "pk": 31,
+        "pk": 43,
         "fields": {
-            "name": "B2B",
-            "slug": "2b2"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 32,
-        "fields": {
-            "name": "B2C",
-            "slug": "b2c"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 33,
-        "fields": {
-            "name": "Банки",
-            "slug": "banks"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 34,
-        "fields": {
-            "name": "Информационная безопасность",
-            "slug": "information_security"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 35,
-        "fields": {
-            "name": "Искусственный интеллект",
-            "slug": "artificial_intelligence"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 36,
-        "fields": {
-            "name": "Нетворкинг",
-            "slug": "networking"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 37,
-        "fields": {
-            "name": "Проектирование",
-            "slug": "design"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 38,
-        "fields": {
-            "name": "Сетевые технологии",
-            "slug": "network_technologies"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 39,
-        "fields": {
-            "name": "Телеком",
-            "slug": "telecom"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 40,
-        "fields": {
-            "name": "Экономика",
-            "slug": "economy"
-        }
-    },
-    {
-        "model": "events.topic",
-        "pk": 41,
-        "fields": {
-            "name": "Электронный документооборот",
-            "slug": "electronic_document_management"
+            "name": "QA",
+            "slug": "qa"
         }
     }
 ]
