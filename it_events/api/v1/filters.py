@@ -52,5 +52,4 @@ class EventFilterSet(filters.FilterSet):
                              | Q(city__icontains=term)
                              | Q(format__name__icontains=term))
             queryset = queryset.filter(search_q)
-        queryset = queryset.distinct()
-        return queryset
+        return queryset.distinct()
