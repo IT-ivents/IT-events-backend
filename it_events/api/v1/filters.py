@@ -49,5 +49,5 @@ class EventFilterSet(filters.FilterSet):
             | Q(format__name__icontains=value)
         )
         if not queryset.exists():
-            queryset = Event.objects.none()
+            Event.objects.none()
         return queryset
