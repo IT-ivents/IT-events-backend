@@ -10,6 +10,7 @@ from django.db.models import Count
 from django.http import FileResponse
 from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
+from djoser.views import UserViewSet as DjoserUserViewSet
 from events.models import City, Event, Favourite, Tags, Topic
 from rest_framework import status
 from rest_framework.decorators import action
@@ -19,6 +20,17 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from users.models import Organisation
+
+
+class UserViewSet(DjoserUserViewSet):
+
+    def create(self, request, *args, **kwargs):
+        email = request.data.get('email')
+        if email and self.queryset.filter(email=email).exists():
+            return Response({'email': ['Пользователь с такой электронной'
+                                       ' почтой уже существует.']},
+                            status=status.HTTP_409_CONFLICT)
+        return super().create(request, *args, **kwargs)
 
 
 class EventsViewSet(ModelViewSet):
