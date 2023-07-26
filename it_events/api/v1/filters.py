@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db.models import Q
 from django_filters import rest_framework as filters
 from events.models import Event, Format, Tags, Topic
@@ -32,6 +34,7 @@ class EventFilterSet(filters.FilterSet):
     class Meta:
         model = Event
         fields = []
+        order_by = ['date_start']
 
     q = filters.CharFilter(
         method='filter_by_search',
@@ -51,5 +54,6 @@ class EventFilterSet(filters.FilterSet):
                              | Q(topic__name__icontains=term)
                              | Q(city__icontains=term)
                              | Q(format__name__icontains=term))
-            queryset = queryset.filter(search_q)
+            queryset = queryset.filter(
+                search_q, date_end__gte=datetime.now()).order_by('date_start')
         return queryset.distinct()
