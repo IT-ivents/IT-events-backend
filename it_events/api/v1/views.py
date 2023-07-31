@@ -5,6 +5,7 @@ from api.v1.serializers import (CitySerializer, EventDeleteSerializer,
                                 EventWriteUpdateSerializer, TagSerializer,
                                 TopicSerializer)
 from api.v1.utils import search_events
+from django.contrib.auth import get_user_model  # Добавлен импорт
 from django.contrib.auth.models import AnonymousUser
 from django.db.models import Count
 from django.http import FileResponse
@@ -15,11 +16,13 @@ from events.models import City, Event, Favourite, Tags, Topic
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from users.models import Organisation
+
+User = get_user_model()  # Получение модели пользователя
 
 
 class CustomUserViewSet(ViewSet):
@@ -28,10 +31,11 @@ class CustomUserViewSet(ViewSet):
     def create(self, request, *args, **kwargs):
         email = request.data.get('email')
         if email and User.objects.filter(email=email).exists():
-            return Response({'email': ['Пользователь с такой электронной почтой'
-                                       ' уже существует.']},
+            return Response({'email': ['Пользователь с такой электронной'
+                                       ' почтой уже существует.']},
                             status=status.HTTP_409_CONFLICT)
-        return DjoserUserViewSet.as_view({'post': 'create'})(request, *args, **kwargs)
+        return DjoserUserViewSet.as_view({'post': 'create'})(request,
+                                                             *args, **kwargs)
 
 
 class EventsViewSet(ModelViewSet):
