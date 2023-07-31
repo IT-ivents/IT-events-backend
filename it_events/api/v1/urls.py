@@ -1,13 +1,14 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from users.views import OrganisationViewsSet, UserProfileViewSet, UserViewSet
+from users.views import (CustomUserViewSet, OrganisationViewsSet,
+                         UserProfileViewSet)
 
 from .views import (CityViewSet, CustomUserViewSet, EventsViewSet, TagsViewSet,
                     TopicsViewSet, UsersEventsViewSet, cookies_view,
                     privacy_view)
 
 router = DefaultRouter()
-router.register('users', UserViewSet, basename='users')
+router.register('users', CustomUserViewSet, basename='users')
 router.register('events', EventsViewSet, basename='events')
 router.register('tags', TagsViewSet, basename='tags')
 router.register('sities', CityViewSet, basename='sities')
