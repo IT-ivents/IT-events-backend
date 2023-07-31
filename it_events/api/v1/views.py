@@ -22,17 +22,6 @@ from rest_framework.viewsets import ModelViewSet
 from users.models import Organisation
 
 
-class UserViewSet(DjoserUserViewSet):
-
-    def create(self, request, *args, **kwargs):
-        email = request.data.get('email')
-        if email and self.queryset.filter(email=email).exists():
-            return Response({'email': ['Пользователь с такой электронной'
-                                       ' почтой уже существует.']},
-                            status=status.HTTP_409_CONFLICT)
-        return super().create(request, *args, **kwargs)
-
-
 class EventsViewSet(ModelViewSet):
     permission_classes = (IsAdminAuthorOrReadOnly,)
     serializer_class = EventWriteUpdateSerializer
@@ -176,3 +165,14 @@ def cookies_view(request):
 def privacy_view(request):
     file_path = "backend_static/privacy.pdf"
     return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+
+
+# class UserViewSet(DjoserUserViewSet):
+
+#     def create(self, request, *args, **kwargs):
+#         email = request.data.get('email')
+#         if email and self.queryset.filter(email=email).exists():
+#             return Response({'email': ['Пользователь с такой электронной'
+#                                        ' почтой уже существует.']},
+#                             status=status.HTTP_409_CONFLICT)
+#         return super().create(request, *args, **kwargs)
