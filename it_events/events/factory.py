@@ -6,11 +6,11 @@ import pytz
 from faker import Faker
 from users.models import User
 
-from .models import City, Event, Format, Tags, Topic
+from .models import Event, Format, Tags, Topic
 
 fake_ru = Faker('ru_RU')
 
-cities = list(City.objects.all())
+# cities = list(City.objects.all())
 tags_ids = list(Tags.objects.all().values_list('id', flat=True))
 topics = list(Topic.objects.all())
 formats_ids = list(Format.objects.all().values_list('id', flat=True))
@@ -26,6 +26,7 @@ class EventFactory(factory.django.DjangoModelFactory):
         lambda _: fake_ru.text(max_nb_chars=500))
     url = factory.LazyAttribute(lambda _: fake_ru.url())
     image = factory.django.ImageField(color='gray')
+    image_small = factory.django.ImageField(color='gray')
     program = factory.LazyAttribute(lambda _: fake_ru.text(max_nb_chars=1000))
     organizer = factory.LazyAttribute(lambda _: fake_ru.company())
     partners = factory.LazyAttribute(
@@ -33,7 +34,7 @@ class EventFactory(factory.django.DjangoModelFactory):
                             for _ in range(random.randint(2, 5))))
     address = factory.LazyAttribute(lambda o: fake_ru.address())
     price = factory.LazyAttribute(lambda _: fake_ru.random_number(digits=6))
-    city = random.choice(cities)
+    city = factory.LazyAttribute(lambda _: fake_ru.text(max_nb_chars=50))
     topic = random.choice(topics)
 
     @factory.post_generation

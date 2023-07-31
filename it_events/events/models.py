@@ -1,5 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
-from users.models import User
+
+User = get_user_model()
 
 
 class Event(models.Model):
@@ -11,14 +13,18 @@ class Event(models.Model):
     description = models.TextField(
         "Описание мероприятия", max_length=1000)
     url = models.URLField(
-        "Сайт мероприятия", max_length=200, unique=True)
+        "Сайт мероприятия", max_length=200, blank=True)
     image = models.ImageField(
         verbose_name='Афиша мероприятия', upload_to='events/image',
         help_text='Загрузите фотографию')
+    image_small = models.ImageField(
+        verbose_name='Фотография мероприятия', upload_to='events/image',
+        help_text='Загрузите фотографию', blank=True)
     program = models.TextField(
         "Программа мероприятия", max_length=3000)
-    organizer = models.CharField(
-        "Организатор", max_length=100)
+    organizer = models.ForeignKey(
+        'users.Organisation', on_delete=models.CASCADE,
+        verbose_name="Организация", blank=True, null=True, editable=False)
     partners = models.CharField(
         "Партнеры", max_length=200, blank=True)
     address = models.CharField(
@@ -31,13 +37,12 @@ class Event(models.Model):
         "Дата и время окончания")
     created_at = models.DateTimeField(
         "Дата создания записи", auto_now_add=True)
-    city = models.ForeignKey(
-        'City', on_delete=models.SET_NULL,
-        verbose_name="Город проведения", blank=True, null=True)
+    city = models.CharField(
+        "Город проведения", max_length=50, blank=True)
     tags = models.ManyToManyField(
         'Tags', verbose_name="Теги")
-    topic = models.ForeignKey(
-        'Topic', on_delete=models.CASCADE, verbose_name="Направление")
+    topic = models.ManyToManyField(
+        'Topic', verbose_name="Направление")
     format = models.ManyToManyField(
         'Format', verbose_name="Формат")
 

@@ -1,12 +1,16 @@
 from api.v1.filters import EventFilterSet
-from api.v1.paginators import PageLimitPagination
 from api.v1.permissions import IsAdminAuthorOrReadOnly
-from api.v1.serializers import (CitySerializer, EventReadSerializer,
-                                EventWriteSerializer, TagSerializer,
+from api.v1.serializers import (CitySerializer, EventDeleteSerializer,
+                                EventReadSerializer,
+                                EventWriteUpdateSerializer, TagSerializer,
                                 TopicSerializer)
 from api.v1.utils import search_events
+from django.contrib.auth.models import AnonymousUser
 from django.db.models import Count
+from django.http import FileResponse
+from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
+from djoser.views import UserViewSet as DjoserUserViewSet
 from events.models import City, Event, Favourite, Tags, Topic
 from rest_framework import status
 from rest_framework.decorators import action
@@ -15,26 +19,50 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from users.models import Organisation
 
 
 class EventsViewSet(ModelViewSet):
     permission_classes = (IsAdminAuthorOrReadOnly,)
-    pagination_class = PageLimitPagination
+    serializer_class = EventWriteUpdateSerializer
+    # pagination_class = PageLimitPagination
     filter_backends = [DjangoFilterBackend]
     filterset_class = EventFilterSet
-    http_method_names = ['get', 'patch', 'delete', 'post']
+    http_method_names = ['get', 'post']
 
     def get_queryset(self):
         query = self.request.query_params.get('search', '')
         return Event.objects.all() if not query else search_events(query)
 
     def get_serializer_class(self):
-        if self.action in ['list', 'retrieve']:
+        if self.request.method == 'GET':
             return EventReadSerializer
-        return EventWriteSerializer
+        return EventWriteUpdateSerializer
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+        author = self.request.user
+        try:
+            organizer = Organisation.objects.get(manager=author)
+        except Organisation.DoesNotExist:
+            raise Exception("Организация автора события не найдена")
+
+        # Извлекаем значение поля "city" из переданных данных
+        city_name = self.request.data.get('city')
+        if city_name:
+            # Ищем город в базе данных по его имени
+            city, created = City.objects.get_or_create(name=city_name)
+            serializer.save(organizer=organizer, city=city)
+        else:
+            serializer.save(organizer=organizer)
+
+    @action(detail=False, methods=["get"])
+    def popular(self, request):
+        current_datetime = timezone.now()
+        active_events = Event.objects.filter(date_end__gt=current_datetime)
+        sorted_events = active_events.annotate(
+            tag_count=Count('tags')).order_by('-tag_count')
+        serializer = EventWriteUpdateSerializer(sorted_events, many=True)
+        return Response(serializer.data)
 
     @action(detail=False, methods=["get"],
             permission_classes=[IsAuthenticated])
@@ -64,6 +92,43 @@ class EventsViewSet(ModelViewSet):
         Favourite.objects.create(user=request.user, event=event)
         return Response(status=status.HTTP_201_CREATED)
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+class UsersEventsViewSet(ModelViewSet):
+    permission_classes = (IsAdminAuthorOrReadOnly,)
+    serializer_class = EventWriteUpdateSerializer
+    filter_backends = [DjangoFilterBackend]
+    # filterset_class = EventFilterSet
+    http_method_names = ['get', 'patch', 'delete']
+
+    def get_queryset(self):
+        if isinstance(self.request.user, AnonymousUser):
+            return Event.objects.none()
+        return self.request.user.events.all()
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return EventReadSerializer
+        if self.request.method == 'DELETE':
+            return EventDeleteSerializer
+        return EventWriteUpdateSerializer
+
+    @action(detail=False, methods=['delete'])
+    def batch_delete(self, request, *args, **kwargs):
+        event_ids = request.data.get('event_ids', [])
+        events = Event.objects.filter(id__in=event_ids)
+        events.delete()
+        remaining_events = self.get_queryset()
+        serializer = EventReadSerializer(remaining_events, many=True)
+        response_data = {
+            'remaining_events': serializer.data
+        }
+        return Response(response_data, status=status.HTTP_200_OK)
+
 
 class TagsViewSet(ModelViewSet):
     serializer_class = TagSerializer
@@ -90,3 +155,24 @@ class TopicsViewSet(ModelViewSet):
     http_method_names = ['get']
     filter_backends = [SearchFilter]
     search_fields = ['name']
+
+
+def cookies_view(request):
+    file_path = "backend_static/cookies.pdf"
+    return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+
+
+def privacy_view(request):
+    file_path = "backend_static/privacy.pdf"
+    return FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+
+
+# class UserViewSet(DjoserUserViewSet):
+
+#     def create(self, request, *args, **kwargs):
+#         email = request.data.get('email')
+#         if email and self.queryset.filter(email=email).exists():
+#             return Response({'email': ['Пользователь с такой электронной'
+#                                        ' почтой уже существует.']},
+#                             status=status.HTTP_409_CONFLICT)
+#         return super().create(request, *args, **kwargs)
