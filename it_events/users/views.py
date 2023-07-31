@@ -11,15 +11,16 @@ from .permissions import IsManagerOrReadOnly
 from .serializers import (OrganisationSerializer, UserProfileSerializer,
                           UserSerializer)
 
+
 User = get_user_model()
+
 
 
 class UserViewSet(UserViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-
-class UserProfileViewSet(UserViewSet):
+class UserProfileViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

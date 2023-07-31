@@ -39,6 +39,7 @@ class CustomUserCreateSerializer(UserCreateSerializer):
         fields = ('username', 'password', 'email',
                   'first_name', 'last_name', 'organization_name',)
 
+
     def create(self, validated_data):
         organization_name = validated_data.pop('organization_name')
         user = super().create(validated_data)
