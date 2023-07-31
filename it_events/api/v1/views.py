@@ -15,22 +15,23 @@ from events.models import City, Event, Favourite, Tags, Topic
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet, ViewSet
 from users.models import Organisation
 
 
-class UserViewSet(DjoserUserViewSet):
+class CustomUserViewSet(ViewSet):
+    permission_classes = [AllowAny]
 
     def create(self, request, *args, **kwargs):
         email = request.data.get('email')
-        if email and self.queryset.filter(email=email).exists():
-            return Response({'email': ['Пользователь с такой электронной'
-                                       ' почтой уже существует.']},
+        if email and User.objects.filter(email=email).exists():
+            return Response({'email': ['Пользователь с такой электронной почтой'
+                                       ' уже существует.']},
                             status=status.HTTP_409_CONFLICT)
-        return super().create(request, *args, **kwargs)
+        return DjoserUserViewSet.as_view({'post': 'create'})(request, *args, **kwargs)
 
 
 class EventsViewSet(ModelViewSet):
